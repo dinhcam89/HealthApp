@@ -13,6 +13,7 @@
         android:theme="@style/Theme.HealthApp"
         tools:targetApi="31">
         <activity
+<<<<<<< HEAD
             android:name=".MainActivity2"
             android:exported="false"
             android:label="@string/title_activity_main2"
@@ -25,12 +26,31 @@
         <activity
             android:name=".MainActivity"
             android:exported="true">
+=======
+            android:name=".MainMenuActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SignUpActivity"
+            android:exported="true" >
+>>>>>>> 388ef18d69cb36d0cdb82077c41687defabbcc1f
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".SignInActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"/>
+
+
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
