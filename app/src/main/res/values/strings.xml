@@ -1,3 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">HealthApp</string>
-</resources>
+    <!-- xemphongkham strings -->
+
+
+    <string name="tim_kiem">Tìm kiếm</string>
+    <string name="chon_phong_kham">Chọn phòng khám</string>
+    <string name="de_xuat"> Đề xuất</string>
+    <string name="gan_nhat">Gần nhất</string>
+    <string name="pho_bien">Phổ biến</string>
+    <string name="ten_phong_kham1">Phòng khám Tâm Cẩm</string>
+    <string name="dat_lich1">Đặt lịch</string>
+    <string name="dia_chi1">123 Võ Việt Vũ, Phường 13, Quận 10, TP HCM, Việt Nam</string>
+    <string name="ten_phong_kham2">Phòng khám Cẩm Tâm</string>
+    <string name="dat_lich2">Đặt lịch</string>
+    <string name="dia_chi2">124 Võ Việt Vũ, Phường 13, Quận 10, TP HCM, Việt Nam</string>
+    <string name="ten_phong_kham3">Phòng Khám ABC</string>
+    <string name="dat_lich3">Đặt lịch</string>
+    <string name="dia_chi3">125 Võ Việt Vũ, Phường 13, Quận 10, TP HCM, Việt Nam</string>
+    <string name="ten_phong_kham4">Phòng khám huhuhu</string>
+    <string name="dat_lich4">Đặt lịch</string>
+    <string name="dia_chi">126 Võ Việt Vũ, Phường 13, Quận 10, TP HCM, Việt Nam</string>
+
+    <!-- xemphongkham1 strings -->
+
+    <string name="khoa_kham">Tim mạch</string>
+    <string name="gia_dat_bac_si">500.000đ</string>
+    <string name="xem_them1">Xem thêm</string>
+    <string name="ten_bac_si_noi_bat">GS.TS.BS Nguyễn Trọng Tâm</string>
+    <string name="bac_si_noi_bat">Bác sĩ nổi bật</string>
+    <string name="dat_lich5">Đặt lịch</string>
+    <string name="thong_tin">Thông tin</string>
+    <string name="dat_lich6">Đặt lịch</string>
+    <string name="ten_phong_kham5">Phòng khám anh em bạn dì</string>
+    <string name="dia_chi5">123 Võ Việt Vũ, Phường 13, Quận 10, TP HCM, Việt Nam</string>
+
+    <string name="thoi_gian_lam_viec">T2-T7: Sáng (7:30-12:00) - Chiều (13:30-18:30)</string>
+    <string name="thoi_gian_cuoi_tuan">CN và các ngày lễ: Sáng (7:30-13:30)</string>
+    <string name="xem_them">Xem thêm</string>
+    <string name="gioi_thieu_pk">Bệnh viện XYZ là một cơ sở y tế tiên tiến và đáng tin cậy, cam kết mang lại chất lượng chăm sóc y tế cao cấp và sự phục vụ tận tâm cho cộng đồng. Với đội ngũ y bác sĩ và nhân viên chuyên nghiệp và giàu kinh nghiệm, chúng tôi đặt mục tiêu đáp ứng tối đa nhu cầu sức khỏe và sự an tâm của bệnh nhân.</string>
+    <string name="goi_kham">Gói khám</string>
+    <string name="gioi_thieu">Giới thiệu</string>
+    <string name="ten_goi_kham1">Sàng lọc ung thư vú và phụ khoa</string>
+    <string name="gia_tien_goi_kham1">2.323.000đ</string>
+    <string name="ten_goi_kham2">Sàng lọc ung thư vú và phụ khoa</string>
+    <string name="gia_tien_goi_kham2">2.323.000đ</string>
+
+    <!-- xemphongkham2 strings -->
+
+    <string name="chon_phong_kham1">Chọn phòng khám</string>
+    <string name="tao_ho_so_moi">Tạo hồ sơ mới</string>
+    <string name="tuoi">21 tuổi</string>
+    <string name="ma_kham_benh">D8-7362</string>
+    <string name="ho_va_ten">Hoàng Đình Cẩm</string>
+
+    <!-- tracuudonthuoc strings -->
+
+    <string name="tra_cuu_don_thuoc">Tra cứu đơn thuốc</string>
+    <string name="nhac_nho">Vui lòng nhập mã khám bệnh để tìm kiếm đơn thuốc của bạn </string>
+    <string name="huy">Hủy</string>
+    <string name="xac_nhan">Xác nhận</string>
+
+    <!-- tracuudonthuoc2 strings -->
+
+    <string name="don_thuoc">Đơn thuốc</string>
+    <string name="ten_phong_kham6">Phòng khám Tâm Cẩm</string>
+    <string name="de_xuat1">Đề xuất</string>
+    <string name="gan_nhat1">Gần nhất</string>
+    <string name="pho_bien1">Phổ biến</string>
+    <string name="ma_kham_benh1">D6-1724</string>
+    <string name="ngay_kham1">12/3/2023</string>
+    <string name="dia_chi7">126 Võ Việt Vũ, Phường 13, Quận 10, TP HCM, Việt Nam</string>
+      <string name="ten_phong_kham7">Phòng khám Tâm Cẩm</string>
+      <string name="ma_kham_benh2">D6-1724</string>
+      <string name="ngay_kham2">12/3/2023</string>
+      <string name="dia_chi6">126 Võ Việt Vũ, Phường 13, Quận 10, TP HCM, Việt Nam</string>
+      <string name="phong_kham8">Phòng khám Tâm Cẩm</string>
+      <string name="ma_kham_benh3">D6-1724</string>
+      <string name="ngay_kham3">12/3/2023</string>
+      <string name="dia_chi9">123 V Vit V, Phng 13, Qun 10, TP HCM, Vit Nam</string>
+  </resources>
