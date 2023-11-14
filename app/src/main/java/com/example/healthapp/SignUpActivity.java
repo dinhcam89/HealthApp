@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -34,8 +35,8 @@ public class SignUpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-        editTextEmail = findViewById(R.id.editText_Email);
-        editTextPwd = findViewById(R.id.editText_Password);
+        editTextEmail = (TextInputEditText) findViewById(R.id.textInputET_EmailText);
+        editTextPwd = (TextInputEditText) findViewById(R.id.textInputET_PasswordText);
         btnSignUp = findViewById(R.id.btn_SignUp);
         mailAuth = FirebaseAuth.getInstance();
         textViewSignIn = findViewById(R.id.textView_SignIn);
