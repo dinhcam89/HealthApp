@@ -1,6 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 <<<<<<< HEAD
+
+    <!-- sign_up1 strings -->
+
+    <string name="thong_tin_nguoi_kham">Thông tin người khám</string>
+    <string name="ho_va_ten_n">Họ và tên*</string>
+    <string name="mat_khau">Mật khẩu*</string>
+    <string name="nhap_lai_mat_khau">Nhập lại mật khẩu*</string>
+    <string name="gioi_tinh">Giới tính*</string>
+    <string name="toi_dong_y_voi_nhung_dieu_khoan_va_chinh_sach">Tôi đồng ý với những điều khoản và chính sách.</string>
+    <string name="ngay_sinh">Ngày sinh*</string>
+    <string name="tiep_tuc">Tiếp tục</string>
+    <string name="Ma_bao_hiem_xa_hoi">Mã bảo hiểm xã hội*</string>
+    <string name="So_can_cuoc_cong_dan">Số căn cước công dân*</string>
+
+
+    <!--sign_up2_string-->
+    <string name="doctors_friends">Doctor\'s Friends</string>
+    <string name="ban_cua_bac_si_ung_dung_cho_moi_nguoi_benh">Bạn của bác sĩ - ứng dụng cho mọi người bệnh</string>
+    <string name="nhap_so_dien_thoai_de_tiep_tuc">Nhập số điện thoại để tiếp tục</string>
+    <string name="hoac_dang_nhap_bang">Hoặc đăng nhập bằng</string>
+
+    <!-- sign_up_ strings -->
+    <string name="xac_nhan_otp">Xác nhận OTP</string>
+    <string name="vui_long_nhap_ma_otp_duoc_gui_ve_sdt">Vui lòng nhập mã OTP được gửi về SĐT dùng để đăng ký tài khoản</string>
+    <string name="khong_nhan_duoc_ma_otp">Không nhận được mã OTP? Gửi lại (01:30s)</string>
+
+    <!-- log_in_string-->
+    <string name="dang_nhap">Đăng nhập</string>
     <!-- xemphongkham strings -->
 
 
