@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="match_parent" android:layout_height="wrap_content" >
+        <!--
+        /*
+         *	This content is generated from the API File Info.
+         *	(Alt+Shift+Ctrl+I).
+         *
+         *	@desc
+         *	@file 		signup_1
+         *	@date 		Thursday 09th of November 2023 02:18:12 PM
+         *	@title 		Page 3
+         *	@author
+         *	@keywords
+         *	@generator 	Export Kit v1.3.figma
+         *
+         */
+        -->
+        <ScrollView android:id="@+id/signup_1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" >
+
+            <RelativeLayout android:id="@+id/content_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+
+
+                <RelativeLayout android:id="@+id/page_signup_1_ek1"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginStart="0dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <View
+                        android:id="@+id/_bg__signup_1_ek2"
+                        android:layout_width="360dp"
+                        android:layout_height="640dp"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginTop="0dp" />
+
+                    <ImageButton android:id="@+id/vector_1_ek1"
+                        android:src="@drawable/vector_1_ek1"
+                        android:contentDescription="vector_1_ek1"
+                        android:layout_marginStart="-1dp"
+                        android:layout_marginTop="-1dp"
+                        android:layout_width="360dp"
+                        android:layout_height="54dp" />
+
+                    <ImageView android:id="@+id/vector_1"
+                        android:src="@drawable/vector_1"
+                        android:contentDescription="vector_1"
+                        android:layout_marginStart="-1dp"
+                        android:layout_marginTop="519.8dp"
+                        android:layout_width="360dp"
+                        android:layout_height="119.2dp" />
+
+                    <TextView android:id="@+id/doctor_friends"
+                        android:textSize="36sp"
+                        android:textColor="@color/colorPrimary"
+                        android:layout_marginLeft="31dp"
+                        android:layout_marginTop="74dp"
+                        android:layout_width="324.6dp"
+                        android:layout_height="85.6dp"
+                        android:text="@string/doctors_friends"
+                        />
+
+                    <TextView android:id="@+id/b_n_c_a_b_c_s_____ng_d_ng_cho_m_i_ng__i_b_nh"
+                        android:textStyle="bold|italic"
+                        android:textSize="13sp"
+                        android:textColor="@color/colorPrimary"
+                        android:layout_marginLeft="34dp"
+                        android:layout_marginTop="124dp"
+                        android:layout_width="306.3dp"
+                        android:layout_height="21.3dp"
+                        android:text="@string/ban_cua_bac_si_ung_dung_cho_moi_nguoi_benh"
+                        />
+
+                    <TextView android:id="@+id/nh_p_s___i_n_tho_i____ti_p_t_c"
+                        android:textStyle="bold|italic"
+                        android:textSize="15sp"
+                        android:textColor="@color/colorPrimary"
+                        android:layout_marginLeft="68dp"
+                        android:layout_marginTop="178dp"
+                        android:layout_width="237.5dp"
+                        android:layout_height="23.5dp"
+                        android:text="@string/nhap_so_dien_thoai_de_tiep_tuc"
+                        />
+
+                    <TextView android:id="@+id/ho_c___ng_nh_p_b_ng"
+                        android:textStyle="bold|italic"
+                        android:textSize="15sp"
+                        android:textColor="@color/colorPrimary"
+                        android:layout_marginLeft="100dp"
+                        android:layout_marginTop="342dp"
+                        android:layout_width="175.5dp"
+                        android:layout_height="23.5dp"
+                        android:text="@string/hoac_dang_nhap_bang"
+                        />
+
+                    <EditText   android:id="@+id/rectangle_2"
+                        android:background="@drawable/rectangle_11_shape"
+                        android:layout_marginStart="40dp"
+                        android:layout_marginTop="208dp"
+                        android:layout_width="278dp"
+                        android:layout_height="40dp" />
+
+
+
+
+                    <ImageButton android:id="@+id/cross_1"
+                        android:src="@drawable/cross_2"
+                        android:contentDescription="cross_1"
+                        android:layout_marginStart="300dp"
+                        android:layout_marginTop="224dp"
+                        android:layout_width="12dp"
+                        android:layout_height="12dp" />
+
+                    <ImageButton android:id="@+id/image_3"
+                        android:src="@drawable/image_5"
+                        android:contentDescription="image_3"
+                        android:layout_marginStart="76dp"
+                        android:layout_marginTop="395dp"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@color/white"
+                        />
+
+                    <ImageButton
+                        android:id="@+id/image_4"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="156dp"
+                        android:layout_marginTop="395dp"
+                        android:contentDescription="image_3"
+                        android:src="@drawable/image_3"
+                        android:background="@color/white"/>
+
+                    <ImageButton android:id="@+id/image_5"
+                        android:src="@drawable/image_4"
+                        android:contentDescription="image_4"
+                        android:layout_marginStart="236dp"
+                        android:layout_marginTop="395dp"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@color/white"/>
+
+
+                    <RelativeLayout android:id="@+id/primary_button"
+                        android:layout_marginTop="261dp"
+                        android:layout_marginStart="40dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        >
+
+                        <View   android:id="@+id/_bg__primary_button_ek1"
+                            android:background="@drawable/_bg__primary_button_ek1_shape"
+                            android:layout_marginStart="0dp"
+                            android:layout_marginTop="0dp"
+                            android:layout_width="278dp"
+                            android:layout_height="40dp" />
+
+                        <View   android:id="@+id/rectangle"
+                            android:background="@drawable/rectangle_shape"
+                            android:layout_marginStart="0dp"
+                            android:layout_marginTop="0dp"
+                            android:layout_width="278dp"
+                            android:layout_height="40dp" />
+
+                        <Button android:id="@+id/ti_p_t_c"
+                            android:textStyle="bold"
+                            android:layout_gravity="center_horizontal|center"
+                            android:gravity="center"
+                            android:textSize="16sp"
+                            android:textColor="@color/white"
+                            android:layout_marginLeft="-3dp"
+                            android:layout_marginTop="0dp"
+                            android:layout_width="285dp"
+                            android:layout_height="44.6dp"
+                            android:text="@string/tiep_tuc"
+                            android:backgroundTint="@color/rectangle_3_ek1_color"
+                            />
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+            </RelativeLayout>
+
+        </ScrollView>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
