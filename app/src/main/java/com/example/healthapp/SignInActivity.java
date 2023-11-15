@@ -55,12 +55,12 @@ public class SignInActivity extends AppCompatActivity {
                 pwd = editTextPwd.getText().toString();
                 if(TextUtils.isEmpty((email)))
                 {
-
+                    Toast.makeText(SignInActivity.this, "Vui lòng nhập email!", Toast.LENGTH_SHORT);
                     return;
                 }
                 if(TextUtils.isEmpty(pwd))
                 {
-
+                    Toast.makeText(SignInActivity.this, "Vui lòng nhập email!", Toast.LENGTH_SHORT);
                     return;
                 }
                 mailAuth.signInWithEmailAndPassword(email, pwd)
@@ -81,10 +81,7 @@ public class SignInActivity extends AppCompatActivity {
                                     Toast.makeText(SignInActivity.this, "Authentication Failed", Toast.LENGTH_SHORT).show();
                                 }
                             }
-
-
                         });
-
             }
         });
     }

@@ -32,12 +32,13 @@
                 android:layout_height="wrap_content"
                 >
 
-                <View   android:id="@+id/_bg__xemphongkham2_ek2"
-                    android:background="@drawable/_bg__xemphongkham2_ek2_shape"
+                <View
+                    android:id="@+id/_bg__xemphongkham2_ek2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_marginStart="0dp"
                     android:layout_marginTop="0dp"
-                    android:layout_width="360dp"
-                    android:layout_height="640dp" />
+                    android:background="@drawable/_bg__xemphongkham2_ek2_shape" />
 
                 <View   android:id="@+id/rectangle_62"
                     android:background="@drawable/rectangle_62_shape"

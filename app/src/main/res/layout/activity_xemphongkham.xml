@@ -142,7 +142,6 @@
                         android:layout_height="28dp" />
 
                     <View   android:id="@+id/rectangle_73"
-                        android:background="@drawable/hinhchunhat"
                         android:layout_marginStart="103dp"
                         android:layout_marginTop="2dp"
                         android:layout_width="99dp"
