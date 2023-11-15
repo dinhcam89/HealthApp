@@ -137,6 +137,7 @@
         android:layout_width="340dp"
         android:layout_height="61dp"
         android:layout_marginTop="20dp"
+        android:contentDescription="button"
         android:background="@null"
         android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
