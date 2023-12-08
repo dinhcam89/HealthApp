@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.HealthApp" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your light theme here. -->
-        <color name="colorPrimary">#CDFEF8</color>
+<!--        <color name="colorPrimary">#CDFEF8</color>-->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 

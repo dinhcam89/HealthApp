@@ -1,0 +1,130 @@
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/button"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <View
+        android:id="@+id/_bg__tracuudonthuoc2_ek2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/_bg__tracuudonthuoc2_ek2_shape"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <View
+        android:id="@+id/rectangle_62"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="@drawable/rectangle_62_shape"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/btn_filter"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="33dp"
+        android:background="@drawable/star_1"
+        android:clickable="true"
+        android:contentDescription="filter phòng khám"
+        app:layout_constraintBottom_toBottomOf="@+id/rectangle_62"
+        app:layout_constraintEnd_toEndOf="@+id/rectangle_62"
+        app:layout_constraintTop_toTopOf="@+id/rectangle_62"
+        app:layout_constraintVertical_bias="0"
+        tools:ignore="TouchTargetSizeCheck">
+    </ImageButton>
+
+    <FrameLayout
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/rectangle_62"
+        app:layout_constraintStart_toStartOf="@+id/_bg__tracuudonthuoc2_ek2"
+        app:layout_constraintTop_toTopOf="@+id/_bg__tracuudonthuoc2_ek2">
+
+        <ImageView
+
+            android:id="@+id/arrow_back"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:contentDescription="arrow_1"
+            android:src="@drawable/arrow_1"
+            tools:ignore="TouchTargetSizeCheck" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/tittle_tracuudonthuoc"
+        android:layout_width="170dp"
+        android:layout_height="39dp"
+        android:layout_gravity="center_horizontal|center"
+        android:gravity="center"
+        android:text="@string/tra_cuu_don_thuoc"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/rectangle_62"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/rectangle_62"
+        app:layout_constraintTop_toTopOf="@+id/_bg__tracuudonthuoc2_ek2" />
+
+    <ImageView
+        android:id="@+id/imgView_DoctorAvatar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ellipse_1"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="22dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rectangle_62"/>
+
+    <TextView
+        android:id="@+id/textView_DoctorName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:text="GS.TS.BS Nguyễn Trọng Tâm"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="0dp"
+        app:layout_constraintLeft_toRightOf="@+id/imgView_DoctorAvatar"
+        app:layout_constraintTop_toTopOf="@+id/imgView_DoctorAvatar"
+        android:textColor="#009688"
+        android:textStyle="bold">
+    </TextView>
+    <TextView
+        android:id="@+id/textView_Khoakham"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:text="Tim mạch"
+        android:textColor="#009688"
+        android:textSize="15dp"
+        android:textStyle="italic"
+        tools:ignore="TextSizeCheck"
+        app:layout_constraintLeft_toRightOf="@+id/imgView_DoctorAvatar"
+        app:layout_constraintTop_toBottomOf="@+id/textView_DoctorName">
+    </TextView>
+
+    <DatePicker
+        android:id="@+id/simpleDatePicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:datePickerMode="calendar"
+
+        android:spinnersShown="true"
+        android:layout_marginTop="28dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgView_DoctorAvatar"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
