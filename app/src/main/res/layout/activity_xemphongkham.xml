@@ -1,567 +1,570 @@
-<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent" android:layout_height="wrap_content" >
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/button"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <View
+        android:id="@+id/_bg__tracuudonthuoc2_ek2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/_bg__tracuudonthuoc2_ek2_shape"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <View
+        android:id="@+id/rectangle_62"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="@drawable/rectangle_62_shape"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/tittle_chonphongkham"
+        android:layout_width="170dp"
+        android:layout_height="39dp"
+        android:layout_gravity="center_horizontal|center"
+        android:gravity="center"
+        android:text="@string/chon_phong_kham1"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/rectangle_62"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/rectangle_62"
+        app:layout_constraintTop_toTopOf="@+id/_bg__tracuudonthuoc2_ek2" />
     <!--
-    /*
-     *	This content is generated from the API File Info.
-     *	(Alt+Shift+Ctrl+I).
-     *
-     *	@desc
-     *	@file 		xem_ph_ng_kh_m
-     *	@date 		Sunday 12th of November 2023 06:58:05 AM
-     *	@title 		Page 2
-     *	@author
-     *	@keywords
-     *	@generator 	Export Kit v1.3.figma
-     *
-     */
-    -->
-    <ScrollView android:id="@+id/xem_ph_ng_kh_m"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent" >
+    <FrameLayout
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/rectangle_62"
+        app:layout_constraintStart_toStartOf="@+id/_bg__tracuudonthuoc2_ek2"
+        app:layout_constraintTop_toTopOf="@+id/_bg__tracuudonthuoc2_ek2">
 
-        <RelativeLayout android:id="@+id/content_container"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
+        <ImageView
 
+            android:id="@+id/arrow_back"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:contentDescription="arrow_1"
+            android:src="@drawable/arrow_1"
+            tools:ignore="TouchTargetSizeCheck" />
+    </FrameLayout> -->
 
+    <Button
+        android:id="@+id/btn_back"
+        android:layout_width="40dp"
+        android:layout_height="20dp"
+        android:background="#00FFFFFF"
+        android:contentDescription="Go back"
+        android:drawableLeft="@drawable/ic_arrow_back"
+        android:orientation="vertical"
+        android:padding="14dp"
+        app:layout_constraintBottom_toBottomOf="@+id/rectangle_62"
+        app:layout_constraintEnd_toStartOf="@+id/tittle_chonphongkham"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/rectangle_62"
+        app:layout_constraintTop_toTopOf="@+id/_bg__tracuudonthuoc2_ek2"
+        app:layout_constraintVertical_bias="0.5"
+        tools:ignore="TouchTargetSizeCheck" />
 
-            <RelativeLayout android:id="@+id/page_xem_ph_ng_kh_m_ek1"
-                android:layout_marginTop="0dp"
-                android:layout_marginStart="0dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/search_bar"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/search_bar"
+        android:layoutDirection="rtl"
+        android:queryHint="Tìm kiếm..."
+        app:layout_constraintBottom_toTopOf="@+id/frameLayout3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/_bg__tracuudonthuoc2_ek2"
+        app:layout_constraintTop_toBottomOf="@+id/rectangle_62"
+        app:layout_constraintVertical_bias="0">
+
+    </androidx.appcompat.widget.SearchView>
+
+    <FrameLayout
+        android:id="@+id/frameLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="45dp"
+        android:background="@drawable/rectangle_2_shape1"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/_bg__tracuudonthuoc2_ek2"
+        app:layout_constraintEnd_toEndOf="@+id/_bg__tracuudonthuoc2_ek2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rectangle_62"
+        app:layout_constraintVertical_bias="0"
+        tools:ignore="MissingConstraints">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <FrameLayout
+                android:id="@+id/btn_recommend"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:background="@drawable/rectangle_2_shape1"
+                android:clickable="true"
+                android:textAlignment="center"
+
                 >
 
-                <View   android:id="@+id/_bg__xem_ph_ng_kh_m_ek2"
-                    android:background="@drawable/_bg__xem_ph_ng_kh_m_ek2_shape"
-                    android:layout_marginStart="0dp"
-                    android:layout_marginTop="0dp"
-                    android:layout_width="360dp"
-                    android:layout_height="640dp" />
-
-                <View   android:id="@+id/rectangle_81"
-                    android:background="@drawable/rectangle_81_shape"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginTop="137dp"
-                    android:layout_width="310dp"
-                    android:layout_height="107dp" />
-
-                <View
-                    android:id="@+id/rectangle_62"
-                    android:layout_width="360dp"
-                    android:layout_height="44dp"
-                    android:layout_marginStart="0dp"
-                    android:layout_marginTop="0dp"
-                    android:background="@drawable/rectangle_62_shape" />
-
-                <ImageView android:id="@+id/line_8"
-                    android:src="@drawable/line_8"
-                    android:contentDescription="line_8"
-                    android:layout_marginStart="26dp"
-                    android:layout_marginTop="78dp"
-                    android:layout_width="305dp"
-                    android:layout_height="1dp" />
-
-                <TextView android:id="@+id/t_m_ki_m___"
-                    android:textStyle="italic"
-                    android:textSize="15sp"
-                    android:textColor="@color/t_m_ki_m____color"
-                    android:layout_marginLeft="27dp"
-                    android:layout_marginTop="61dp"
-                    android:layout_width="91.5dp"
-                    android:layout_height="22.5dp"
-                    android:text="@string/tim_kiem"
-                    />
-
-                <ImageView
-                    android:id="@+id/magnifier_1"
-                    android:layout_width="18dp"
-                    android:layout_height="18dp"
-                    android:layout_marginStart="194dp"
-                    android:layout_marginTop="40dp"
-                    android:layout_toEndOf="@+id/t_m_ki_m___"
-                    android:contentDescription="magnifier_1"
-                    android:src="@drawable/magnifier_1" />
-
-                <ImageView android:id="@+id/arrow_1"
-                    android:src="@drawable/arrow_1"
-                    android:contentDescription="arrow_1"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_width="16dp"
-                    android:layout_height="14.73dp" />
-
-                <TextView android:id="@+id/ch_n_ph_ng_kh_m"
-                    android:layout_gravity="center_horizontal|center"
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:gravity="center"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/white"
-                    android:layout_marginLeft="86dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_width="189dp"
-                    android:layout_height="30dp"
-                    android:text="@string/chon_phong_kham"
-                    />
+                    android:text="Đề xuất"
+                    android:textAlignment="center"
+                    android:textColor="@color/b_c_s__n_i_b_t_color" />
+            </FrameLayout>
+            <FrameLayout
+                android:id="@+id/btn_nearest"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:background="@drawable/rectangle_2_shape1"
+                android:clickable="true"
+                android:textAlignment="center"
+                app:layout_constraintBottom_toBottomOf="@+id/frameLayout3"
+                app:layout_constraintEnd_toStartOf="@+id/btn_popular"
+                app:layout_constraintStart_toEndOf="@+id/btn_recommend"
+                app:layout_constraintTop_toTopOf="@+id/frameLayout3">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="Gần nhất"
+                    android:textAlignment="center"
+                    android:textColor="@color/b_c_s__n_i_b_t_color" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/btn_popular"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:background="@drawable/rectangle_2_shape1"
+                android:clickable="true"
+                android:textAlignment="center"
+                app:layout_constraintBottom_toBottomOf="@+id/frameLayout3"
+                app:layout_constraintEnd_toEndOf="@+id/frameLayout3"
+                app:layout_constraintTop_toTopOf="@+id/frameLayout3">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="Phổ biến"
+                    android:textAlignment="center"
+                    android:textColor="@color/b_c_s__n_i_b_t_color" />
+            </FrameLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frameLayout_phongkham1"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="12dp"
+        android:background="@color/rectangle_81_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/_bg__tracuudonthuoc2_ek2"
+        app:layout_constraintStart_toStartOf="@+id/_bg__tracuudonthuoc2_ek2"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout3"
+        app:layout_constraintVertical_bias="0.002">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/image_of_phongkham3"
+                android:layout_width="147dp"
+                android:layout_height="110dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="220dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/image_2">
+            </ImageView>
+
+            <TextView
+                android:id="@+id/ten_phong_kham"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="-215dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="25dp"
+                android:layout_toEndOf="@+id/image_of_phongkham3"
+                android:text="Phòng khám Tâm Cẩm"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimaryDark">
+            </TextView>
+
+            <Button
+                android:id="@+id/btn_book"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_below="@+id/dia_chi"
+                android:layout_marginStart="-215dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="416dp"
+                android:layout_toEndOf="@+id/image_of_phongkham3"
+                android:background="@drawable/btn_book"
+                android:drawableEnd="@drawable/calendar_1"
+                android:gravity="center"
+                android:paddingEnd="10dp"
+                android:text="Đặt lịch"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                tools:ignore="TouchTargetSizeCheck">
+            </Button>
+
+            <ImageButton
+                android:id="@+id/btn_favorite_phongkham"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="96dp"
+                android:background="@drawable/star_1"
+                android:contentDescription="Favorite"
+                tools:ignore="TouchTargetSizeCheck">
+            </ImageButton>
+
+            <TextView
+                android:id="@+id/dia_chi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ten_phong_kham"
+                android:layout_marginStart="-210dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginEnd="25dp"
+                android:layout_toEndOf="@+id/image_of_phongkham3"
+                android:text="482 Đường Trường Chinh, Phường 13, Quận 10, TP.HCM"
+                android:textColor="@color/teal_700"
+                android:textSize="14dp"
+                tools:ignore="TextSizeCheck">
+            </TextView>
 
-                <ImageView android:id="@+id/setting_1"
-                    android:src="@drawable/setting_1"
-                    android:contentDescription="setting_1"
-                    android:layout_marginStart="325dp"
-                    android:layout_marginTop="12dp"
-                    android:layout_width="22dp"
-                    android:layout_height="22dp" />
-
-
-                <RelativeLayout android:id="@+id/group_1847"
-                    android:layout_marginTop="87dp"
-                    android:layout_marginStart="27dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    >
-
-                    <View   android:id="@+id/_bg__group_1847_ek1"
-                        android:background="@drawable/_bg__group_1847_ek1_shape"
-                        android:layout_marginStart="-27dp"
-                        android:layout_marginTop="-87dp"
-                        android:layout_width="305dp"
-                        android:layout_height="32dp" />
-
-                    <View   android:id="@+id/rectangle_70"
-                        android:background="@drawable/rectangle_70_shape"
-                        android:layout_marginStart="0dp"
-                        android:layout_marginTop="0dp"
-                        android:layout_width="305dp"
-                        android:layout_height="32dp" />
-
-                    <View   android:id="@+id/rectangle_71"
-                        android:background="@drawable/rectangle_71_shape"
-                        android:layout_marginStart="2dp"
-                        android:layout_marginTop="2dp"
-                        android:layout_width="99dp"
-                        android:layout_height="28dp" />
-
-                    <View   android:id="@+id/rectangle_73"
-                        android:layout_marginStart="103dp"
-                        android:layout_marginTop="2dp"
-                        android:layout_width="99dp"
-                        android:layout_height="28dp" />
-
-                    <View   android:id="@+id/rectangle_74"
-                        android:background="@drawable/rectangle_74_shape"
-                        android:layout_marginStart="204dp"
-                        android:layout_marginTop="2dp"
-                        android:layout_width="99dp"
-                        android:layout_height="28dp" />
-
-                    <TextView android:id="@+id/___xu_t"
-                        android:textStyle="italic"
-                        android:textSize="13sp"
-                        android:textColor="@color/t_m_ki_m____color"
-                        android:layout_marginLeft="27dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_width="61.3dp"
-                        android:layout_height="20.3dp"
-                        android:text="@string/de_xuat"
-                        />
-
-                    <TextView android:id="@+id/g_n_nh_t"
-                        android:textStyle="italic"
-                        android:textSize="13sp"
-                        android:textColor="@color/t_m_ki_m____color"
-                        android:layout_marginLeft="130dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_width="69.3dp"
-                        android:layout_height="20.3dp"
-                        android:text="@string/gan_nhat"
-                        />
-
-                    <TextView android:id="@+id/ph__bi_n"
-                        android:textStyle="italic"
-                        android:textSize="13sp"
-                        android:textColor="@color/t_m_ki_m____color"
-                        android:layout_marginLeft="230dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_width="67.3dp"
-                        android:layout_height="20.3dp"
-                        android:text="@string/pho_bien"
-                        />
-
-                </RelativeLayout>
-
-
-                <RelativeLayout android:id="@+id/group_1848"
-                    android:layout_marginTop="138dp"
-                    android:layout_marginStart="27dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    >
-
-                    <View   android:id="@+id/_bg__group_1848_ek1"
-                        android:background="@drawable/_bg__group_1848_ek1_shape"
-                        android:layout_marginStart="-27dp"
-                        android:layout_marginTop="-138dp"
-                        android:layout_width="306dp"
-                        android:layout_height="104dp" />
-
-                    <TextView android:id="@+id/ph_ng_kh_m_t_m_c_m"
-                        android:textSize="12sp"
-                        android:textColor="@color/ph_ng_kh_m_t_m_c_m_color"
-                        android:layout_marginLeft="127dp"
-                        android:layout_marginTop="1dp"
-                        android:layout_width="190.2dp"
-                        android:layout_height="17.2dp"
-                        android:text="@string/ten_phong_kham1"
-                        />
-
-                    <ImageView android:id="@+id/star_1"
-                        android:src="@drawable/star_1"
-                        android:contentDescription="star_1"
-                        android:layout_marginStart="290dp"
-                        android:layout_marginTop="0dp"
-                        android:layout_width="16dp"
-                        android:layout_height="16dp" />
-
-                    <ImageView android:id="@+id/rectangle_64"
-                        android:src="@drawable/rectangle_64"
-                        android:contentDescription="rectangle_64"
-                        android:layout_marginStart="126dp"
-                        android:layout_marginTop="42dp"
-                        android:layout_width="88dp"
-                        android:layout_height="29dp" />
-
-                    <TextView android:id="@+id/__t_l_ch"
-                        android:textStyle="bold"
-                        android:textSize="13sp"
-                        android:textColor="@color/white"
-                        android:layout_marginLeft="155dp"
-                        android:layout_marginTop="50dp"
-                        android:layout_width="61.3dp"
-                        android:layout_height="19.3dp"
-                        android:text="@string/dat_lich1"
-                        />
-
-                    <ImageView android:id="@+id/calendar_2"
-                        android:src="@drawable/calendar_2"
-                        android:contentDescription="calendar_2"
-                        android:layout_marginStart="136dp"
-                        android:layout_marginTop="51dp"
-                        android:layout_width="14dp"
-                        android:layout_height="14dp" />
-
-                    <ImageView android:id="@+id/image_2"
-                        android:src="@drawable/image_2"
-                        android:contentDescription="image_2"
-                        android:layout_marginStart="0dp"
-                        android:layout_marginTop="2dp"
-                        android:layout_width="106dp"
-                        android:layout_height="82dp" />
-
-                    <TextView android:id="@+id/_123_v__vi_t_v___ph__ng_13__qu_n_10__tp_hcm__vi_t_nam"
-                        android:textColor="@color/_123_v__vi_t_v___ph__ng_13__qu_n_10__tp_hcm__vi_t_nam_color"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="90dp"
-                        android:layout_width="279dp"
-                        android:layout_height="17dp"
-                        android:text="@string/dia_chi"
-                        />
-
-                    <ImageView android:id="@+id/location_1"
-                        android:src="@drawable/location_1"
-                        android:contentDescription="location_1"
-                        android:layout_marginStart="2dp"
-                        android:layout_marginTop="90dp"
-                        android:layout_width="14dp"
-                        android:layout_height="14dp" />
-
-                </RelativeLayout>
-
-                <View   android:id="@+id/rectangle_82"
-                    android:background="@drawable/rectangle_82_shape"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginTop="250dp"
-                    android:layout_width="310dp"
-                    android:layout_height="107dp" />
-
-
-                <RelativeLayout android:id="@+id/group_1849"
-                    android:layout_marginTop="251dp"
-                    android:layout_marginStart="27dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    >
-
-                    <View   android:id="@+id/_bg__group_1849_ek1"
-                        android:background="@drawable/_bg__group_1849_ek1_shape"
-                        android:layout_marginStart="-27dp"
-                        android:layout_marginTop="-251dp"
-                        android:layout_width="306dp"
-                        android:layout_height="104dp" />
-
-                    <TextView android:id="@+id/ph_ng_kh_m_t_m_c_m_ek1"
-                        android:textSize="12sp"
-                        android:textColor="@color/ph_ng_kh_m_t_m_c_m_color"
-                        android:layout_marginLeft="127dp"
-                        android:layout_marginTop="1dp"
-                        android:layout_width="190.2dp"
-                        android:layout_height="17.2dp"
-                        android:text="@string/ten_phong_kham2"
-                        />
-
-                    <ImageView android:id="@+id/star_1_ek1"
-                        android:src="@drawable/star_1_ek1"
-                        android:contentDescription="star_1_ek1"
-                        android:layout_marginStart="290dp"
-                        android:layout_marginTop="0dp"
-                        android:layout_width="16dp"
-                        android:layout_height="16dp" />
-
-                    <ImageView android:id="@+id/rectangle_64_ek1"
-                        android:src="@drawable/rectangle_64_ek1"
-                        android:contentDescription="rectangle_64_ek1"
-                        android:layout_marginStart="126dp"
-                        android:layout_marginTop="42dp"
-                        android:layout_width="88dp"
-                        android:layout_height="29dp" />
-
-                    <TextView android:id="@+id/__t_l_ch_ek1"
-                        android:textStyle="bold"
-                        android:textSize="13sp"
-                        android:textColor="@color/white"
-                        android:layout_marginLeft="155dp"
-                        android:layout_marginTop="50dp"
-                        android:layout_width="61.3dp"
-                        android:layout_height="19.3dp"
-                        android:text="@string/dat_lich2"
-                        />
-
-                    <ImageView android:id="@+id/calendar_2_ek1"
-                        android:src="@drawable/calendar_2_ek1"
-                        android:contentDescription="calendar_2_ek1"
-                        android:layout_marginStart="136dp"
-                        android:layout_marginTop="51dp"
-                        android:layout_width="14dp"
-                        android:layout_height="14dp" />
-
-                    <ImageView android:id="@+id/image_2_ek1"
-                        android:src="@drawable/image_2"
-                        android:contentDescription="image_2_ek1"
-                        android:layout_marginStart="0dp"
-                        android:layout_marginTop="2dp"
-                        android:layout_width="106dp"
-                        android:layout_height="82dp" />
-
-                    <TextView android:id="@+id/_123_v__vi_t_v___ph__ng_13__qu_n_10__tp_hcm__vi_t_nam_ek1"
-                        android:textColor="@color/_123_v__vi_t_v___ph__ng_13__qu_n_10__tp_hcm__vi_t_nam_color"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="90dp"
-                        android:layout_width="279dp"
-                        android:layout_height="17dp"
-                        android:text="@string/dia_chi1"
-                        />
-
-                    <ImageView android:id="@+id/location_1_ek1"
-                        android:src="@drawable/location_1_ek1"
-                        android:contentDescription="location_1_ek1"
-                        android:layout_marginStart="2dp"
-                        android:layout_marginTop="90dp"
-                        android:layout_width="14dp"
-                        android:layout_height="14dp" />
-
-                </RelativeLayout>
-
-                <View   android:id="@+id/rectangle_83"
-                    android:background="@drawable/rectangle_83_shape"
-                    android:layout_marginStart="22dp"
-                    android:layout_marginTop="363dp"
-                    android:layout_width="310dp"
-                    android:layout_height="107dp" />
-
-
-                <RelativeLayout android:id="@+id/group_1850"
-                    android:layout_marginTop="364dp"
-                    android:layout_marginStart="25dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    >
-
-                    <TextView android:id="@+id/ph_ng_kh_m_t_m_c_m_ek2"
-                        android:textSize="12sp"
-                        android:textColor="@color/ph_ng_kh_m_t_m_c_m_color"
-                        android:layout_marginLeft="127dp"
-                        android:layout_marginTop="1dp"
-                        android:layout_width="190.2dp"
-                        android:layout_height="17.2dp"
-                        android:text="@string/ten_phong_kham3"
-                        />
-
-                    <ImageView android:id="@+id/star_1_ek2"
-                        android:src="@drawable/star_1_ek2"
-                        android:contentDescription="star_1_ek2"
-                        android:layout_marginStart="290dp"
-                        android:layout_marginTop="0dp"
-                        android:layout_width="16dp"
-                        android:layout_height="16dp" />
-
-                    <ImageView android:id="@+id/rectangle_64_ek2"
-                        android:src="@drawable/rectangle_64_ek2"
-                        android:contentDescription="rectangle_64_ek2"
-                        android:layout_marginStart="126dp"
-                        android:layout_marginTop="42dp"
-                        android:layout_width="88dp"
-                        android:layout_height="29dp" />
-
-                    <TextView android:id="@+id/__t_l_ch_ek2"
-                        android:textStyle="bold"
-                        android:textSize="13sp"
-                        android:textColor="@color/white"
-                        android:layout_marginLeft="155dp"
-                        android:layout_marginTop="50dp"
-                        android:layout_width="61.3dp"
-                        android:layout_height="19.3dp"
-                        android:text="@string/dat_lich3"
-                        />
-
-                    <ImageView android:id="@+id/calendar_2_ek2"
-                        android:src="@drawable/calendar_2_ek2"
-                        android:contentDescription="calendar_2_ek2"
-                        android:layout_marginStart="136dp"
-                        android:layout_marginTop="51dp"
-                        android:layout_width="14dp"
-                        android:layout_height="14dp" />
-
-                    <ImageView android:id="@+id/image_2_ek2"
-                        android:src="@drawable/image_2"
-                        android:contentDescription="image_2_ek2"
-                        android:layout_marginStart="0dp"
-                        android:layout_marginTop="2dp"
-                        android:layout_width="106dp"
-                        android:layout_height="82dp" />
-
-                    <TextView android:id="@+id/_123_v__vi_t_v___ph__ng_13__qu_n_10__tp_hcm__vi_t_nam_ek2"
-                        android:textColor="@color/_123_v__vi_t_v___ph__ng_13__qu_n_10__tp_hcm__vi_t_nam_color"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="90dp"
-                        android:layout_width="279dp"
-                        android:layout_height="17dp"
-                        android:text="@string/dia_chi2"
-                        />
-
-                    <ImageView android:id="@+id/location_1_ek2"
-                        android:src="@drawable/location_1_ek2"
-                        android:contentDescription="location_1_ek2"
-                        android:layout_marginStart="2dp"
-                        android:layout_marginTop="90dp"
-                        android:layout_width="14dp"
-                        android:layout_height="14dp" />
-
-                </RelativeLayout>
-
-                <View   android:id="@+id/rectangle_84"
-                    android:background="@drawable/rectangle_84_shape"
-                    android:layout_marginStart="22dp"
-                    android:layout_marginTop="475dp"
-                    android:layout_width="310dp"
-                    android:layout_height="107dp" />
-
-
-                <RelativeLayout android:id="@+id/group_1851"
-                    android:layout_marginTop="476dp"
-                    android:layout_marginStart="25dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    >
-
-                    <TextView android:id="@+id/ph_ng_kh_m_t_m_c_m_ek3"
-                        android:textSize="12sp"
-                        android:textColor="@color/ph_ng_kh_m_t_m_c_m_color"
-                        android:layout_marginLeft="127dp"
-                        android:layout_marginTop="1dp"
-                        android:layout_width="190.2dp"
-                        android:layout_height="17.2dp"
-                        android:text="@string/ten_phong_kham4"
-                        />
-
-                    <ImageView android:id="@+id/star_1_ek3"
-                        android:src="@drawable/star_1_ek3"
-                        android:contentDescription="star_1_ek3"
-                        android:layout_marginStart="290dp"
-                        android:layout_marginTop="0dp"
-                        android:layout_width="16dp"
-                        android:layout_height="16dp" />
-
-                    <ImageView android:id="@+id/rectangle_64_ek3"
-                        android:src="@drawable/rectangle_64_ek3"
-                        android:contentDescription="rectangle_64_ek3"
-                        android:layout_marginStart="126dp"
-                        android:layout_marginTop="42dp"
-                        android:layout_width="88dp"
-                        android:layout_height="29dp" />
-
-                    <TextView android:id="@+id/__t_l_ch_ek3"
-                        android:textStyle="bold"
-                        android:textSize="13sp"
-                        android:textColor="@color/white"
-                        android:layout_marginLeft="155dp"
-                        android:layout_marginTop="50dp"
-                        android:layout_width="61.3dp"
-                        android:layout_height="19.3dp"
-                        android:text="@string/dat_lich4"
-                        />
-
-                    <ImageView android:id="@+id/calendar_2_ek3"
-                        android:src="@drawable/calendar_2_ek3"
-                        android:contentDescription="calendar_2_ek3"
-                        android:layout_marginStart="136dp"
-                        android:layout_marginTop="51dp"
-                        android:layout_width="14dp"
-                        android:layout_height="14dp" />
-
-                    <ImageView android:id="@+id/image_2_ek3"
-                        android:src="@drawable/image_2"
-                        android:contentDescription="image_2_ek3"
-                        android:layout_marginStart="0dp"
-                        android:layout_marginTop="2dp"
-                        android:layout_width="106dp"
-                        android:layout_height="82dp" />
-
-                    <TextView android:id="@+id/_123_v__vi_t_v___ph__ng_13__qu_n_10__tp_hcm__vi_t_nam_ek3"
-                        android:textColor="@color/_123_v__vi_t_v___ph__ng_13__qu_n_10__tp_hcm__vi_t_nam_color"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="90dp"
-                        android:layout_width="279dp"
-                        android:layout_height="17dp"
-                        android:text="@string/dia_chi3"
-                        />
-
-                    <ImageView android:id="@+id/location_1_ek3"
-                        android:src="@drawable/location_1_ek3"
-                        android:contentDescription="location_1_ek3"
-                        android:layout_marginStart="2dp"
-                        android:layout_marginTop="90dp"
-                        android:layout_width="14dp"
-                        android:layout_height="14dp" />
-
-                </RelativeLayout>
-
-                <View
-                    android:id="@+id/_bg__group_1851_ek1"
-                    android:layout_width="306dp"
-                    android:layout_height="104dp"
-                    android:layout_marginStart="-25dp"
-                    android:layout_marginTop="-476dp"
-                    android:background="@drawable/_bg__group_1851_ek1_shape" />
-
-                <View
-                    android:id="@+id/_bg__group_1850_ek1"
-                    android:layout_width="306dp"
-                    android:layout_height="104dp"
-                    android:layout_marginStart="-25dp"
-                    android:layout_marginTop="-364dp"
-                    android:background="@drawable/_bg__group_1850_ek1_shape" />
-
-            </RelativeLayout>
         </RelativeLayout>
+    </FrameLayout>
+    <FrameLayout
+        android:id="@+id/frameLayout_phongkham2"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="12dp"
+        android:background="@color/rectangle_81_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/_bg__tracuudonthuoc2_ek2"
+        app:layout_constraintStart_toStartOf="@+id/_bg__tracuudonthuoc2_ek2"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout_phongkham1"
+        app:layout_constraintVertical_bias="0.00">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    </ScrollView>
-</HorizontalScrollView>
+            <ImageView
+                android:id="@+id/image_of_phongkham4"
+                android:layout_width="147dp"
+                android:layout_height="110dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="220dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/image_2">
+            </ImageView>
+
+            <TextView
+                android:id="@+id/ten_phong_kham1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="-215dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="25dp"
+                android:layout_toEndOf="@+id/image_of_phongkham4"
+                android:text="Phòng khám Tâm Cẩm"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimaryDark">
+            </TextView>
+
+            <Button
+                android:id="@+id/btn_book1"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_below="@+id/dia_chi1"
+                android:layout_marginStart="-215dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="416dp"
+                android:layout_toEndOf="@+id/image_of_phongkham4"
+                android:background="@drawable/btn_book"
+                android:drawableEnd="@drawable/calendar_1"
+                android:gravity="center"
+                android:paddingEnd="10dp"
+                android:text="Đặt lịch"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                tools:ignore="TouchTargetSizeCheck">
+            </Button>
+
+            <ImageButton
+                android:id="@+id/btn_favorite_phongkham1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="96dp"
+                android:background="@drawable/star_1"
+                android:contentDescription="Favorite"
+                tools:ignore="TouchTargetSizeCheck">
+            </ImageButton>
+
+            <TextView
+                android:id="@+id/dia_chi1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ten_phong_kham1"
+                android:layout_marginStart="-210dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginEnd="25dp"
+                android:layout_toEndOf="@+id/image_of_phongkham4"
+                android:text="482 Đường Trường Chinh, Phường 13, Quận 10, TP.HCM"
+                android:textColor="@color/teal_700"
+                android:textSize="14dp"
+                tools:ignore="TextSizeCheck">
+            </TextView>
+        </RelativeLayout>
+    </FrameLayout>
+    <FrameLayout
+        android:id="@+id/frameLayout_phongkham3"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="12dp"
+        android:background="@color/rectangle_81_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/_bg__tracuudonthuoc2_ek2"
+        app:layout_constraintStart_toStartOf="@+id/_bg__tracuudonthuoc2_ek2"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout_phongkham2"
+        app:layout_constraintVertical_bias="0.00">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/image_of_phongkham5"
+                android:layout_width="147dp"
+                android:layout_height="110dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="220dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/image_2">
+            </ImageView>
+
+            <TextView
+                android:id="@+id/ten_phong_kham2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="-215dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="25dp"
+                android:layout_toEndOf="@+id/image_of_phongkham5"
+                android:text="Phòng khám Tâm Cẩm"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimaryDark">
+            </TextView>
+
+            <Button
+                android:id="@+id/btn_book2"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_below="@+id/dia_chi2"
+                android:layout_marginStart="-215dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="416dp"
+                android:layout_toEndOf="@+id/image_of_phongkham5"
+                android:background="@drawable/btn_book"
+                android:drawableEnd="@drawable/calendar_1"
+                android:gravity="center"
+                android:paddingEnd="10dp"
+                android:text="Đặt lịch"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                tools:ignore="TouchTargetSizeCheck">
+            </Button>
+
+            <ImageButton
+                android:id="@+id/btn_favorite_phongkham2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="96dp"
+                android:background="@drawable/star_1"
+                android:contentDescription="Favorite"
+                tools:ignore="TouchTargetSizeCheck">
+            </ImageButton>
+
+            <TextView
+                android:id="@+id/dia_chi2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ten_phong_kham2"
+                android:layout_marginStart="-210dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginEnd="25dp"
+                android:layout_toEndOf="@+id/image_of_phongkham5"
+                android:text="482 Đường Trường Chinh, Phường 13, Quận 10, TP.HCM"
+                android:textColor="@color/teal_700"
+                android:textSize="14dp"
+                tools:ignore="TextSizeCheck">
+            </TextView>
+        </RelativeLayout>
+    </FrameLayout>
+    <FrameLayout
+        android:id="@+id/frameLayout_phongkham4"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="12dp"
+        android:background="@color/rectangle_81_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/_bg__tracuudonthuoc2_ek2"
+        app:layout_constraintStart_toStartOf="@+id/_bg__tracuudonthuoc2_ek2"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout_phongkham3"
+        app:layout_constraintVertical_bias="0.00">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/image_of_phongkham6"
+                android:layout_width="147dp"
+                android:layout_height="110dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="220dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/image_2">
+            </ImageView>
+
+            <TextView
+                android:id="@+id/ten_phong_kham3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="-215dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="25dp"
+                android:layout_toEndOf="@+id/image_of_phongkham6"
+                android:text="Phòng khám Tâm Cẩm"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimaryDark">
+            </TextView>
+
+            <Button
+                android:id="@+id/btn_book3"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_below="@+id/dia_chi3"
+                android:layout_marginStart="-215dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="416dp"
+                android:layout_toEndOf="@+id/image_of_phongkham6"
+                android:background="@drawable/btn_book"
+                android:drawableEnd="@drawable/calendar_1"
+                android:gravity="center"
+                android:paddingEnd="10dp"
+                android:text="Đặt lịch"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                tools:ignore="TouchTargetSizeCheck">
+            </Button>
+
+            <ImageButton
+                android:id="@+id/btn_favorite_phongkham3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="96dp"
+                android:background="@drawable/star_1"
+                android:contentDescription="Favorite"
+                tools:ignore="TouchTargetSizeCheck">
+            </ImageButton>
+
+            <TextView
+                android:id="@+id/dia_chi3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ten_phong_kham3"
+                android:layout_marginStart="-210dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginEnd="25dp"
+                android:layout_toEndOf="@+id/image_of_phongkham6"
+                android:text="482 Đường Trường Chinh, Phường 13, Quận 10, TP.HCM"
+                android:textColor="@color/teal_700"
+                android:textSize="14dp"
+                tools:ignore="TextSizeCheck">
+            </TextView>
+        </RelativeLayout>
+    </FrameLayout>
+
+    <ImageButton
+        android:id="@+id/btn_filter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="33dp"
+        android:background="@drawable/setting_1"
+        android:clickable="true"
+        android:contentDescription="filter phòng khám"
+        app:layout_constraintBottom_toBottomOf="@+id/rectangle_62"
+        app:layout_constraintEnd_toEndOf="@+id/rectangle_62"
+        app:layout_constraintTop_toTopOf="@+id/rectangle_62"
+        app:layout_constraintVertical_bias="0"
+        tools:ignore="TouchTargetSizeCheck">
+    </ImageButton>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
