@@ -14,7 +14,7 @@ public class AppoimentDateChoosingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_appoiment_date_choosing);
 
-        simpleDatePicker = (DatePicker) findViewById(R.id.simpleDatePicker);
+        simpleDatePicker = (DatePicker) findViewById(R.id.date_picker_actions);
         int day = simpleDatePicker.getDayOfMonth();
         int month = simpleDatePicker.getMonth(); // get the selected month
         int year = simpleDatePicker.getYear(); // get the selected year
