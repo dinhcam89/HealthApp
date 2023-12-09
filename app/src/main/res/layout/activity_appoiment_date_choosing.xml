@@ -24,23 +24,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageButton
-        android:id="@+id/btn_filter"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="33dp"
-        android:background="@drawable/star_1"
-        android:clickable="true"
-        android:contentDescription="filter phòng khám"
-        app:layout_constraintBottom_toBottomOf="@+id/rectangle_62"
-        app:layout_constraintEnd_toEndOf="@+id/rectangle_62"
-        app:layout_constraintTop_toTopOf="@+id/rectangle_62"
-        app:layout_constraintVertical_bias="0"
-        tools:ignore="TouchTargetSizeCheck">
-    </ImageButton>
-
     <FrameLayout
         android:layout_width="30dp"
         android:layout_height="30dp"
@@ -161,7 +144,7 @@
             android:background="@drawable/_bg__btn_chooseappoinmenthour_shape"
             android:textAllCaps="false"
             android:orientation="horizontal"
-            android:text="7h - 8h"
+            android:text="8h - 9h"
             tools:layout_editor_absoluteX="186dp"
             tools:layout_editor_absoluteY="452dp"/>
 
@@ -258,7 +241,6 @@
         android:layout_height="99dp"
         android:background="@null"
         android:scaleType="fitCenter"
-        android:layout_marginTop="20dp"
         app:srcCompat="@drawable/img_btnbook"
         tools:layout_editor_absoluteX="190dp"
         tools:layout_editor_absoluteY="595dp"
