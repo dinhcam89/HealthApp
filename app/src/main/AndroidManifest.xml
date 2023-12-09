@@ -32,7 +32,7 @@
             android:name=".MainMenuActivity"
             android:exported="false" />
         <activity
-            android:name=".AppoimentDateChoosingActivity"
+            android:name=".AppointmentDoctorChoosingActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
