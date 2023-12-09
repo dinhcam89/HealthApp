@@ -6,7 +6,7 @@ import android.widget.PopupMenu;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+/*
 public class AppointmentDoctorChoosingActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
 
     @Override
@@ -25,7 +25,7 @@ public class AppointmentDoctorChoosingActivity extends AppCompatActivity impleme
     }
 
     @Override
-    /*
+
     public boolean onMenuItemClick (MenuItem item)
     {
         switch (item.getItemId())
@@ -45,7 +45,7 @@ public class AppointmentDoctorChoosingActivity extends AppCompatActivity impleme
             default:
                 return false;
         }
-    } */
+    }
     public boolean onMenuItemClick(MenuItem item) {
 
         if(item.getItemId() == R.id.item1) {
@@ -72,7 +72,7 @@ public class AppointmentDoctorChoosingActivity extends AppCompatActivity impleme
 
     }
 
-    }
+    }*/
 
 
 

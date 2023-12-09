@@ -113,7 +113,7 @@
                     android:text="English"
                     tools:ignore="TouchTargetSizeCheck" />
             </com.google.android.material.textfield.TextInputLayout>
-            -->
+
             <Button
                 android:id="@+id/btn_khoakham1"
                 android:layout_width="match_parent"
@@ -135,7 +135,110 @@
                 tools:ignore="TextContrastCheck">
             </Button>
 
+-->
+            <View
+                android:id="@+id/frame_doctor"
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:layout_below="@+id/search_bar"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="15dp"
+                android:background="@color/rectangle_81_color"
+                >
+            </View>
 
+            <ImageView
+                android:id="@+id/image_bacsi"
+                android:layout_width="110dp"
+                android:layout_height="100dp"
+                android:layout_alignStart="@+id/frame_doctor"
+                android:layout_alignTop="@+id/frame_doctor"
+                android:layout_alignBottom="@+id/frame_doctor"
+                android:layout_marginVertical="10dp"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/ellipse_1">
+            </ImageView>
+
+            <TextView
+                android:id="@+id/textview_tenbacsi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/frame_doctor"
+                android:layout_alignEnd="@+id/frame_doctor"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_toEndOf="@+id/image_bacsi"
+                android:text="PGS.TS.BS Nguyễn Trọng Tâm"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                tools:ignore="TextSizeCheck">
+            </TextView>
+
+            <TextView
+                android:id="@+id/textview_TenKhoaKham"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/frame_doctor"
+                android:layout_alignEnd="@+id/frame_doctor"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="35dp"
+                android:layout_toEndOf="@+id/image_bacsi"
+                android:text="Tim mạch"
+                android:textColor="@color/teal_700"
+                android:textSize="14dp"
+                android:textStyle="bold"
+                tools:ignore="TextSizeCheck">
+            </TextView>
+
+            <TextView
+                android:id="@+id/textView_Price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/frame_doctor"
+                android:layout_alignEnd="@+id/frame_doctor"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="55dp"
+                android:layout_toEndOf="@+id/image_bacsi"
+                android:text="0đ"
+                android:textColor="#F44336"
+                android:textStyle="bold">
+            </TextView>
+
+            <Button
+                android:id="@+id/btn_book"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_below="@+id/textView_Price"
+                android:layout_alignBottom="@+id/frame_doctor"
+                android:layout_toEndOf="@+id/image_bacsi"
+                android:background="@drawable/btn_book"
+                android:drawableEnd="@drawable/calendar_1"
+                android:gravity="center"
+                android:layout_marginVertical="7dp"
+                android:layout_marginLeft="10dp"
+                android:paddingEnd="10dp"
+                android:text="Đặt lịch"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                tools:ignore="TouchTargetSizeCheck">
+            </Button>
+
+            <Button
+                android:id="@+id/btn_livechat"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_below="@+id/textView_Price"
+                android:layout_alignBottom="@+id/frame_doctor"
+                android:layout_toEndOf="@+id/btn_book"
+                android:background="@drawable/live_chat_2"
+                android:contentDescription="livechat for more information"
+                tools:ignore="TouchTargetSizeCheck"
+                android:layout_marginLeft="15dp"
+                android:layout_marginVertical="7dp">
+            </Button>
         </RelativeLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
