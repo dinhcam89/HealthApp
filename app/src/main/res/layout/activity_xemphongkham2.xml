@@ -1,10 +1,10 @@
-
-
-    <!--   <RelativeLayout android:id="@+id/content_container"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
-
-        </RelativeLayout> -->
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -12,15 +12,15 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools">
 
-    <View
-        android:id="@+id/bg_xemphongkham2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/_bg__xemphongkham1_ek2_shape"
-        tools:layout_editor_absoluteX="-127dp"
-        tools:layout_editor_absoluteY="-40dp" />
+        <View
+            android:id="@+id/bg_xemphongkham2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/_bg__xemphongkham1_ek2_shape"
+            tools:layout_editor_absoluteX="-127dp"
+            tools:layout_editor_absoluteY="-40dp" />
 
-    <View
+        <View
             android:id="@+id/rectangle_62"
             android:layout_width="match_parent"
             android:layout_height="55dp"
@@ -43,7 +43,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/rectangle_62"
             app:layout_constraintVertical_bias="0">
-            </ImageView>
+        </ImageView>
 
         <TextView
             android:id="@+id/tittle_thongtin"
@@ -91,6 +91,456 @@
             app:layout_constraintVertical_bias="0"
             tools:ignore="TouchTargetSizeCheck">
         </ImageButton>
+
+        <TextView
+            android:id="@+id/hovaten"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginTop="10dp"
+            android:text="Phòng khám Tâm Cẩm"
+            android:textColor="@color/ho_va_ten"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.482"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView3"
+            app:layout_constraintVertical_bias="0">
+
+        </TextView>
+
+        <Button
+            android:id="@+id/btn_book"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/btn_book"
+            android:drawableEnd="@drawable/calendar_1"
+            android:gravity="center"
+            android:paddingEnd="10dp"
+            android:text="Đặt lịch"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/bg_xemphongkham2"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="@+id/bg_xemphongkham2"
+            app:layout_constraintTop_toBottomOf="@+id/hovaten"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="TouchTargetSizeCheck">
+        </Button>
+
+        <Button
+            android:id="@+id/btn_livechat"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/live_chat_2"
+            android:contentDescription="livechat for more information"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btn_book"
+            app:layout_constraintTop_toBottomOf="@+id/hovaten"
+            app:layout_constraintVertical_bias="0"
+            tools:ignore="TouchTargetSizeCheck">
+        </Button>
+
+        <Button
+            android:id="@+id/btn_share"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/image_14"
+            android:contentDescription="click to share information"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/hovaten"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="TouchTargetSizeCheck">
+        </Button>
+
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="55dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginRight="15dp"
+            android:lineSpacingExtra="5dp"
+            android:maxLines="2"
+            android:text="T2-T7: Sáng (7:30-12:00) - Chiều (13:30-18:30)\nCN và các ngày lễ: Sáng (7:30-13:30)"
+            android:textColor="@color/tim_m_ch_color"
+            android:textSize="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toEndOf="@+id/imageView4"
+            app:layout_constraintTop_toBottomOf="@+id/btn_book"
+            tools:ignore="TextSizeCheck">
+
+        </TextView>
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/business_1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_book"
+            app:layout_constraintVertical_bias="0.0">
+        </ImageView>
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="55dp"
+            android:layout_marginTop="5dp"
+            android:text="123 Võ Việt Vũ, Phường 13, Quận 10, TP HCM, Việt Nam"
+            android:textColor="@color/tim_m_ch_color"
+            app:layout_constraintStart_toEndOf="@+id/imageView5"
+            app:layout_constraintTop_toBottomOf="@+id/textView2">
+        </TextView>
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:contentDescription="location"
+            android:src="@drawable/location_1"
+            app:layout_constraintStart_toStartOf="@+id/bg_xemphongkham2"
+            app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+
+
+
+
+
+            <RelativeLayout
+                android:id="@+id/frame_bacsinoibat"
+                android:layout_width="match_parent"
+                android:layout_height="340dp"
+                android:layout_marginTop="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textView3"
+                app:layout_constraintVertical_bias="0.0">
+
+                <TextView
+                    android:id="@+id/txt_bacsinoibat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginRight="200dp"
+                    android:text="Bác sĩ nổi bật"
+                    android:textColor="@color/xem_th_m_color"
+                    android:textSize="18dp"
+                    android:textStyle="bold|italic">
+                </TextView>
+
+                <ImageView
+                    android:id="@+id/img_bacsi"
+                    android:layout_width="155dp"
+                    android:layout_height="155dp"
+                    android:layout_below="@+id/txt_bacsinoibat"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/ellipse_1">
+                </ImageView>
+
+                <TextView
+                    android:id="@+id/txt_xemthem"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="15dp"
+                    android:clickable="true"
+                    android:text="Xem thêm"
+                    android:textColor="@color/xem_th_m_color"
+                    android:textStyle="bold|italic"
+                    tools:ignore="TouchTargetSizeCheck">
+                </TextView>
+
+                <TextView
+                    android:id="@+id/txt_tenbacsi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="35dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="0dp"
+                    android:layout_toEndOf="@+id/img_bacsi"
+                    android:text="GS.TS.BS Nguyễn Trọng Tâm"
+                    android:textColor="#009688"
+                    android:textStyle="bold">
+                </TextView>
+
+                <TextView
+                    android:id="@+id/txt_khoakham"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txt_tenbacsi"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_toEndOf="@+id/img_bacsi"
+                    android:text="Tim mạch"
+                    android:textColor="#009688"
+                    android:textSize="15dp"
+                    android:textStyle="italic"
+                    tools:ignore="TextSizeCheck">
+                </TextView>
+
+                <TextView
+                    android:id="@+id/txt_giatien"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txt_khoakham"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_toEndOf="@+id/img_bacsi"
+                    android:text="500.000đ"
+                    android:textColor="#F44336"
+                    android:textStyle="bold">
+                </TextView>
+
+                <Button
+                    android:id="@+id/btn_book1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:layout_below="@+id/txt_giatien"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toEndOf="@+id/img_bacsi"
+                    android:background="@drawable/btn_book"
+                    android:drawableEnd="@drawable/calendar_1"
+                    android:gravity="center"
+                    android:paddingEnd="10dp"
+                    android:text="Đặt lịch"
+                    android:layout_marginTop="5dp"
+                    android:textAllCaps="false"
+                    android:textColor="#FFFFFF"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintVertical_bias="0.0"
+                    tools:ignore="TouchTargetSizeCheck">
+                </Button>
+
+                <Button
+                    android:id="@+id/btn_livechat1"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_below="@+id/txt_tenbacsi"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="55dp"
+                    android:layout_toEndOf="@+id/btn_book1"
+                    android:background="@drawable/live_chat_2"
+                    android:contentDescription="livechat for more information"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintVertical_bias="0"
+                    tools:ignore="TouchTargetSizeCheck">
+                </Button>
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="155dp"
+                    android:layout_below="@+id/img_bacsi"
+                    android:layout_marginTop="0dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/layout_constraint1"
+                        android:layout_width="match_parent"
+                        android:layout_height="155dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="0dp">
+
+                        <TextView
+                            android:id="@+id/txt_goikham"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Gói khám"
+                            android:textColor="@color/xem_th_m_color"
+                            android:textSize="18dp"
+                            android:textStyle="bold|italic"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                        </TextView>
+
+                        <RelativeLayout
+                            android:id="@+id/layout_goikham"
+                            android:layout_width="250dp"
+                            android:layout_height="80dp"
+                            android:layout_marginTop="10dp"
+                            android:background="@color/rectangle_81_color"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/txt_goikham">
+                            <TextView
+                                android:id="@+id/txt_tengoikham"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentStart="true"
+                                android:layout_marginTop="10dp"
+                                android:text="Sàng lọc ung thư vú và phụ khoa"
+                                android:textColor="#009688"
+                                android:textStyle="italic|bold"
+                                android:layout_marginHorizontal="5dp">
+                            </TextView>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/txt_tengoikham"
+                                android:layout_marginHorizontal="5dp"
+                                android:layout_marginTop="10dp"
+                                android:text="2.323.000đ"
+                                android:textColor="#F44336"
+                                android:textStyle="bold">
+                            </TextView>
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_width="250dp"
+                            android:layout_height="80dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/txt_goikham"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginLeft="260dp"
+                            android:background="@color/rectangle_81_color">
+                            <TextView
+                                android:id="@+id/txt_tengoikham1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentStart="true"
+                                android:layout_marginTop="10dp"
+                                android:text="Sàng lọc ung thư vú và phụ khoa"
+                                android:textColor="#009688"
+                                android:textStyle="italic|bold"
+                                android:layout_marginHorizontal="5dp">
+                            </TextView>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/txt_tengoikham1"
+                                android:layout_marginHorizontal="5dp"
+                                android:layout_marginTop="10dp"
+                                android:text="2.323.000đ"
+                                android:textColor="#F44336"
+                                android:textStyle="bold">
+                            </TextView>
+                        </RelativeLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </HorizontalScrollView>
+
+
+            </RelativeLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
+
+<!--   <RelativeLayout android:id="@+id/content_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+    </RelativeLayout>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <View
+        android:id="@+id/bg_xemphongkham2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/_bg__xemphongkham1_ek2_shape"
+        tools:layout_editor_absoluteX="-127dp"
+        tools:layout_editor_absoluteY="-40dp" />
+
+    <View
+        android:id="@+id/rectangle_62"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="@drawable/rectangle_62_shape"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/image_2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.448"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rectangle_62"
+        app:layout_constraintVertical_bias="0">
+    </ImageView>
+
+    <TextView
+        android:id="@+id/tittle_thongtin"
+        android:layout_width="170dp"
+        android:layout_height="39dp"
+        android:layout_gravity="center_horizontal|center"
+        android:gravity="center"
+        android:text="Thông tin"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/rectangle_62"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/rectangle_62"
+        app:layout_constraintTop_toTopOf="@+id/rectangle_62" />
+    <Button
+        android:id="@+id/btn_back"
+        android:layout_width="40dp"
+        android:layout_height="20dp"
+        android:background="#00FFFFFF"
+        android:contentDescription="Go back"
+        android:drawableLeft="@drawable/ic_arrow_back"
+        android:orientation="vertical"
+        android:padding="14dp"
+        app:layout_constraintBottom_toBottomOf="@+id/rectangle_62"
+        app:layout_constraintEnd_toStartOf="@+id/tittle_thongtin"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/rectangle_62"
+        app:layout_constraintTop_toTopOf="@+id/rectangle_62"
+        app:layout_constraintVertical_bias="0.5"
+        tools:ignore="TouchTargetSizeCheck" />
+    <ImageButton
+        android:id="@+id/btn_start"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="33dp"
+        android:background="@drawable/star_1"
+        android:clickable="true"
+        android:contentDescription="yêu thích phòng khám"
+        app:layout_constraintBottom_toBottomOf="@+id/rectangle_62"
+        app:layout_constraintEnd_toEndOf="@+id/rectangle_62"
+        app:layout_constraintTop_toTopOf="@+id/rectangle_62"
+        app:layout_constraintVertical_bias="0"
+        tools:ignore="TouchTargetSizeCheck">
+    </ImageButton>
 
     <TextView
         android:id="@+id/hovaten"
@@ -228,227 +678,228 @@
 
 
 
-    <RelativeLayout
-        android:id="@+id/frame_bacsinoibat"
-        android:layout_width="match_parent"
-        android:layout_height="340dp"
-        android:layout_marginTop="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView3"
-        app:layout_constraintVertical_bias="0.0">
-
-        <TextView
-            android:id="@+id/txt_bacsinoibat"
+        <RelativeLayout
+            android:id="@+id/frame_bacsinoibat"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="15dp"
+            android:layout_height="340dp"
             android:layout_marginTop="0dp"
-            android:layout_marginRight="200dp"
-            android:text="Bác sĩ nổi bật"
-            android:textColor="@color/xem_th_m_color"
-            android:textSize="18dp"
-            android:textStyle="bold|italic">
-        </TextView>
-
-        <ImageView
-            android:id="@+id/img_bacsi"
-            android:layout_width="155dp"
-            android:layout_height="155dp"
-            android:layout_below="@+id/txt_bacsinoibat"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/ellipse_1">
-        </ImageView>
-
-        <TextView
-            android:id="@+id/txt_xemthem"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="15dp"
-            android:clickable="true"
-            android:text="Xem thêm"
-            android:textColor="@color/xem_th_m_color"
-            android:textStyle="bold|italic"
-            tools:ignore="TouchTargetSizeCheck">
-        </TextView>
-
-        <TextView
-            android:id="@+id/txt_tenbacsi"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="35dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginBottom="0dp"
-            android:layout_toEndOf="@+id/img_bacsi"
-            android:text="GS.TS.BS Nguyễn Trọng Tâm"
-            android:textColor="#009688"
-            android:textStyle="bold">
-        </TextView>
-
-        <TextView
-            android:id="@+id/txt_khoakham"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/txt_tenbacsi"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="5dp"
-            android:layout_toEndOf="@+id/img_bacsi"
-            android:text="Tim mạch"
-            android:textColor="#009688"
-            android:textSize="15dp"
-            android:textStyle="italic"
-            tools:ignore="TextSizeCheck">
-        </TextView>
-
-        <TextView
-            android:id="@+id/txt_giatien"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/txt_khoakham"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="5dp"
-            android:layout_toEndOf="@+id/img_bacsi"
-            android:text="500.000đ"
-            android:textColor="#F44336"
-            android:textStyle="bold">
-        </TextView>
-
-        <Button
-            android:id="@+id/btn_book1"
-            android:layout_width="wrap_content"
-            android:layout_height="35dp"
-            android:layout_below="@+id/txt_giatien"
-            android:layout_marginLeft="10dp"
-            android:layout_toEndOf="@+id/img_bacsi"
-            android:background="@drawable/btn_book"
-            android:drawableEnd="@drawable/calendar_1"
-            android:gravity="center"
-            android:paddingEnd="10dp"
-            android:text="Đặt lịch"
-            android:layout_marginTop="5dp"
-            android:textAllCaps="false"
-            android:textColor="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintVertical_bias="0.0"
-            tools:ignore="TouchTargetSizeCheck">
-        </Button>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textView3"
+            app:layout_constraintVertical_bias="0.0">
 
-        <Button
-            android:id="@+id/btn_livechat1"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_below="@+id/txt_tenbacsi"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="55dp"
-            android:layout_toEndOf="@+id/btn_book1"
-            android:background="@drawable/live_chat_2"
-            android:contentDescription="livechat for more information"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintVertical_bias="0"
-            tools:ignore="TouchTargetSizeCheck">
-        </Button>
+            <TextView
+                android:id="@+id/txt_bacsinoibat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginRight="200dp"
+                android:text="Bác sĩ nổi bật"
+                android:textColor="@color/xem_th_m_color"
+                android:textSize="18dp"
+                android:textStyle="bold|italic">
+            </TextView>
 
-        <HorizontalScrollView
-            android:layout_width="match_parent"
-            android:layout_height="155dp"
-            android:layout_below="@+id/img_bacsi"
-            android:layout_marginTop="0dp">
+            <ImageView
+                android:id="@+id/img_bacsi"
+                android:layout_width="155dp"
+                android:layout_height="155dp"
+                android:layout_below="@+id/txt_bacsinoibat"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/ellipse_1">
+            </ImageView>
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/layout_constraint1"
+            <TextView
+                android:id="@+id/txt_xemthem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="15dp"
+                android:clickable="true"
+                android:text="Xem thêm"
+                android:textColor="@color/xem_th_m_color"
+                android:textStyle="bold|italic"
+                tools:ignore="TouchTargetSizeCheck">
+            </TextView>
+
+            <TextView
+                android:id="@+id/txt_tenbacsi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="0dp"
+                android:layout_toEndOf="@+id/img_bacsi"
+                android:text="GS.TS.BS Nguyễn Trọng Tâm"
+                android:textColor="#009688"
+                android:textStyle="bold">
+            </TextView>
+
+            <TextView
+                android:id="@+id/txt_khoakham"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txt_tenbacsi"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_toEndOf="@+id/img_bacsi"
+                android:text="Tim mạch"
+                android:textColor="#009688"
+                android:textSize="15dp"
+                android:textStyle="italic"
+                tools:ignore="TextSizeCheck">
+            </TextView>
+
+            <TextView
+                android:id="@+id/txt_giatien"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txt_khoakham"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_toEndOf="@+id/img_bacsi"
+                android:text="500.000đ"
+                android:textColor="#F44336"
+                android:textStyle="bold">
+            </TextView>
+
+            <Button
+                android:id="@+id/btn_book1"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_below="@+id/txt_giatien"
+                android:layout_marginLeft="10dp"
+                android:layout_toEndOf="@+id/img_bacsi"
+                android:background="@drawable/btn_book"
+                android:drawableEnd="@drawable/calendar_1"
+                android:gravity="center"
+                android:paddingEnd="10dp"
+                android:text="Đặt lịch"
+                android:layout_marginTop="5dp"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                tools:ignore="TouchTargetSizeCheck">
+            </Button>
+
+            <Button
+                android:id="@+id/btn_livechat1"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_below="@+id/txt_tenbacsi"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="55dp"
+                android:layout_toEndOf="@+id/btn_book1"
+                android:background="@drawable/live_chat_2"
+                android:contentDescription="livechat for more information"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintVertical_bias="0"
+                tools:ignore="TouchTargetSizeCheck">
+            </Button>
+
+            <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="155dp"
-                android:layout_marginLeft="15dp"
+                android:layout_below="@+id/img_bacsi"
                 android:layout_marginTop="0dp">
 
-                <TextView
-                    android:id="@+id/txt_goikham"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layout_constraint1"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Gói khám"
-                    android:textColor="@color/xem_th_m_color"
-                    android:textSize="18dp"
-                    android:textStyle="bold|italic"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                </TextView>
-
-                <RelativeLayout
-                    android:id="@+id/layout_goikham"
-                    android:layout_width="250dp"
-                    android:layout_height="80dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@color/rectangle_81_color"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_goikham">
-                    <TextView
-                        android:id="@+id/txt_tengoikham"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentStart="true"
-                        android:layout_marginTop="10dp"
-                        android:text="Sàng lọc ung thư vú và phụ khoa"
-                        android:textColor="#009688"
-                        android:textStyle="italic|bold"
-                        android:layout_marginHorizontal="5dp">
-                    </TextView>
+                    android:layout_height="155dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="0dp">
 
                     <TextView
+                        android:id="@+id/txt_goikham"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/txt_tengoikham"
-                        android:layout_marginHorizontal="5dp"
-                        android:layout_marginTop="10dp"
-                        android:text="2.323.000đ"
-                        android:textColor="#F44336"
-                        android:textStyle="bold">
-                    </TextView>
-                </RelativeLayout>
-                <RelativeLayout
-                    android:layout_width="250dp"
-                    android:layout_height="80dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_goikham"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="260dp"
-                    android:background="@color/rectangle_81_color">
-                    <TextView
-                        android:id="@+id/txt_tengoikham1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentStart="true"
-                        android:layout_marginTop="10dp"
-                        android:text="Sàng lọc ung thư vú và phụ khoa"
-                        android:textColor="#009688"
-                        android:textStyle="italic|bold"
-                        android:layout_marginHorizontal="5dp">
+                        android:text="Gói khám"
+                        android:textColor="@color/xem_th_m_color"
+                        android:textSize="18dp"
+                        android:textStyle="bold|italic"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
                     </TextView>
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/txt_tengoikham1"
-                        android:layout_marginHorizontal="5dp"
+                    <RelativeLayout
+                        android:id="@+id/layout_goikham"
+                        android:layout_width="250dp"
+                        android:layout_height="80dp"
                         android:layout_marginTop="10dp"
-                        android:text="2.323.000đ"
-                        android:textColor="#F44336"
-                        android:textStyle="bold">
-                    </TextView>
-                </RelativeLayout>
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                        android:background="@color/rectangle_81_color"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_goikham">
+                        <TextView
+                            android:id="@+id/txt_tengoikham"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_marginTop="10dp"
+                            android:text="Sàng lọc ung thư vú và phụ khoa"
+                            android:textColor="#009688"
+                            android:textStyle="italic|bold"
+                            android:layout_marginHorizontal="5dp">
+                        </TextView>
 
-        </HorizontalScrollView>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/txt_tengoikham"
+                            android:layout_marginHorizontal="5dp"
+                            android:layout_marginTop="10dp"
+                            android:text="2.323.000đ"
+                            android:textColor="#F44336"
+                            android:textStyle="bold">
+                        </TextView>
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="250dp"
+                        android:layout_height="80dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_goikham"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="260dp"
+                        android:background="@color/rectangle_81_color">
+                        <TextView
+                            android:id="@+id/txt_tengoikham1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_marginTop="10dp"
+                            android:text="Sàng lọc ung thư vú và phụ khoa"
+                            android:textColor="#009688"
+                            android:textStyle="italic|bold"
+                            android:layout_marginHorizontal="5dp">
+                        </TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/txt_tengoikham1"
+                            android:layout_marginHorizontal="5dp"
+                            android:layout_marginTop="10dp"
+                            android:text="2.323.000đ"
+                            android:textColor="#F44336"
+                            android:textStyle="bold">
+                        </TextView>
+                    </RelativeLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </HorizontalScrollView>
 
 
-    </RelativeLayout>
+        </RelativeLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
+-->
