@@ -28,10 +28,10 @@
 
     <!-- log_in_string-->
     <string name="dang_nhap">Đăng nhập</string>
->>>>>>> df063515e3a9fa8ecb41c560861c84c9d5b4e750
->>>>>>> ac3941b4c76b3469c341c7a36a3c4033534544f6
-=======
->>>>>>> parent of ac3941b (tracuudonthuoc to constraint)
+    >>>>>>> df063515e3a9fa8ecb41c560861c84c9d5b4e750
+    >>>>>>> ac3941b4c76b3469c341c7a36a3c4033534544f6
+    =======
+    >>>>>>> parent of ac3941b (tracuudonthuoc to constraint)
     <!-- xemphongkham strings -->
 
 
@@ -102,12 +102,12 @@
     <string name="ma_kham_benh1">D6-1724</string>
     <string name="ngay_kham1">12/3/2023</string>
     <string name="dia_chi7">126 Võ Việt Vũ, Phường 13, Quận 10, TP HCM, Việt Nam</string>
-    
+
     <string name="app_name">HealthApp</string>
     <string name="doctor_s_fr">Docter Friend</string>
     <string name="nhapsdt">Nhập email để tiếp tục</string>
     <string name="title_activity_otpauthentication">activity_otpauthentication</string>
-    
+
     <!-- appointment3 strings -->
     <string name="thoi_gian_kham">16:40</string>
     <string name="ngay_kham"> ngày 17/12/2023</string>

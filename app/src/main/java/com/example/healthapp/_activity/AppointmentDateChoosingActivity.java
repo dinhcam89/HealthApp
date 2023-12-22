@@ -1,8 +1,9 @@
-package com.example.healthapp;
+package com.example.healthapp._activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,6 +14,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.healthapp.R;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
@@ -22,11 +25,11 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
     private View bgView;
     private View rectangle62;
     private FrameLayout frameLayout;
-    private ImageView arrowBack;
+    private ImageButton btn_Back;
     private TextView titleTextView;
     private ImageView doctorAvatarImageView;
     private TextView doctorNameTextView;
-    private TextView khoaKhamTextView;
+    private TextView doctorSpecialityTextView;
     private TextView chooseDateTextView;
     private DatePicker chooseAppointmentDatePicker;
     private LinearLayout linearLayout1;
@@ -45,7 +48,12 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_appointment_date_choosing);
 
         initUI();
-
+        btn_Back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         chosenDateTextView = findViewById(R.id.textView_ChoosenDate);
         chooseAppointmentDatePicker = findViewById(R.id.datePicker_ChooseAppointmentDate);
 
@@ -62,6 +70,8 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
                 chooseAppointmentDatePicker.getDayOfMonth(),
                 (view, year, monthOfYear, dayOfMonth) -> updateChosenDate()
         );
+        getDoctorInfor();
+
 
     }
     private void initUI() {
@@ -69,11 +79,11 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
         bgView = findViewById(R.id._bg__tracuudonthuoc2_ek2);
         rectangle62 = findViewById(R.id.rectangle_62);
         frameLayout = findViewById(R.id.frameLayout);
-        arrowBack = findViewById(R.id.arrow_back);
+        btn_Back = findViewById(R.id.btn_Back);
         titleTextView = findViewById(R.id.tittle_tracuudonthuoc);
         doctorAvatarImageView = findViewById(R.id.imgView_DoctorAvatar);
         doctorNameTextView = findViewById(R.id.textView_DoctorName);
-        khoaKhamTextView = findViewById(R.id.textView_Khoakham);
+        doctorSpecialityTextView = findViewById(R.id.textView_DoctorSpeciality);
         chooseDateTextView = findViewById(R.id.textView_ChooseDate);
         chooseAppointmentDatePicker = findViewById(R.id.datePicker_ChooseAppointmentDate);
         linearLayout1 = findViewById(R.id.linear1);
@@ -100,5 +110,18 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
         String formattedDate = sdf.format(calendar.getTime());
         chosenDateTextView.setText("Ngày đã chọn: " + formattedDate);
+    }
+    private void getDoctorInfor()
+    {
+        Intent intent = getIntent();
+        if (intent != null) {
+            String doctorName = intent.getStringExtra("doctorName");
+            String doctorSpeciality = intent.getStringExtra("doctorSpeciality");
+
+            // Hiển thị dữ liệu trong TextView
+            String bookInfo = "Doctor Name: " + doctorName + "\nSpeciality: " + doctorSpeciality;
+            doctorNameTextView.setText(doctorName);
+            doctorSpecialityTextView.setText(doctorSpeciality);
+        }
     }
 }

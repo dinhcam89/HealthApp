@@ -1,21 +1,17 @@
-package com.example.healthapp._activity;
+package com.example.healthapp;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.healthapp.R;
-import com.example.healthapp.SignInActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainMenuActivity extends AppCompatActivity {
 
-  /*  Button btnSignOut;
+    Button btnSignOut;
     FirebaseAuth emailAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,24 +26,6 @@ public class MainMenuActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), SignInActivity.class);
                 startActivity(intent);
                 finish();
-            }
-        });
-    }*/
-  private CardView chonbacsi;
-    private Intent intent;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        cardview = findViewById(R.id.bacsi);
-        intent = new Intent(this, .class);
-
-        textView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(intent);
             }
         });
     }
