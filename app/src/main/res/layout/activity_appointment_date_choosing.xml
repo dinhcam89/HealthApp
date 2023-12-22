@@ -33,11 +33,11 @@
         app:layout_constraintStart_toStartOf="@+id/_bg__tracuudonthuoc2_ek2"
         app:layout_constraintTop_toTopOf="@+id/_bg__tracuudonthuoc2_ek2">
 
-        <ImageView
-
-            android:id="@+id/arrow_back"
+        <ImageButton
+            android:id="@+id/btn_Back"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@android:color/transparent"
             android:clickable="true"
             android:contentDescription="arrow_1"
             android:src="@drawable/arrow_1"
@@ -85,7 +85,7 @@
         android:textStyle="bold">
     </TextView>
     <TextView
-        android:id="@+id/textView_Khoakham"
+        android:id="@+id/textView_DoctorSpeciality"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"

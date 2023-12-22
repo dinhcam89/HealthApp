@@ -14,7 +14,7 @@
     </View>
 
     <ImageView
-        android:id="@+id/image_bacsi"
+        android:id="@+id/image_Doctor"
         android:layout_width="110dp"
         android:layout_height="100dp"
         android:layout_alignStart="@+id/frame_doctor"
@@ -26,15 +26,15 @@
     </ImageView>
 
     <TextView
-        android:id="@+id/textview_tenbacsi"
+        android:id="@+id/textView_DoctorName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/frame_doctor"
         android:layout_alignEnd="@+id/frame_doctor"
         android:layout_marginHorizontal="10dp"
         android:layout_marginTop="10dp"
-        android:layout_toEndOf="@+id/image_bacsi"
-        android:text="PGS.TS.BS Nguyễn Trọng Tâm"
+        android:layout_toEndOf="@+id/image_Doctor"
+        android:text="Tên Bác sĩ"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="15dp"
         android:textStyle="bold"
@@ -42,15 +42,15 @@
     </TextView>
 
     <TextView
-        android:id="@+id/textview_TenKhoaKham"
+        android:id="@+id/textView_DoctorSpeciality"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/frame_doctor"
         android:layout_alignEnd="@+id/frame_doctor"
         android:layout_marginHorizontal="10dp"
         android:layout_marginTop="35dp"
-        android:layout_toEndOf="@+id/image_bacsi"
-        android:text="Tim mạch"
+        android:layout_toEndOf="@+id/image_Doctor"
+        android:text="Chuyên khoa"
         android:textColor="@color/teal_700"
         android:textSize="14dp"
         android:textStyle="bold"
@@ -65,19 +65,19 @@
         android:layout_alignEnd="@+id/frame_doctor"
         android:layout_marginHorizontal="10dp"
         android:layout_marginTop="55dp"
-        android:layout_toEndOf="@+id/image_bacsi"
+        android:layout_toEndOf="@+id/image_Doctor"
         android:text="0đ"
         android:textColor="#F44336"
         android:textStyle="bold">
     </TextView>
 
     <Button
-        android:id="@+id/btn_book"
+        android:id="@+id/btn_Book"
         android:layout_width="wrap_content"
         android:layout_height="35dp"
         android:layout_below="@+id/textView_Price"
         android:layout_alignBottom="@+id/frame_doctor"
-        android:layout_toEndOf="@+id/image_bacsi"
+        android:layout_toEndOf="@+id/image_Doctor"
         android:background="@drawable/btn_book"
         android:drawableEnd="@drawable/calendar_1"
         android:gravity="center"
@@ -91,12 +91,12 @@
     </Button>
 
     <Button
-        android:id="@+id/btn_livechat"
+        android:id="@+id/btn_hotline"
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:layout_below="@+id/textView_Price"
         android:layout_alignBottom="@+id/frame_doctor"
-        android:layout_toEndOf="@+id/btn_book"
+        android:layout_toEndOf="@+id/btn_Book"
         android:background="@drawable/live_chat_2"
         android:contentDescription="livechat for more information"
         android:layout_marginLeft="15dp"

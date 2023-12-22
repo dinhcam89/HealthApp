@@ -10,12 +10,14 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.Light"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:targetApi="31">
         <activity
-            android:name=".MenuActivity"
+            android:name="._activity.AppointmentDateChoosingActivity"
             android:exported="false" />
-        <!-- <activity -->
+        <activity
+            android:name="._activity.MenuActivity"
+            android:exported="false" /> <!-- <activity -->
         <!-- android:name=".MainActivity2" -->
         <!-- android:exported="false" -->
         <!-- android:label="@string/title_activity_main2" -->
@@ -26,13 +28,13 @@
         <!-- android:label="@string/title_activity_xpk" -->
         <!-- android:theme="@style/Theme.HealthApp" /> -->
         <activity
-            android:name=".MainActivity"
+            android:name="._activity.MainActivity"
             android:exported="false" />
         <activity
-            android:name=".MainMenuActivity"
+            android:name="._activity.MainMenuActivity"
             android:exported="false" />
         <activity
-            android:name=".AppointmentDateChoosingActivity"
+            android:name="._activity.DoctorChoosingActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -41,7 +43,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SignInActivity"
+            android:name="._activity.SignInActivity"
             android:exported="false" />
 
         <meta-data
