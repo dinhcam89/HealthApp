@@ -5,15 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    tools:context="._activity.MenuActivity">
+    tools:context="._activity.MainMenuActivity">
 
     <ScrollView
         android:id="@+id/scrollView1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp">
+        tools:layout_editor_absoluteX="-62dp"
+        tools:layout_editor_absoluteY="83dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -27,8 +27,7 @@
                 android:background="@drawable/rectangle_62_shape"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-            </View>
+                app:layout_constraintTop_toTopOf="parent"></View>
 
             <TextView
                 android:id="@+id/doctor_s_fr2"
@@ -36,6 +35,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
+                android:layout_marginTop="20dp"
                 android:fontFamily="@font/inter_black"
                 android:text="Doctor's Friend"
                 android:textAlignment="center"
@@ -44,9 +44,7 @@
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginTop="20dp">
-            </TextView>
+                app:layout_constraintTop_toTopOf="parent"></TextView>
 
             <TextView
                 android:id="@+id/textView4"
@@ -58,8 +56,7 @@
                 android:textStyle="italic|bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/doctor_s_fr2">
-            </TextView>
+                app:layout_constraintTop_toBottomOf="@+id/doctor_s_fr2"></TextView>
 
             <GridLayout
                 android:id="@+id/gridLayout"
@@ -74,6 +71,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView4">
 
                 <androidx.cardview.widget.CardView
+                    android:id ="@+id/bacsi"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_row="0"
@@ -96,8 +94,7 @@
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/img_btndoctor">
-                        </ImageView>
+                            android:src="@drawable/img_btndoctor"></ImageView>
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -106,12 +103,12 @@
                             android:textAlignment="center"
                             android:textColor="#0F433C"
                             android:textSize="16dp"
-                            android:textStyle="bold">
-                        </TextView>
+                            android:textStyle="bold"></TextView>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/phongkham"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_row="0"
@@ -134,8 +131,7 @@
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="100dp"
-                            android:src="@drawable/hospital">
-                        </ImageView>
+                            android:src="@drawable/hospital"></ImageView>
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -144,13 +140,13 @@
                             android:textAlignment="center"
                             android:textColor="#0F433C"
                             android:textSize="16dp"
-                            android:textStyle="bold">
-                        </TextView>
+                            android:textStyle="bold"></TextView>
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/goikham"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_row="0"
@@ -174,8 +170,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="100dp"
                             android:layout_marginHorizontal="5dp"
-                            android:src="@drawable/doctor_suitcase">
-                        </ImageView>
+                            android:src="@drawable/doctor_suitcase"></ImageView>
 
                         <TextView
                             android:layout_width="match_parent"
@@ -184,14 +179,14 @@
                             android:textAlignment="center"
                             android:textColor="#0F433C"
                             android:textSize="16sp"
-                            android:textStyle="bold">
-                        </TextView>
+                            android:textStyle="bold"></TextView>
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
 
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/diendan"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_row="1"
@@ -215,8 +210,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="100dp"
                             android:layout_marginHorizontal="5dp"
-                            android:src="@drawable/qa">
-                        </ImageView>
+                            android:src="@drawable/qa"></ImageView>
 
                         <TextView
                             android:layout_width="match_parent"
@@ -225,14 +219,14 @@
                             android:textAlignment="center"
                             android:textColor="#0F433C"
                             android:textSize="16sp"
-                            android:textStyle="bold">
-                        </TextView>
+                            android:textStyle="bold"></TextView>
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
 
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/tracuu"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_row="1"
@@ -256,8 +250,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="100dp"
                             android:layout_marginHorizontal="5dp"
-                            android:src="@drawable/dictionary">
-                        </ImageView>
+                            android:src="@drawable/dictionary"></ImageView>
 
                         <TextView
                             android:layout_width="match_parent"
@@ -266,13 +259,13 @@
                             android:textAlignment="center"
                             android:textColor="#0F433C"
                             android:textSize="16sp"
-                            android:textStyle="bold">
-                        </TextView>
+                            android:textStyle="bold"></TextView>
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/danhmuc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_row="1"
@@ -296,8 +289,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="100dp"
                             android:layout_marginHorizontal="5dp"
-                            android:src="@drawable/categories">
-                        </ImageView>
+                            android:src="@drawable/categories"></ImageView>
 
                         <TextView
                             android:layout_width="match_parent"
@@ -306,8 +298,7 @@
                             android:textAlignment="center"
                             android:textColor="#0F433C"
                             android:textSize="16sp"
-                            android:textStyle="bold">
-                        </TextView>
+                            android:textStyle="bold"></TextView>
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
@@ -331,12 +322,12 @@
                 android:id="@+id/frame_bacsinoibat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="0dp"
+                android:layout_marginTop="15dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginTop="15dp"
-                android:layout_marginHorizontal="0dp"
                 app:layout_constraintTop_toBottomOf="@+id/imageView6"
                 app:layout_constraintVertical_bias="0.0">
 
@@ -351,8 +342,7 @@
                     android:text="Bác sĩ nổi bật"
                     android:textColor="@color/xem_th_m_color"
                     android:textSize="18dp"
-                    android:textStyle="bold|italic">
-                </TextView>
+                    android:textStyle="bold|italic"></TextView>
 
                 <ImageView
                     android:id="@+id/img_bacsi"
@@ -361,8 +351,7 @@
                     android:layout_below="@+id/txt_bacsinoibat"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="10dp"
-                    android:background="@drawable/ellipse_1">
-                </ImageView>
+                    android:background="@drawable/ellipse_1"></ImageView>
 
                 <TextView
                     android:id="@+id/txt_xemthem"
@@ -374,8 +363,7 @@
                     android:text="Xem thêm"
                     android:textColor="@color/xem_th_m_color"
                     android:textStyle="bold|italic"
-                    tools:ignore="TouchTargetSizeCheck">
-                </TextView>
+                    tools:ignore="TouchTargetSizeCheck"></TextView>
 
                 <TextView
                     android:id="@+id/txt_tenbacsi"
@@ -390,8 +378,7 @@
                     android:layout_toEndOf="@+id/img_bacsi"
                     android:text="GS.TS.BS Nguyễn Trọng Tâm"
                     android:textColor="#009688"
-                    android:textStyle="bold">
-                </TextView>
+                    android:textStyle="bold"></TextView>
 
                 <TextView
                     android:id="@+id/txt_khoakham"
@@ -405,8 +392,7 @@
                     android:textColor="#009688"
                     android:textSize="15dp"
                     android:textStyle="italic"
-                    tools:ignore="TextSizeCheck">
-                </TextView>
+                    tools:ignore="TextSizeCheck"></TextView>
 
                 <TextView
                     android:id="@+id/txt_giatien"
@@ -418,8 +404,7 @@
                     android:layout_toEndOf="@+id/img_bacsi"
                     android:text="500.000đ"
                     android:textColor="#F44336"
-                    android:textStyle="bold">
-                </TextView>
+                    android:textStyle="bold"></TextView>
 
                 <Button
                     android:id="@+id/btn_book1"
@@ -438,8 +423,7 @@
                     android:textColor="#FFFFFF"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintVertical_bias="0.0"
-                    tools:ignore="TouchTargetSizeCheck">
-                </Button>
+                    tools:ignore="TouchTargetSizeCheck"></Button>
 
                 <Button
                     android:id="@+id/btn_livechat1"
@@ -453,8 +437,7 @@
                     android:contentDescription="livechat for more information"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintVertical_bias="0"
-                    tools:ignore="TouchTargetSizeCheck">
-                </Button>
+                    tools:ignore="TouchTargetSizeCheck"></Button>
             </RelativeLayout>
 
             <RelativeLayout
@@ -474,8 +457,7 @@
                     android:text="Xem thêm"
                     android:textColor="@color/xem_th_m_color"
                     android:textStyle="bold|italic"
-                    tools:ignore="TouchTargetSizeCheck">
-                </TextView>
+                    tools:ignore="TouchTargetSizeCheck"></TextView>
 
                 <TextView
                     android:id="@+id/txt_goikham"
@@ -509,8 +491,7 @@
                         android:layout_marginTop="10dp"
                         android:text="Sàng lọc ung thư vú và phụ khoa"
                         android:textColor="#009688"
-                        android:textStyle="italic|bold">
-                    </TextView>
+                        android:textStyle="italic|bold"></TextView>
 
                     <TextView
                         android:id="@+id/textView_Price"
@@ -521,19 +502,18 @@
                         android:layout_marginTop="10dp"
                         android:text="2.323.000đ"
                         android:textColor="#F44336"
-                        android:textStyle="bold">
-                    </TextView>
+                        android:textStyle="bold"></TextView>
 
                     <Button
                         android:id="@+id/btn_book2"
                         android:layout_width="wrap_content"
                         android:layout_height="35dp"
                         android:layout_below="@+id/txt_tengoikham"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="5dp"
                         android:layout_toEndOf="@+id/textView_Price"
                         android:background="@drawable/btn_book"
                         android:drawableEnd="@drawable/calendar_1"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginLeft="20dp"
                         android:gravity="center"
                         android:paddingEnd="10dp"
                         android:text="Đặt lịch"
@@ -542,11 +522,9 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/txt_tengoikham"
                         app:layout_constraintVertical_bias="0.0"
-                        tools:ignore="TouchTargetSizeCheck">
-                    </Button>
+                        tools:ignore="TouchTargetSizeCheck"></Button>
                 </RelativeLayout>
             </RelativeLayout>
-
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
