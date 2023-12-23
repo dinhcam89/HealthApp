@@ -11,13 +11,15 @@
         android:layout_height="match_parent"
         android:layout_marginBottom="60dp">
 
+
+
     <ScrollView
         android:id="@+id/scrollView1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp">
+        tools:layout_editor_absoluteX="-62dp"
+        tools:layout_editor_absoluteY="83dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -31,8 +33,7 @@
                 android:background="@drawable/rectangle_62_shape"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-            </View>
+                app:layout_constraintTop_toTopOf="parent"></View>
 
             <TextView
                 android:id="@+id/doctor_s_fr2"
@@ -40,6 +41,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
+                android:layout_marginTop="20dp"
                 android:fontFamily="@font/inter_black"
                 android:text="Doctor's Friend"
                 android:textAlignment="center"
@@ -48,9 +50,7 @@
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginTop="20dp">
-            </TextView>
+                app:layout_constraintTop_toTopOf="parent"></TextView>
 
             <TextView
                 android:id="@+id/textView4"
@@ -62,8 +62,7 @@
                 android:textStyle="italic|bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/doctor_s_fr2">
-            </TextView>
+                app:layout_constraintTop_toBottomOf="@+id/doctor_s_fr2"></TextView>
 
             <GridLayout
                 android:id="@+id/gridLayout"
@@ -78,6 +77,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView4">
 
                 <androidx.cardview.widget.CardView
+                    android:id ="@+id/bacsi"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_row="0"
@@ -100,8 +100,7 @@
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/img_btndoctor">
-                        </ImageView>
+                            android:src="@drawable/img_btndoctor"></ImageView>
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -110,12 +109,12 @@
                             android:textAlignment="center"
                             android:textColor="#0F433C"
                             android:textSize="16dp"
-                            android:textStyle="bold">
-                        </TextView>
+                            android:textStyle="bold"></TextView>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/phongkham"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_row="0"
@@ -138,8 +137,7 @@
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="100dp"
-                            android:src="@drawable/hospital">
-                        </ImageView>
+                            android:src="@drawable/hospital"></ImageView>
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -148,13 +146,13 @@
                             android:textAlignment="center"
                             android:textColor="#0F433C"
                             android:textSize="16dp"
-                            android:textStyle="bold">
-                        </TextView>
+                            android:textStyle="bold"></TextView>
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/goikham"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_row="0"
@@ -178,8 +176,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="100dp"
                             android:layout_marginHorizontal="5dp"
-                            android:src="@drawable/doctor_suitcase">
-                        </ImageView>
+                            android:src="@drawable/doctor_suitcase"></ImageView>
 
                         <TextView
                             android:layout_width="match_parent"
@@ -188,14 +185,14 @@
                             android:textAlignment="center"
                             android:textColor="#0F433C"
                             android:textSize="16sp"
-                            android:textStyle="bold">
-                        </TextView>
+                            android:textStyle="bold"></TextView>
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
 
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/diendan"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_row="1"
@@ -219,8 +216,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="100dp"
                             android:layout_marginHorizontal="5dp"
-                            android:src="@drawable/qa">
-                        </ImageView>
+                            android:src="@drawable/qa"></ImageView>
 
                         <TextView
                             android:layout_width="match_parent"
@@ -229,14 +225,14 @@
                             android:textAlignment="center"
                             android:textColor="#0F433C"
                             android:textSize="16sp"
-                            android:textStyle="bold">
-                        </TextView>
+                            android:textStyle="bold"></TextView>
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
 
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/tracuu"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_row="1"
@@ -260,8 +256,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="100dp"
                             android:layout_marginHorizontal="5dp"
-                            android:src="@drawable/dictionary">
-                        </ImageView>
+                            android:src="@drawable/dictionary"></ImageView>
 
                         <TextView
                             android:layout_width="match_parent"
@@ -270,13 +265,13 @@
                             android:textAlignment="center"
                             android:textColor="#0F433C"
                             android:textSize="16sp"
-                            android:textStyle="bold">
-                        </TextView>
+                            android:textStyle="bold"></TextView>
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/danhmuc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_row="1"
@@ -300,8 +295,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="100dp"
                             android:layout_marginHorizontal="5dp"
-                            android:src="@drawable/categories">
-                        </ImageView>
+                            android:src="@drawable/categories"></ImageView>
 
                         <TextView
                             android:layout_width="match_parent"
@@ -310,8 +304,7 @@
                             android:textAlignment="center"
                             android:textColor="#0F433C"
                             android:textSize="16sp"
-                            android:textStyle="bold">
-                        </TextView>
+                            android:textStyle="bold"></TextView>
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
@@ -359,6 +352,7 @@
 
                 </TextView>
 
+
                 <ImageView
                     android:id="@+id/img_bacsi"
                     android:layout_width="155dp"
@@ -384,6 +378,7 @@
 
                 </TextView>
 
+
                 <TextView
                     android:id="@+id/txt_tenbacsi"
                     android:layout_width="wrap_content"
@@ -401,6 +396,7 @@
 
                 </TextView>
 
+
                 <TextView
                     android:id="@+id/txt_khoakham"
                     android:layout_width="wrap_content"
@@ -416,7 +412,6 @@
                     tools:ignore="TextSizeCheck">
 
                 </TextView>
-
                 <TextView
                     android:id="@+id/txt_giatien"
                     android:layout_width="wrap_content"
@@ -430,6 +425,7 @@
                     android:textStyle="bold">
 
                 </TextView>
+
 
                 <Button
                     android:id="@+id/btn_book1"
@@ -492,6 +488,7 @@
                     tools:ignore="TouchTargetSizeCheck">
 
                 </TextView>
+
 
                 <TextView
                     android:id="@+id/txt_goikham"
@@ -560,12 +557,14 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/txt_tengoikham"
                         app:layout_constraintVertical_bias="0.0"
-                        tools:ignore="TouchTargetSizeCheck">
+
+                    tools:ignore="TouchTargetSizeCheck">
 
                     </Button>
+
+
                 </RelativeLayout>
             </RelativeLayout>
-
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -580,6 +579,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:background="@color/white"
+        android:background="@drawable/rectangle_62_shape"
         app:menu="@menu/mainscreen_bottom_navimenu"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
