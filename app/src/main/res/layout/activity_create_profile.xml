@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="._activity.CreateProfileActivity">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView_tittle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tạo hồ sơ khám"
+                android:textAlignment="center"
+                android:textColor="@color/b_c_s__n_i_b_t_color"
+                android:textSize="30dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="15dp"
+                android:layout_marginHorizontal="15dp">
+            </TextView>
+
+            <TextView
+                android:id="@+id/textView_note"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Nhập thông tin hồ sơ"
+                android:textSize="20dp"
+                android:textStyle="bold|italic"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView_tittle"
+                android:layout_marginHorizontal="15dp"
+                android:textColor="@color/b_c_s__n_i_b_t_color"
+                >
+            </TextView>
+
+            <TextView
+                android:id="@+id/textView_note2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Thông tin có dấu (*) là yêu cầu bắt buộc"
+                android:textColor="#F35289"
+                android:textSize="16sp"
+                android:textStyle="italic"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView_note"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="5dp">
+            </TextView>
+
+            <TextView
+                android:id="@+id/textView_hovaten"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/b_c_s__n_i_b_t_color"
+                android:text="Họ và tên*"
+                android:textSize="24dp"
+                android:textStyle="italic|bold"
+                app:layout_constraintTop_toBottomOf="@+id/textView_note2"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="10dp">
+            </TextView>
+
+            <EditText
+                android:id="@+id/editTextText"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:ems="13"
+                android:inputType="text"
+                android:textSize="24dp"
+                android:text="  Nhập họ và tên"
+                android:background="@drawable/create_bar"
+                app:layout_constraintTop_toBottomOf="@+id/textView_hovaten"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="5dp"
+                android:layout_marginHorizontal="15dp"
+                android:textStyle="italic"
+                android:textColor="@color/b_c_s__n_i_b_t_color"
+                />
+
+            <TextView
+                android:id="@+id/textView_sdt2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/b_c_s__n_i_b_t_color"
+                android:text="Số điện thoại*"
+                android:textSize="24dp"
+                android:textStyle="italic|bold"
+                app:layout_constraintTop_toBottomOf="@+id/editTextText"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="10dp">
+            </TextView>
+
+            <EditText
+                android:id="@+id/editTextText1"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:ems="13"
+                android:inputType="text"
+                android:textSize="24dp"
+                android:text="  Nhập số điện thoại"
+                android:background="@drawable/create_bar"
+                app:layout_constraintTop_toBottomOf="@+id/textView_sdt2"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="5dp"
+                android:layout_marginHorizontal="15dp"
+                android:textStyle="italic"
+                android:textColor="@color/b_c_s__n_i_b_t_color"
+                />
+
+            <TextView
+                android:id="@+id/textView_ngaysinh"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/b_c_s__n_i_b_t_color"
+                android:text="Ngày sinh*"
+                android:textSize="24dp"
+                android:textStyle="italic|bold"
+                app:layout_constraintTop_toBottomOf="@+id/editTextText1"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="10dp">
+            </TextView>
+
+            <EditText
+                android:id="@+id/editTextText2"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:ems="13"
+                android:inputType="text"
+                android:textSize="24dp"
+                android:text="  Nhập ngày sinh"
+                android:background="@drawable/create_bar"
+                app:layout_constraintTop_toBottomOf="@+id/textView_ngaysinh"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="5dp"
+                android:layout_marginHorizontal="15dp"
+                android:textStyle="italic"
+                android:textColor="@color/b_c_s__n_i_b_t_color"
+                />
+
+            <TextView
+                android:id="@+id/textView_soBHYT1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/b_c_s__n_i_b_t_color"
+                android:text="Số BHYT*"
+                android:textSize="24dp"
+                android:textStyle="italic|bold"
+                app:layout_constraintTop_toBottomOf="@+id/editTextText2"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="10dp">
+            </TextView>
+
+            <EditText
+                android:id="@+id/editTextText3"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:ems="13"
+                android:inputType="text"
+                android:textSize="24dp"
+                android:text="  Nhập số BHYT"
+                android:background="@drawable/create_bar"
+                app:layout_constraintTop_toBottomOf="@+id/textView_soBHYT1"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="5dp"
+                android:layout_marginHorizontal="15dp"
+                android:textStyle="italic"
+                android:textColor="@color/b_c_s__n_i_b_t_color"
+                />
+
+            <TextView
+                android:id="@+id/textView_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/b_c_s__n_i_b_t_color"
+                android:text="Email"
+                android:textSize="24dp"
+                android:textStyle="italic|bold"
+                app:layout_constraintTop_toBottomOf="@+id/editTextText3"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="10dp">
+            </TextView>
+
+            <EditText
+                android:id="@+id/editTextText4"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:ems="13"
+                android:inputType="text"
+                android:textSize="24dp"
+                android:text="  Nhập email"
+                android:background="@drawable/create_bar"
+                app:layout_constraintTop_toBottomOf="@+id/textView_email"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="5dp"
+                android:layout_marginHorizontal="15dp"
+                android:textStyle="italic"
+                android:textColor="@color/b_c_s__n_i_b_t_color"
+                />
+
+            <TextView
+                android:id="@+id/textView_gioitinh2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/b_c_s__n_i_b_t_color"
+                android:text="Giới tính"
+                android:textSize="24dp"
+                android:textStyle="italic|bold"
+                app:layout_constraintTop_toBottomOf="@+id/editTextText4"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="10dp">
+            </TextView>
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/textView_gioitinh2"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="10dp"
+                android:id="@+id/radio_gioitinh"
+                >
+
+                <RadioButton
+                    android:id="@+id/radio_nu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:textSize="24dp"
+                    android:textStyle="bold|italic"
+                    android:textColor="@color/b_c_s__n_i_b_t_color"
+                    android:text="Nữ" />
+
+                <RadioButton
+                    android:id="@+id/radio_nam"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:minHeight="48dp"
+                    android:textSize="24dp"
+                    android:textStyle="bold|italic"
+                    android:textColor="@color/b_c_s__n_i_b_t_color"
+                    android:text="Nam" />
+
+                <RadioButton
+                    android:id="@+id/radio_chuabiet"
+                    android:text="Chưa biết"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:textSize="24dp"
+                    android:textStyle="bold|italic"
+                    android:textColor="@color/b_c_s__n_i_b_t_color"
+                    android:minHeight="48dp"/>
+            </RadioGroup>
+
+            <Button
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:background="@drawable/btn_book"
+                android:text="Tạo hồ sơ"
+                android:textAllCaps="false"
+                android:textSize="20dp"
+                android:textColor="@color/white"
+                app:layout_constraintTop_toBottomOf="@id/radio_gioitinh"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="15dp"
+                android:layout_marginHorizontal="45dp"
+                >
+            </Button>
+
+
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </ScrollView>
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
