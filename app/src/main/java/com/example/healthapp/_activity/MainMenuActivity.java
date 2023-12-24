@@ -14,6 +14,7 @@ import android.widget.Button;
 import com.example.healthapp.R;
 import com.example.healthapp._activity.DoctorChoosingActivity;
 import com.example.healthapp.databinding.ActivityMainBinding;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainMenuActivity extends AppCompatActivity {
@@ -58,6 +59,9 @@ public class MainMenuActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         setContentView(R.layout.activity_main_menu);
+
+       /*bottomNavigationView = findViewById(R.id.bottomNavigationView);*/
+
 
        /* replaceFragment(new HomeFragment());
 
