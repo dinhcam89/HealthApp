@@ -13,10 +13,14 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:targetApi="31">
         <activity
+<<<<<<< HEAD
             android:name="._activity.BookingListActivity"
             android:exported="false" />
         <activity
             android:name="._activity.BookingList"
+=======
+            android:name="._activity.AppointmentListActivity"
+>>>>>>> e3485db515fcc0cbf6e05b9f433ce15eb75a4abc
             android:exported="false" />
         <activity
             android:name="._activity.CreateProfileActivity"
