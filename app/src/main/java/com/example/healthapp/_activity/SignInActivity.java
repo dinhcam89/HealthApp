@@ -17,6 +17,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class SignInActivity extends AppCompatActivity {
     EditText editTextEmail;
@@ -54,6 +55,7 @@ public class SignInActivity extends AppCompatActivity {
                 String email, pwd;
                 email = editTextEmail.getText().toString();
                 pwd = editTextPwd.getText().toString();
+
                 if(TextUtils.isEmpty((email)))
                 {
                     Toast.makeText(SignInActivity.this, "Vui lòng nhập email!", Toast.LENGTH_SHORT);
@@ -72,8 +74,11 @@ public class SignInActivity extends AppCompatActivity {
                             {
                                 if(task.isSuccessful())
                                 {
+                                    FirebaseUser currentUser = mailAuth.getCurrentUser();
+                                    String user_Uid = currentUser.getUid();
                                     Toast.makeText(SignInActivity.this, "Login Successfully", Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(getApplicationContext(), MainMenuActivity.class);
+                                    Intent intent = new Intent(getApplicationContext(), CreateProfileActivity.class);
+                                    intent.putExtra("user_Uid", user_Uid);
                                     startActivity(intent);
                                     finish();
                                 }
