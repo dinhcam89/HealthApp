@@ -73,6 +73,111 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
         getDoctorInfor();
 
 
+
+        btn8h.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+           btn8h.setSelected(!btn8h.isSelected());
+            }
+        });
+
+        btn9h.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                btn9h.setSelected(!btn9h.isSelected());
+            }
+        });
+
+        btn10h.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                btn10h.setSelected(!btn10h.isSelected());
+            }
+        });
+
+        btn13h.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                btn13h.setSelected(!btn13h.isSelected());
+            }
+        });
+
+        btn14h.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                btn14h.setSelected(!btn14h.isSelected());
+            }
+        });
+
+        btn15h.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                btn15h.setSelected(!btn15h.isSelected());
+            }
+        });
+
+        btn8h.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                selectButton(btn8h);
+            }
+        });
+
+        btn9h.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                selectButton(btn9h);
+            }
+        });
+
+        btn10h.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                selectButton(btn10h);
+            }
+        });
+
+        btn13h.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                selectButton(btn13h);
+            }
+        });
+
+        btn14h.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                selectButton(btn14h);
+            }
+        });
+
+        btn15h.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                selectButton(btn15h);
+            }
+        });
+    }
+
+    private Button selectedButton = null;
+
+    private void selectButton(Button button) {
+        if (selectedButton == button) {
+            // Nút đã được chọn trước đó, hủy chọn
+            selectedButton.setSelected(false);
+            selectedButton.setEnabled(true);
+            selectedButton = null;
+        } else {
+            // Chọn một nút mới
+            if (selectedButton != null) {
+                selectedButton.setSelected(false);
+                selectedButton.setEnabled(true);
+            }
+
+            button.setSelected(true);
+            button.setEnabled(false);
+            selectedButton = button;
+        }
     }
     private void initUI() {
         constraintLayout = findViewById(R.id.button);
