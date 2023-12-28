@@ -20,8 +20,11 @@
             android:name="._activity.CreateProfileActivity"
             android:exported="false" />
         <activity
-            android:name="._activity.MainMenuActivity"
+            android:name="._activity.AppointmentDateChoosingActivity"
             android:exported="true" />
+<!--        <activity
+            android:name="._activity.AppointmentDateChoosingActivity"
+            android:exported="true" />-->
         <activity
             android:name="._activity.MenuActivity"
             android:exported="false" /> <!-- <activity -->
@@ -41,9 +44,10 @@
             android:name="._activity.DoctorChoosingActivity"
             android:exported="true" />
         <activity
-            android:name="._activity.AppointmentDateChoosingActivity"
+            android:name="._activity.MainMenuActivity"
             android:exported="true">
             <intent-filter>
+
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />

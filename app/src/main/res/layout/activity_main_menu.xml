@@ -34,8 +34,9 @@
             <View
                 android:id="@+id/view"
                 android:layout_width="419dp"
-                android:layout_height="425dp"
+                android:layout_height="420dp"
                 android:background="@drawable/topshape"
+                android:layout_marginTop="5dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"></View>
