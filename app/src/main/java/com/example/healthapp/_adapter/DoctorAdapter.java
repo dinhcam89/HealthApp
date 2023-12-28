@@ -78,18 +78,24 @@ public class DoctorAdapter extends  RecyclerView.Adapter<DoctorAdapter.DoctorVie
             btn_Book = itemView.findViewById(R.id.btn_Book);
             //FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-
             btn_Book.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(v.getContext(), AppointmentDateChoosingActivity.class);
+                    /*Intent intent = new Intent(v.getContext(), AppointmentDateChoosingActivity.class);
 
                     // Truyền dữ liệu nếu cần thiết
                     intent.putExtra("doctorName", textView_DoctorName.getText().toString());
                     intent.putExtra("doctorSpeciality", textView_DoctorSpeciality.getText().toString());
 
                     // Khởi chạy Activity mới
-                    v.getContext().startActivity(intent);
+                    v.getContext().startActivity(intent);*/
+                    Doctor selectedDoctor = ListDoctors.get(getAdapterPosition());
+                    if (selectedDoctor != null) {
+                        // Chuyển sang AppointmentDateChoosingActivity khi chọn bác sĩ
+                        Intent intent = new Intent(v.getContext(), AppointmentDateChoosingActivity.class);
+                        intent.putExtra("doctorID", selectedDoctor.getDoctorID());
+                        v.getContext().startActivity(intent);
+                    }
                 }
             });
         }
