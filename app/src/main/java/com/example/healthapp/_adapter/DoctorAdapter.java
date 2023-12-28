@@ -23,9 +23,20 @@ import java.util.Map;
 public class DoctorAdapter extends  RecyclerView.Adapter<DoctorAdapter.DoctorViewHolder> {
 
     private List<Doctor> ListDoctors;
+    private OnDoctorClickListener onDoctorClickListener;
 
-    public DoctorAdapter(List<Doctor> listDoctors) {
-        ListDoctors = listDoctors;
+    // Interface để lắng nghe sự kiện khi người dùng chọn một bác sĩ
+    public interface OnDoctorClickListener {
+        void onDoctorClick(String doctorID);
+    }
+
+
+    //public DoctorAdapter(List<Doctor> listDoctors) {ListDoctors = listDoctors;}
+
+    // Constructor
+    public DoctorAdapter(List<Doctor> listDoctors, OnDoctorClickListener onDoctorClickListener) {
+        this.ListDoctors = listDoctors;
+        this.onDoctorClickListener = onDoctorClickListener;
     }
 
     @NonNull
@@ -46,10 +57,21 @@ public class DoctorAdapter extends  RecyclerView.Adapter<DoctorAdapter.DoctorVie
 //            holder.btn_Book.setEnabled(false);
 //        }
         //holder.textView_Id.setText("Id: " + doctor.getDoctorID());
+
+        // Hiển thị thông tin bác sĩ trên mỗi item
         holder.textView_DoctorName.setText(doctor.getDoctorName());
         holder.textView_DoctorSpeciality.setText(doctor.getDoctorSpeciality());
         //holder.textView_Price.setText(doctor.getDoctorExp());
         //holder.textView_Availability.setText("Availability: " + doctor.getAvailability());
+
+        // Xử lý sự kiện khi người dùng nhấn nút "Book"
+        holder.btn_Book.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Gọi sự kiện thông báo rằng một bác sĩ đã được chọn
+                onDoctorClickListener.onDoctorClick(doctor.getDoctorID());
+            }
+        });
     }
 
     @Override
@@ -78,17 +100,17 @@ public class DoctorAdapter extends  RecyclerView.Adapter<DoctorAdapter.DoctorVie
             btn_Book = itemView.findViewById(R.id.btn_Book);
             //FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-            btn_Book.setOnClickListener(new View.OnClickListener() {
+            /*btn_Book.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    /*Intent intent = new Intent(v.getContext(), AppointmentDateChoosingActivity.class);
+                    *//*Intent intent = new Intent(v.getContext(), AppointmentDateChoosingActivity.class);
 
                     // Truyền dữ liệu nếu cần thiết
                     intent.putExtra("doctorName", textView_DoctorName.getText().toString());
                     intent.putExtra("doctorSpeciality", textView_DoctorSpeciality.getText().toString());
 
                     // Khởi chạy Activity mới
-                    v.getContext().startActivity(intent);*/
+                    v.getContext().startActivity(intent);*//*
                     Doctor selectedDoctor = ListDoctors.get(getAdapterPosition());
                     if (selectedDoctor != null) {
                         // Chuyển sang AppointmentDateChoosingActivity khi chọn bác sĩ
@@ -97,7 +119,9 @@ public class DoctorAdapter extends  RecyclerView.Adapter<DoctorAdapter.DoctorVie
                         v.getContext().startActivity(intent);
                     }
                 }
-            });
+            });*/
         }
+
+
     }
 }
