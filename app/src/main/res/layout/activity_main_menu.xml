@@ -35,7 +35,7 @@
                 android:id="@+id/view"
                 android:layout_width="419dp"
                 android:layout_height="425dp"
-                android:background="@drawable/rectangle_62_shape"
+                android:background="@drawable/topshape"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"></View>
@@ -587,6 +587,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:background="@drawable/rectangle_62_shape"
+        android:background="@drawable/topshape"
         app:menu="@menu/mainscreen_bottom_navimenu"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

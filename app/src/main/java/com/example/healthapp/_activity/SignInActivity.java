@@ -63,7 +63,7 @@ public class SignInActivity extends AppCompatActivity {
                 }
                 if(TextUtils.isEmpty(pwd))
                 {
-                    Toast.makeText(SignInActivity.this, "Vui lòng nhập email!", Toast.LENGTH_SHORT);
+                    Toast.makeText(SignInActivity.this, "Vui lòng nhập mật khẩu!", Toast.LENGTH_SHORT);
                     return;
                 }
                 mailAuth.signInWithEmailAndPassword(email, pwd)
@@ -74,11 +74,11 @@ public class SignInActivity extends AppCompatActivity {
                             {
                                 if(task.isSuccessful())
                                 {
-                                    FirebaseUser currentUser = mailAuth.getCurrentUser();
-                                    String user_Uid = currentUser.getUid();
+                                    //FirebaseUser currentUser = mailAuth.getCurrentUser();
+                                    //String user_Uid = currentUser.getUid();
                                     Toast.makeText(SignInActivity.this, "Login Successfully", Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(getApplicationContext(), CreateProfileActivity.class);
-                                    intent.putExtra("user_Uid", user_Uid);
+                                    Intent intent = new Intent(getApplicationContext(), MainMenuActivity.class);
+                                    //intent.putExtra("user_Uid", user_Uid);
                                     startActivity(intent);
                                     finish();
                                 }
