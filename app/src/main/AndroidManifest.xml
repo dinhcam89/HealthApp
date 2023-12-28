@@ -41,16 +41,16 @@
             android:name="._activity.DoctorChoosingActivity"
             android:exported="true" />
         <activity
-            android:name="._activity.AppointmentDateChoosingActivity"
-            android:exported="true">
-            <intent-filter>
+
+            android:name="._activity.AppointmentDateChoosingActivity"/>
+ <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
+
         <activity
-            android:name="._activity.SignInActivity"
+            android:name="._activity.MainMenuActivity"
             android:exported="false" />
 
         <meta-data

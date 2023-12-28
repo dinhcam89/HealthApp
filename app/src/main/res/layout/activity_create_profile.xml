@@ -72,13 +72,13 @@
             </TextView>
 
             <EditText
-                android:id="@+id/editTextText"
+                android:id="@+id/editText_UserName"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:ems="13"
                 android:inputType="text"
                 android:textSize="24dp"
-                android:text="  Nhập họ và tên"
+                android:hint="  Nhập họ và tên"
                 android:background="@drawable/create_bar"
                 app:layout_constraintTop_toBottomOf="@+id/textView_hovaten"
                 app:layout_constraintStart_toStartOf="parent"
@@ -96,20 +96,20 @@
                 android:text="Số điện thoại*"
                 android:textSize="24dp"
                 android:textStyle="italic|bold"
-                app:layout_constraintTop_toBottomOf="@+id/editTextText"
+                app:layout_constraintTop_toBottomOf="@+id/editText_UserName"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginHorizontal="15dp"
                 android:layout_marginTop="10dp">
             </TextView>
 
             <EditText
-                android:id="@+id/editTextText1"
+                android:id="@+id/editText_PhoneNumber"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:ems="13"
                 android:inputType="text"
                 android:textSize="24dp"
-                android:text="  Nhập số điện thoại"
+                android:hint="  Nhập số điện thoại"
                 android:background="@drawable/create_bar"
                 app:layout_constraintTop_toBottomOf="@+id/textView_sdt2"
                 app:layout_constraintStart_toStartOf="parent"
@@ -127,20 +127,20 @@
                 android:text="Ngày sinh*"
                 android:textSize="24dp"
                 android:textStyle="italic|bold"
-                app:layout_constraintTop_toBottomOf="@+id/editTextText1"
+                app:layout_constraintTop_toBottomOf="@+id/editText_PhoneNumber"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginHorizontal="15dp"
                 android:layout_marginTop="10dp">
             </TextView>
 
             <EditText
-                android:id="@+id/editTextText2"
+                android:id="@+id/editText_DateOfBirth"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:ems="13"
                 android:inputType="text"
                 android:textSize="24dp"
-                android:text="  Nhập ngày sinh"
+                android:hint="  Nhập ngày sinh"
                 android:background="@drawable/create_bar"
                 app:layout_constraintTop_toBottomOf="@+id/textView_ngaysinh"
                 app:layout_constraintStart_toStartOf="parent"
@@ -158,20 +158,20 @@
                 android:text="Số BHYT*"
                 android:textSize="24dp"
                 android:textStyle="italic|bold"
-                app:layout_constraintTop_toBottomOf="@+id/editTextText2"
+                app:layout_constraintTop_toBottomOf="@+id/editText_DateOfBirth"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginHorizontal="15dp"
                 android:layout_marginTop="10dp">
             </TextView>
 
             <EditText
-                android:id="@+id/editTextText3"
+                android:id="@+id/editText_InsuranceID"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:ems="13"
                 android:inputType="text"
                 android:textSize="24dp"
-                android:text="  Nhập số BHYT"
+                android:hint="  Nhập số BHYT"
                 android:background="@drawable/create_bar"
                 app:layout_constraintTop_toBottomOf="@+id/textView_soBHYT1"
                 app:layout_constraintStart_toStartOf="parent"
@@ -189,14 +189,14 @@
                 android:text="Email"
                 android:textSize="24dp"
                 android:textStyle="italic|bold"
-                app:layout_constraintTop_toBottomOf="@+id/editTextText3"
+                app:layout_constraintTop_toBottomOf="@+id/editText_InsuranceID"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginHorizontal="15dp"
                 android:layout_marginTop="10dp">
             </TextView>
 
             <EditText
-                android:id="@+id/editTextText4"
+                android:id="@+id/editText_Email"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:ems="13"
@@ -220,7 +220,7 @@
                 android:text="Giới tính"
                 android:textSize="24dp"
                 android:textStyle="italic|bold"
-                app:layout_constraintTop_toBottomOf="@+id/editTextText4"
+                app:layout_constraintTop_toBottomOf="@+id/editText_Email"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginHorizontal="15dp"
                 android:layout_marginTop="10dp">
@@ -236,7 +236,7 @@
                 >
 
                 <RadioButton
-                    android:id="@+id/radio_nu"
+                    android:id="@+id/radioButton_Female"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:minHeight="48dp"
@@ -246,7 +246,7 @@
                     android:text="Nữ" />
 
                 <RadioButton
-                    android:id="@+id/radio_nam"
+                    android:id="@+id/radioButton_Male"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:checked="true"
@@ -257,7 +257,7 @@
                     android:text="Nam" />
 
                 <RadioButton
-                    android:id="@+id/radio_chuabiet"
+                    android:id="@+id/radioButton_Unknown"
                     android:text="Chưa biết"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -269,19 +269,20 @@
             </RadioGroup>
 
             <Button
+                android:id="@+id/btn_CreateProfile"
                 android:layout_width="120dp"
                 android:layout_height="50dp"
-                android:background="@drawable/btn_book"
-                android:text="Tạo hồ sơ"
-                android:textAllCaps="false"
-                android:textSize="20dp"
-                android:textColor="@color/white"
-                app:layout_constraintTop_toBottomOf="@id/radio_gioitinh"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginTop="15dp"
                 android:layout_marginHorizontal="45dp"
-                >
-            </Button>
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/btn_book"
+                android:hint="Tạo hồ sơ"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/radio_gioitinh"></Button>
 
 
 

@@ -1,5 +1,8 @@
 package com.example.healthapp._class;
 
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
 public class Appointment {
     private String appointmentID;
     private String doctorID;
@@ -53,5 +56,22 @@ public class Appointment {
 
     public void setPatientID(String patientID) {
         this.patientID = patientID;
+    }
+
+    // Phương thức để thêm thông tin đặt lịch vào Firestore
+    public void addToFirestore() {
+        // Lấy reference đến collection DatLichKham
+        CollectionReference appointmentRef = FirebaseFirestore.getInstance().collection("DatLichKham");
+
+        // Thêm thông tin đặt lịch vào collection
+        appointmentRef.document(appointmentID).set(this)
+                .addOnSuccessListener(aVoid -> {
+                    // Thêm thành công
+                    // TODO: Xử lý khi thêm thành công (nếu cần)
+                })
+                .addOnFailureListener(e -> {
+                    // Thêm thất bại
+                    // TODO: Xử lý khi thêm thất bại (nếu cần)
+                });
     }
 }
