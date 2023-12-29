@@ -18,12 +18,15 @@ import android.widget.Toast;
 import com.example.healthapp.R;
 import com.example.healthapp._class.Appointment;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Locale;
 
 public class AppointmentDateChoosingActivity extends AppCompatActivity {
@@ -52,8 +55,8 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_appointment_date_choosing);
-
         initUI();
+
         btn_Back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,7 +77,12 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
                 chooseAppointmentDatePicker.getYear(),
                 chooseAppointmentDatePicker.getMonth(),
                 chooseAppointmentDatePicker.getDayOfMonth(),
-                (view, year, monthOfYear, dayOfMonth) -> updateChosenDate()
+                (view, year, monthOfYear, dayOfMonth) -> {
+                    updateChosenDate();
+                    String chosenDate = getChosenDate();
+                    String doctorId = getIntent().getStringExtra("doctorId");
+                    updateAppointmentButtons(doctorId, chosenDate);
+                }
         );
         //getDoctorInfor();
 
@@ -233,6 +241,75 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
 
         // Nếu không có nút nào được chọn, bạn có thể xử lý theo ý của bạn, ví dụ: trả về giá trị mặc định
         return "8h - 9h";
+    }
+    private void updateAppointmentButtons(String doctorId, String chosenDate) {
+        // Reference đến collection LichKhamCuaBacSi
+        CollectionReference scheduleRef = FirebaseFirestore.getInstance().collection("LichKhamCuaBacSi");
+
+        // Tạo query để lấy lịch của bác sĩ trong ngày đã chọn
+        Query query = scheduleRef
+                .whereEqualTo("doctorId", doctorId)
+                .whereEqualTo("date", chosenDate);
+
+        // Thực hiện truy vấn
+        query.get().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                QuerySnapshot querySnapshot = task.getResult();
+                if (querySnapshot != null && !querySnapshot.isEmpty()) {
+                    // Lấy danh sách các khung giờ đã được hẹn
+                    List<String> reservedTimes = new ArrayList<>();
+                    for (DocumentSnapshot document : querySnapshot.getDocuments()) {
+                        reservedTimes.add(document.getString("time"));
+                    }
+
+                    // Cập nhật trạng thái của các nút
+                    updateButtonStatus(reservedTimes);
+                } else {
+                    // Không có lịch cho bác sĩ trong ngày đã chọn, tất cả các nút đều trống
+                    resetAllButtons();
+                }
+            } else {
+                // Xử lý khi truy vấn thất bại
+                Toast.makeText(this, "Lỗi khi kiểm tra lịch khám của bác sĩ.", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+    private void updateButtonStatus(List<String> reservedTimes) {
+        resetAllButtons();
+
+        for (String time : reservedTimes) {
+            switch (time) {
+                case "8h - 9h":
+                    btn8h.setEnabled(false);
+                    break;
+                case "9h - 10h":
+                    btn9h.setEnabled(false);
+                    break;
+                case "10h - 11h":
+                    btn10h.setEnabled(false);
+                    break;
+                case "13h - 14h":
+                    btn13h.setEnabled(false);
+                    break;
+                case "14h - 15h":
+                    btn14h.setEnabled(false);
+                    break;
+                case "15h - 16h":
+                    btn15h.setEnabled(false);
+                    break;
+                // Add other cases as needed for additional time slots
+            }
+        }
+    }
+
+    private void resetAllButtons() {
+        btn8h.setEnabled(true);
+        btn9h.setEnabled(true);
+        btn10h.setEnabled(true);
+        btn13h.setEnabled(true);
+        btn14h.setEnabled(true);
+        btn15h.setEnabled(true);
+        // Reset other buttons if needed
     }
 
 
