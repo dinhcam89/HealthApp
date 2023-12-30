@@ -310,6 +310,7 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
 
                                 // Cập nhật trạng thái của nút dựa trên trạng thái của khung giờ
                                 button.setEnabled(isAvailable);
+                                button.setClickable(isAvailable);
                             }
                         });
             }
