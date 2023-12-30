@@ -223,8 +223,7 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
 
     // Thêm phương thức để lấy giờ đã chọn
     private String getChosenTime() {
-        // Ở đây bạn cần xác định làm thế nào để lấy giờ đã chọn từ nút được chọn (btn8h, btn9h, ...)
-        // Đoạn mã sau là một ví dụ giả định, bạn có thể thay đổi nó tùy thuộc vào cách bạn cài đặt nút
+        // Lấy giờ từ nút đã chọn
         if (btn8h.isSelected()) {
             return "8h - 9h";
         } else if (btn9h.isSelected()) {
@@ -252,52 +251,67 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
                 .whereEqualTo("date", chosenDate);
 
         // Thực hiện truy vấn
-        query.get().addOnCompleteListener(task -> {
-            if (task.isSuccessful()) {
-                QuerySnapshot querySnapshot = task.getResult();
-                if (querySnapshot != null && !querySnapshot.isEmpty()) {
-                    // Lấy danh sách các khung giờ đã được hẹn
-                    List<String> reservedTimes = new ArrayList<>();
-                    for (DocumentSnapshot document : querySnapshot.getDocuments()) {
-                        reservedTimes.add(document.getString("time"));
-                    }
-
-                    // Cập nhật trạng thái của các nút
-                    updateButtonStatus(reservedTimes);
-                } else {
-                    // Không có lịch cho bác sĩ trong ngày đã chọn, tất cả các nút đều trống
-                    resetAllButtons();
+        query.addSnapshotListener((value, error) -> {
+            if (error != null) {
+                // Xử lý khi có lỗi xảy ra trong quá trình lắng nghe
+                Toast.makeText(this, "Lỗi khi lắng nghe thay đổi lịch khám của bác sĩ.", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            if (value != null) {
+                // Lấy danh sách các khung giờ đã được hẹn
+                List<String> reservedTimes = new ArrayList<>();
+                for (DocumentSnapshot document : value.getDocuments()) {
+                    reservedTimes.add(document.getString("time"));
                 }
-            } else {
-                // Xử lý khi truy vấn thất bại
-                Toast.makeText(this, "Lỗi khi kiểm tra lịch khám của bác sĩ.", Toast.LENGTH_SHORT).show();
+
+                // Cập nhật trạng thái của các nút
+                updateButtonStatus(reservedTimes);
             }
         });
+    }
+
+    private Button getButtonForTime(String time) {
+        switch (time) {
+            case "8h - 9h":
+                return btn8h;
+            case "9h - 10h":
+                return btn9h;
+            case "10h - 11h":
+                return btn10h;
+            case "13h - 14h":
+                return btn13h;
+            case "14h - 15h":
+                return btn14h;
+            case "15h - 16h":
+                return btn15h;
+            default:
+                return null;
+        }
     }
     private void updateButtonStatus(List<String> reservedTimes) {
         resetAllButtons();
 
+        // Reference đến collection LichKhamCuaBacSi
+        CollectionReference scheduleRef = FirebaseFirestore.getInstance().collection("LichKhamCuaBacSi");
+        String chosenDate = getChosenDate();
+        String doctorId = getIntent().getStringExtra("doctorId");
         for (String time : reservedTimes) {
-            switch (time) {
-                case "8h - 9h":
-                    btn8h.setEnabled(false);
-                    break;
-                case "9h - 10h":
-                    btn9h.setEnabled(false);
-                    break;
-                case "10h - 11h":
-                    btn10h.setEnabled(false);
-                    break;
-                case "13h - 14h":
-                    btn13h.setEnabled(false);
-                    break;
-                case "14h - 15h":
-                    btn14h.setEnabled(false);
-                    break;
-                case "15h - 16h":
-                    btn15h.setEnabled(false);
-                    break;
-                // Add other cases as needed for additional time slots
+            Button button = getButtonForTime(time);
+            if (button != null) {
+                // Kiểm tra trạng thái của khung giờ
+                scheduleRef
+                        .whereEqualTo("doctorId", doctorId)
+                        .whereEqualTo("date", chosenDate)
+                        .whereEqualTo("time", time)
+                        .addSnapshotListener((value, error) -> {
+                            if (error == null && value != null && !value.isEmpty()) {
+                                // Lấy trạng thái từ tài liệu đầu tiên
+                                boolean isAvailable = value.getDocuments().get(0).getBoolean("status");
+
+                                // Cập nhật trạng thái của nút dựa trên trạng thái của khung giờ
+                                button.setEnabled(isAvailable);
+                            }
+                        });
             }
         }
     }
@@ -322,7 +336,7 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
                 .whereEqualTo("doctorId", doctorId)
                 .whereEqualTo("date", chosenDate)
                 .whereEqualTo("time", chosenTime)
-                .whereEqualTo("status", "Trống lịch");
+                .whereEqualTo("status", true);
 
         // Thực hiện truy vấn
         query.get().addOnCompleteListener(task -> {
@@ -363,8 +377,8 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
                     // Lấy ID của lịch cần cập nhật
                     String scheduleId = querySnapshot.getDocuments().get(0).getId();
 
-                    // Cập nhật trạng thái lịch của bác sĩ thành "Đã được hẹn"
-                    scheduleRef.document(scheduleId).update("status", "Đã được hẹn")
+                    // Cập nhật trạng thái lịch của bác sĩ thành "Đã được hẹn" tương ứng với false
+                    scheduleRef.document(scheduleId).update("status", false)
                             .addOnSuccessListener(aVoid -> {
                                 // Cập nhật thành công
                                 Toast.makeText(this, "Đặt lịch thành công.", Toast.LENGTH_SHORT).show();
