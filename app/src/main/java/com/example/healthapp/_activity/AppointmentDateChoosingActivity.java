@@ -18,12 +18,15 @@ import android.widget.Toast;
 import com.example.healthapp.R;
 import com.example.healthapp._class.Appointment;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Locale;
 
 public class AppointmentDateChoosingActivity extends AppCompatActivity {
@@ -52,8 +55,8 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_appointment_date_choosing);
-
         initUI();
+
         btn_Back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,7 +77,12 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
                 chooseAppointmentDatePicker.getYear(),
                 chooseAppointmentDatePicker.getMonth(),
                 chooseAppointmentDatePicker.getDayOfMonth(),
-                (view, year, monthOfYear, dayOfMonth) -> updateChosenDate()
+                (view, year, monthOfYear, dayOfMonth) -> {
+                    updateChosenDate();
+                    String chosenDate = getChosenDate();
+                    String doctorId = getIntent().getStringExtra("doctorId");
+                    updateAppointmentButtons(doctorId, chosenDate);
+                }
         );
         //getDoctorInfor();
 
@@ -215,8 +223,7 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
 
     // Thêm phương thức để lấy giờ đã chọn
     private String getChosenTime() {
-        // Ở đây bạn cần xác định làm thế nào để lấy giờ đã chọn từ nút được chọn (btn8h, btn9h, ...)
-        // Đoạn mã sau là một ví dụ giả định, bạn có thể thay đổi nó tùy thuộc vào cách bạn cài đặt nút
+        // Lấy giờ từ nút đã chọn
         if (btn8h.isSelected()) {
             return "8h - 9h";
         } else if (btn9h.isSelected()) {
@@ -234,6 +241,90 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
         // Nếu không có nút nào được chọn, bạn có thể xử lý theo ý của bạn, ví dụ: trả về giá trị mặc định
         return "8h - 9h";
     }
+    private void updateAppointmentButtons(String doctorId, String chosenDate) {
+        // Reference đến collection LichKhamCuaBacSi
+        CollectionReference scheduleRef = FirebaseFirestore.getInstance().collection("LichKhamCuaBacSi");
+
+        // Tạo query để lấy lịch của bác sĩ trong ngày đã chọn
+        Query query = scheduleRef
+                .whereEqualTo("doctorId", doctorId)
+                .whereEqualTo("date", chosenDate);
+
+        // Thực hiện truy vấn
+        query.addSnapshotListener((value, error) -> {
+            if (error != null) {
+                // Xử lý khi có lỗi xảy ra trong quá trình lắng nghe
+                Toast.makeText(this, "Lỗi khi lắng nghe thay đổi lịch khám của bác sĩ.", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            if (value != null) {
+                // Lấy danh sách các khung giờ đã được hẹn
+                List<String> reservedTimes = new ArrayList<>();
+                for (DocumentSnapshot document : value.getDocuments()) {
+                    reservedTimes.add(document.getString("time"));
+                }
+
+                // Cập nhật trạng thái của các nút
+                updateButtonStatus(reservedTimes);
+            }
+        });
+    }
+
+    private Button getButtonForTime(String time) {
+        switch (time) {
+            case "8h - 9h":
+                return btn8h;
+            case "9h - 10h":
+                return btn9h;
+            case "10h - 11h":
+                return btn10h;
+            case "13h - 14h":
+                return btn13h;
+            case "14h - 15h":
+                return btn14h;
+            case "15h - 16h":
+                return btn15h;
+            default:
+                return null;
+        }
+    }
+    private void updateButtonStatus(List<String> reservedTimes) {
+        resetAllButtons();
+
+        // Reference đến collection LichKhamCuaBacSi
+        CollectionReference scheduleRef = FirebaseFirestore.getInstance().collection("LichKhamCuaBacSi");
+        String chosenDate = getChosenDate();
+        String doctorId = getIntent().getStringExtra("doctorId");
+        for (String time : reservedTimes) {
+            Button button = getButtonForTime(time);
+            if (button != null) {
+                // Kiểm tra trạng thái của khung giờ
+                scheduleRef
+                        .whereEqualTo("doctorId", doctorId)
+                        .whereEqualTo("date", chosenDate)
+                        .whereEqualTo("time", time)
+                        .addSnapshotListener((value, error) -> {
+                            if (error == null && value != null && !value.isEmpty()) {
+                                // Lấy trạng thái từ tài liệu đầu tiên
+                                boolean isAvailable = value.getDocuments().get(0).getBoolean("status");
+
+                                // Cập nhật trạng thái của nút dựa trên trạng thái của khung giờ
+                                button.setEnabled(isAvailable);
+                            }
+                        });
+            }
+        }
+    }
+
+    private void resetAllButtons() {
+        btn8h.setEnabled(true);
+        btn9h.setEnabled(true);
+        btn10h.setEnabled(true);
+        btn13h.setEnabled(true);
+        btn14h.setEnabled(true);
+        btn15h.setEnabled(true);
+        // Reset other buttons if needed
+    }
 
 
     private void checkDoctorSchedule(String doctorId, String chosenDate, String chosenTime) {
@@ -245,7 +336,7 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
                 .whereEqualTo("doctorId", doctorId)
                 .whereEqualTo("date", chosenDate)
                 .whereEqualTo("time", chosenTime)
-                .whereEqualTo("status", "Trống lịch");
+                .whereEqualTo("status", true);
 
         // Thực hiện truy vấn
         query.get().addOnCompleteListener(task -> {
@@ -286,8 +377,8 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
                     // Lấy ID của lịch cần cập nhật
                     String scheduleId = querySnapshot.getDocuments().get(0).getId();
 
-                    // Cập nhật trạng thái lịch của bác sĩ thành "Đã được hẹn"
-                    scheduleRef.document(scheduleId).update("status", "Đã được hẹn")
+                    // Cập nhật trạng thái lịch của bác sĩ thành "Đã được hẹn" tương ứng với false
+                    scheduleRef.document(scheduleId).update("status", false)
                             .addOnSuccessListener(aVoid -> {
                                 // Cập nhật thành công
                                 Toast.makeText(this, "Đặt lịch thành công.", Toast.LENGTH_SHORT).show();
