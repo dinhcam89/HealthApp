@@ -56,24 +56,9 @@
         android:textStyle="bold"
         >
     </TextView>
-    <TextView
-        android:id="@+id/textView_AppointmentDate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/textView_DoctorSpeciality"
-        android:layout_alignEnd="@+id/frame_doctor"
-        android:layout_marginHorizontal="10dp"
-        android:layout_marginTop="35dp"
-        android:layout_toEndOf="@+id/image_Doctor"
-        android:text="Ngày khám"
-        android:textColor="@color/teal_700"
-        android:textSize="14dp"
-        android:textStyle="bold"
-        >
-    </TextView>
 
     <TextView
-        android:id="@+id/textView_Price"
+        android:id="@+id/textView_PaymentMethod"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/frame_doctor"
@@ -81,10 +66,24 @@
         android:layout_marginHorizontal="10dp"
         android:layout_marginTop="55dp"
         android:layout_toEndOf="@+id/image_Doctor"
-        android:text="0đ"
+        android:text="Hình thức thanh toán"
         android:textColor="#F44336"
         android:textStyle="bold">
     </TextView>
-
+    <TextView
+        android:id="@+id/textView_AppointmentDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/frame_doctor"
+        android:layout_alignEnd="@+id/frame_doctor"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="75dp"
+        android:layout_toEndOf="@+id/image_Doctor"
+        android:text="Ngày khám"
+        android:textColor="@color/teal_700"
+        android:textSize="14dp"
+        android:textStyle="bold"
+        >
+    </TextView>
 
 </RelativeLayout>

@@ -53,11 +53,13 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
     private Button btn15h;
     private TextView chosenDateTextView;
     private ImageButton bookButton;
+    private String doctorID;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_appointment_date_choosing);
         initUI();
+        doctorID = getIntent().getStringExtra("doctorID");
 
         btn_Back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,9 +69,8 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
         });
         chosenDateTextView = findViewById(R.id.textView_ChoosenDate);
         chooseAppointmentDatePicker = findViewById(R.id.datePicker_ChooseAppointmentDate);
-        btn8h.setEnabled(false);
         // Lấy ngày mặc định từ DatePicker và hiển thị trên TextView
-        updateChosenDate();
+        //updateChosenDate();
         Calendar currentDate = Calendar.getInstance();
 
         // Thiết lập ngày tối thiểu cho DatePicker là ngày hiện tại
@@ -80,11 +81,8 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
                 chooseAppointmentDatePicker.getMonth(),
                 chooseAppointmentDatePicker.getDayOfMonth(),
                 (view, year, monthOfYear, dayOfMonth) -> {
+                    resetButton();
                     updateChosenDate();
-
-                    String doctorId = getIntent().getStringExtra("doctorId");
-                    String chosenDate = getChosenDate();
-                    updateAppointmentButtons(doctorId, chosenDate);
                 }
         );
         getDoctorInfor();
@@ -96,10 +94,11 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
                 // Lấy thông tin đã chọn
                 String doctorId = getIntent().getStringExtra("doctorID");
                 String chosenDate = getChosenDate();
-                String chosenTime = getChosenTime();
+                updateAppointmentButtons(doctorId, chosenDate);
+                //String chosenTime = getChosenTime();
 
                 // Kiểm tra và đặt lịch
-                checkDoctorSchedule(doctorId, chosenDate, chosenTime);
+                //checkDoctorSchedule(doctorId, chosenDate, chosenTime);
             }
         });
 
@@ -220,29 +219,19 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
         calendar.set(year, month, day);
 
         // Định dạng ngày tháng năm và trả về dưới dạng String
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
         return sdf.format(calendar.getTime());
     }
 
     // Thêm phương thức để lấy giờ đã chọn
-    private String getChosenTime() {
+    private void resetButton() {
         // Lấy giờ từ nút đã chọn
-        if (btn8h.isSelected()) {
-            return "8h - 9h";
-        } else if (btn9h.isSelected()) {
-            return "9h - 10h";
-        } else if (btn10h.isSelected()) {
-            return "10h - 11h";
-        } else if (btn13h.isSelected()) {
-            return "13h - 14h";
-        } else if (btn14h.isSelected()) {
-            return "14h - 15h";
-        } else if (btn15h.isSelected()) {
-            return "15h - 16h";
-        }
-
-        // Nếu không có nút nào được chọn, bạn có thể xử lý theo ý của bạn, ví dụ: trả về giá trị mặc định
-        return "8h - 9h";
+        btn8h.setEnabled(true);
+        btn9h.setEnabled(true);
+        btn10h.setEnabled(true);
+        btn13h.setEnabled(true);
+        btn14h.setEnabled(true);
+        btn15h.setEnabled(true);
     }
     // Phương thức để cập nhật trạng thái của các button dựa trên lịch khám
     private void updateAppointmentButtons(String doctorId, String chosenDate) {
@@ -260,13 +249,36 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
                 QuerySnapshot querySnapshot = task.getResult();
                 if (querySnapshot != null) {
                     // Lấy danh sách các khung giờ đã được hẹn
-                    List<String> reservedTimes = new ArrayList<>();
+                    //List<String> reservedTimes = new ArrayList<>();
                     for (DocumentSnapshot document : querySnapshot.getDocuments()) {
-                        reservedTimes.add(document.getString("time"));
+                        String reservedTimes = document.getString("time");
+                        switch (reservedTimes)
+                        {
+                            case "8h - 9h":
+                                btn8h.setEnabled(false);
+                                break;
+                            case "9h - 10h":
+                                btn9h.setEnabled(false);
+                                break;
+                            case "10h - 11h":
+                                btn10h.setEnabled(false);
+                                break;
+                            case "13h - 14h":
+                                btn13h.setEnabled(false);
+                                break;
+                            case "14h - 15h":
+                                btn14h.setEnabled(false);
+                                break;
+                            case "15h - 16h":
+                                btn15h.setEnabled(false);
+                                break;
+                            default:
+                                resetButton();
+                                break;
+                        }
                     }
 
                     // Cập nhật trạng thái của các nút
-                    updateButtonStatus(reservedTimes);
                 }
             } else {
                 // Xử lý khi truy vấn thất bại
@@ -293,64 +305,7 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
                 return null;
         }
     }
-    // Phương thức để cập nhật trạng thái của các button dựa trên lịch đã hẹn
-    private void updateButtonStatus(List<String> reservedTimes) {
-        resetAllButtons();
 
-        for (String time : reservedTimes) {
-            Button button = getButtonForTime(time);
-            if (button != null) {
-                // Kiểm tra trạng thái của khung giờ
-                checkScheduleStatus(button, time);
-            }
-        }
-    }
-
-    // Phương thức để kiểm tra và cập nhật trạng thái của nút dựa trên lịch đã hẹn
-    private void checkScheduleStatus(Button button, String time) {
-        // Reference đến collection LichKhamCuaBacSi
-        CollectionReference scheduleRef = FirebaseFirestore.getInstance().collection("LichKhamCuaBacSi");
-
-        // Lấy ngày và bác sĩ từ DatePicker và Intent
-        String chosenDate = getChosenDate();
-        String doctorId = getIntent().getStringExtra("doctorId");
-
-        // Tạo query để kiểm tra trạng thái của lịch khám
-        Query query = scheduleRef
-                .whereEqualTo("doctorId", doctorId)
-                .whereEqualTo("date", chosenDate)
-                .whereEqualTo("time", time);
-
-        // Thực hiện truy vấn
-        query.get().addOnCompleteListener(task -> {
-            if (task.isSuccessful()) {
-                QuerySnapshot querySnapshot = task.getResult();
-                if (querySnapshot != null && !querySnapshot.isEmpty()) {
-                    // Lấy trạng thái từ tài liệu đầu tiên
-                    boolean isAvailable = querySnapshot.getDocuments().get(0).getBoolean("status");
-
-                    // Cập nhật trạng thái của nút dựa trên trạng thái của khung giờ
-                    if (isAvailable) {
-                        // Trạng thái là true, nghĩa là lịch khám còn trống
-                        button.setEnabled(true);
-                        button.setClickable(true);
-                        Log.d("ButtonStatus", "Button " + time + ": Enabled");
-                    } else {
-                        // Trạng thái là false, nghĩa là lịch khám đã được hẹn
-                        button.setEnabled(false);
-                        button.setClickable(false);
-                        Log.d("ButtonStatus", "Button " + time + ": Disabled");
-                        // Tối màu cho nút khi không khả dụng
-                        button.setTextColor(Color.GRAY);
-                    }
-                }
-            } else {
-                // Xử lý khi truy vấn thất bại
-                Log.e("CheckStatusError", "Error checking schedule status", task.getException());
-                Toast.makeText(this, "Lỗi khi kiểm tra trạng thái lịch khám của bác sĩ.", Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
 
     private void resetAllButtons() {
         btn8h.setEnabled(true);
@@ -360,39 +315,6 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
         btn14h.setEnabled(true);
         btn15h.setEnabled(true);
         // Reset other buttons if needed
-    }
-
-
-    private void checkDoctorSchedule(String doctorId, String chosenDate, String chosenTime) {
-        // Reference đến collection LichKhamCuaBacSi
-        CollectionReference scheduleRef = FirebaseFirestore.getInstance().collection("LichKhamCuaBacSi");
-
-        // Tạo query để kiểm tra xem có lịch nào trống không
-        Query query = scheduleRef
-                .whereEqualTo("doctorId", doctorId)
-                .whereEqualTo("date", chosenDate)
-                .whereEqualTo("time", chosenTime)
-                .whereEqualTo("status", true);
-
-        // Thực hiện truy vấn
-        query.get().addOnCompleteListener(task -> {
-            if (task.isSuccessful()) {
-                QuerySnapshot querySnapshot = task.getResult();
-                if (querySnapshot != null && !querySnapshot.isEmpty()) {
-                    // Có lịch trống, bạn có thể thực hiện đặt lịch ở đây
-                    // TODO: Thực hiện đặt lịch và cập nhật Firestore
-
-                    // Sau khi đặt lịch, cập nhật trạng thái lịch của bác sĩ thành "Đã được hẹn"
-                    updateDoctorSchedule(doctorId, chosenDate, chosenTime);
-                } else {
-                    // Không có lịch trống, hiển thị thông báo cho người dùng
-                    Toast.makeText(this, "Bác sĩ không còn lịch trống trong khung giờ đã chọn.", Toast.LENGTH_SHORT).show();
-                }
-            } else {
-                // Xử lý khi truy vấn thất bại
-                Toast.makeText(this, "Lỗi khi kiểm tra lịch khám của bác sĩ.", Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 
     private void updateDoctorSchedule(String doctorId, String chosenDate, String chosenTime) {
@@ -512,6 +434,9 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
         String formattedDate = sdf.format(calendar.getTime());
         chosenDateTextView.setText("Ngày đã chọn: " + formattedDate);
+        //String doctorId = getIntent().getStringExtra("doctorId");
+        //String chosenDate = getChosenDate();
+        updateAppointmentButtons(doctorID, formattedDate);
     }
     private void getDoctorInfor()
     {

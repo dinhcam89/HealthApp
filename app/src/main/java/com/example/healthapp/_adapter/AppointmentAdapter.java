@@ -35,8 +35,8 @@ public class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.
     public void onBindViewHolder(@NonNull AppointmentViewHolder holder, int position) {
         Appointment appointment = appointmentList.get(position);
 
-        holder.tvDate.setText(appointment.getAppointmentDate());
-        holder.tvHour.setText(appointment.getAppointmentHour());
+        // holder.tvDate.setText(appointment.getAppointmentDate());
+        // holder.tvHour.setText(appointment.getAppointmentHour());
         // Add other views if needed
     }
 
@@ -46,12 +46,15 @@ public class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.
     }
 
     public static class AppointmentViewHolder extends RecyclerView.ViewHolder {
-        TextView tvDate, tvHour;
+        TextView textView_DoctorName, textView_DoctorSpeciality, textView_PaymentMethod, textView_AppointmentDate;
 
         public AppointmentViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvDate = itemView.findViewById(R.id.textView_Date);
-            tvHour = itemView.findViewById(R.id.textView_Hour);
+            textView_DoctorName = itemView.findViewById(R.id.textView_DoctorName);
+            textView_DoctorSpeciality = itemView.findViewById(R.id.textView_DoctorSpeciality);
+            textView_PaymentMethod = itemView.findViewById(R.id.textView_PaymentMethod);
+            textView_AppointmentDate = itemView.findViewById(R.id.textView_AppointmentDate);
+
             // Initialize other views if needed
         }
     }
