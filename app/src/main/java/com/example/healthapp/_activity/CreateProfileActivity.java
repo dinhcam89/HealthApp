@@ -92,6 +92,11 @@ public class CreateProfileActivity extends AppCompatActivity {
                                 // Xử lý khi ghi dữ liệu thất bại
                                 // e.printStackTrace(); để in ra lỗi
                             });
+                    Toast.makeText(CreateProfileActivity.this, "Tạo hồ sơ thành công", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getApplicationContext(), MainMenuActivity.class);
+                    //intent.putExtra("user_Uid", user_Uid);
+                    startActivity(intent);
+                    finish();
                 }
             }
         });
