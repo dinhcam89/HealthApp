@@ -1,0 +1,5 @@
+<!-- normal_shape.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#E6FFFD" />
+    <corners android:radius="20dp" /> <!-- Điều chỉnh bán kính của góc ở đây -->
+</shape>

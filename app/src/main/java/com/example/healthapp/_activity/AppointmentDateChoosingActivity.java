@@ -65,7 +65,7 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
         });
         chosenDateTextView = findViewById(R.id.textView_ChoosenDate);
         chooseAppointmentDatePicker = findViewById(R.id.datePicker_ChooseAppointmentDate);
-
+        btn8h.setEnabled(false);
         // Lấy ngày mặc định từ DatePicker và hiển thị trên TextView
         updateChosenDate();
         Calendar currentDate = Calendar.getInstance();
@@ -84,14 +84,14 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
                     updateAppointmentButtons(doctorId, chosenDate);
                 }
         );
-        //getDoctorInfor();
+        getDoctorInfor();
 
-// Thêm sự kiện cho nút "Đặt lịch"
+        // Thêm sự kiện cho nút "Đặt lịch"
         bookButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Lấy thông tin đã chọn
-                String doctorId = getIntent().getStringExtra("doctorId");
+                String doctorId = getIntent().getStringExtra("doctorID");
                 String chosenDate = getChosenDate();
                 String chosenTime = getChosenTime();
 
@@ -478,7 +478,7 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
         String formattedDate = sdf.format(calendar.getTime());
         chosenDateTextView.setText("Ngày đã chọn: " + formattedDate);
     }
-    /*private void getDoctorInfor()
+    private void getDoctorInfor()
     {
         Intent intent = getIntent();
         if (intent != null) {
@@ -490,5 +490,5 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
             doctorNameTextView.setText(doctorName);
             doctorSpecialityTextView.setText(doctorSpeciality);
         }
-    }*/
+    }
 }

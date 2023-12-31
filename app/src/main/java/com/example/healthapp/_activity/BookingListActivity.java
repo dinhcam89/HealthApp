@@ -11,6 +11,6 @@ public class BookingListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_booking_list);
+        setContentView(R.layout.fragment_booking_list);
     }
 }

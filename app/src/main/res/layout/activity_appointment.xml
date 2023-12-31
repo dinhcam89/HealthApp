@@ -145,7 +145,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginHorizontal="30dp"
                 android:layout_marginTop="15dp"
-                android:background="@color/rectangle_81_color"
+                android:background="@drawable/item_doctor_bg"
                 >
             </View>
 

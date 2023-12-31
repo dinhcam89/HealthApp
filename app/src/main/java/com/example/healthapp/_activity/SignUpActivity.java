@@ -75,17 +75,16 @@ public class SignUpActivity extends AppCompatActivity {
                                 if(task.isSuccessful())
                                 {
                                     FirebaseUser user = mailAuth.getCurrentUser();
-                                    Toast.makeText(SignUpActivity.this, "Account Created", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(SignUpActivity.this, "Đăng ký thành công!", Toast.LENGTH_SHORT).show();
                                     Intent intent = new Intent(getApplicationContext(), CreateProfileActivity.class);
                                     startActivity(intent);
                                     finish();
                                 }
                                 else
                                 {
-                                    Toast.makeText(SignUpActivity.this, "Authentication Failed", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(SignUpActivity.this, "Đã xảy ra lỗi, vui lòng thử lại sau!", Toast.LENGTH_SHORT).show();
                                 }
                             }
-
 
                         });
 

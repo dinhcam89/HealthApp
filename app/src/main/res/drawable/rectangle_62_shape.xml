@@ -1,9 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- rectangle_62 from your XD file. -->
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
-	android:shape="rectangle" >
+	android:shape="rectangle">
 	<solid android:color="@color/rectangle_62_color" />
-	<gradient android:angle="270" android:type="linear" android:startColor="#ff2d757c" android:endColor="#ff77cbc6" />
+	<gradient
+		android:angle="270"
+		android:type="linear"
+		android:startColor="#ff2d757c"
+		android:endColor="#ff77cbc6" />
+
+	<!-- Thêm thuộc tính corners để bo góc -->
+	<corners android:radius="20dp" /> <!-- Điều chỉnh bán kính của góc ở đây -->
 </shape>
-
-

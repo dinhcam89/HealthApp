@@ -13,7 +13,10 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.content.Intent;
+import android.graphics.Shader;
 import android.os.Bundle;
+import android.text.BoringLayout;
+import android.text.Layout;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -53,8 +56,9 @@ public class MainMenuActivity extends AppCompatActivity {
             }
         });
     }*/
-    private CardView Bacsi;
-    private CardView Tracuu;
+    private CardView Doctors;
+    private CardView Find;
+    private CardView ClinicInformation;
 
     private Button datlich1;
 

@@ -4,12 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.healthapp.R;
 import com.example.healthapp._class.Doctor;
@@ -58,23 +60,44 @@ public class CreateProfileActivity extends AppCompatActivity {
         btnCreateProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (TextUtils.isEmpty(editTextUserName.getText().toString().trim())) {
+                    Toast.makeText(CreateProfileActivity.this, "Vui lòng nhập tên người dùng", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
-                Profile profile = new Profile(userUid, profileID, userName, phoneNumber, dateOfBirth, insuranceID, email, gender);
-                Map<String, Object> profileValues = profile.toMap();
+                else if (TextUtils.isEmpty(editTextPhoneNumber.getText().toString().trim())) {
+                    Toast.makeText(CreateProfileActivity.this, "Vui lòng nhập số điện thoại", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                else if (TextUtils.isEmpty(editTextDateOfBirth.getText().toString().trim())) {
+                    Toast.makeText(CreateProfileActivity.this, "Vui lòng nhập tên ngày sinh", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
-                db.collection("HoSo")
-                        .document("hoso-6")
-                        .set(profile)
-                        .addOnSuccessListener(aVoid -> {
-                            // Ghi dữ liệu thành công
-                        })
-                        .addOnFailureListener(e -> {
-                            // Xử lý khi ghi dữ liệu thất bại
-                            // e.printStackTrace(); để in ra lỗi
-                        });
+                else if (TextUtils.isEmpty(editTextInsuranceID.getText().toString().trim())) {
+                    Toast.makeText(CreateProfileActivity.this, "Vui lòng nhập số BHYT", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                else {
+                    Profile profile = new Profile(userUid, profileID, userName, phoneNumber, dateOfBirth, insuranceID, email, gender);
+                    Map<String, Object> profileValues = profile.toMap();
+
+                    db.collection("HoSo")
+                            .document("hoso-6")
+                            .set(profile)
+                            .addOnSuccessListener(aVoid -> {
+                                // Ghi dữ liệu thành công
+                            })
+                            .addOnFailureListener(e -> {
+                                // Xử lý khi ghi dữ liệu thất bại
+                                // e.printStackTrace(); để in ra lỗi
+                            });
+                }
             }
         });
     }
+
+
 
     private void initUI() {
         editTextUserName = findViewById(R.id.editText_UserName);

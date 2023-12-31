@@ -16,7 +16,7 @@ import android.widget.TextView;
 
 import com.example.healthapp.R;
 import com.example.healthapp._activity.DoctorChoosingActivity;
-import com.example.healthapp._activity.MainMenuActivity;
+import com.example.healthapp._activity.ShowClinicInfoActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -31,13 +31,14 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
-        return inflater.inflate(R.layout.activity_main_menu, container, false);
+        return inflater.inflate(R.layout.fragment_main_menu, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         CardView cardView_ShowDoctorList = (CardView) view.findViewById(R.id.cardView_ShowDoctorList);
+        CardView cardView_ClinicInfo = (CardView) view.findViewById(R.id.cardView_ClinicInfo);
         CardView btn_Search = (CardView) view.findViewById(R.id.cardView_Search);
         CardView btn_Thread = (CardView) view.findViewById(R.id.cardView_Thread);
         CardView btn_Categories = (CardView) view.findViewById(R.id.cardView_Categories);
@@ -47,6 +48,13 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), DoctorChoosingActivity.class);
+                startActivity(intent);
+            }
+        });
+        cardView_ClinicInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), ShowClinicInfoActivity.class);
                 startActivity(intent);
             }
         });

@@ -14,8 +14,19 @@
         android:fontFamily="@font/inter_semibold"
         android:text="Nhấn để đăng ký"
         android:textStyle="italic"
+        android:layout_marginTop="18dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_ForgotPassword" />
+    <TextView
+        android:id="@+id/textView_ForgotPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter_semibold"
+        android:text="Quên mật khẩu?"
+        android:textColor="#246A73"
+        android:textStyle="italic"
+        app:layout_constraintRight_toRightOf="@+id/btn_SignIn"
         app:layout_constraintTop_toBottomOf="@+id/btn_SignIn" />
 
 <!--    <EditText-->
@@ -108,7 +119,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:fontFamily="@font/inter_black"
-        android:text="@string/doctor_s_fr"
+        android:text="@string/doctors_friends"
         android:textAlignment="center"
         android:textColor="#41A857"
         android:textSize="36sp"

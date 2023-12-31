@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-
-
-    <item android:state_pressed="true"  android:color="@color/_123_v__vi_t_v___ph__ng_13__qu_n_10__tp_hcm__vi_t_nam_color"/>
-    <item android:state_selected="true" android:color="@color/_123_v__vi_t_v___ph__ng_13__qu_n_10__tp_hcm__vi_t_nam_color"/>
-    <item android:color="#E6FFFD"/>
-    <item android:color="#E6FFFD" android:state_selected="false" android:state_pressed="false"/>
-</selector>

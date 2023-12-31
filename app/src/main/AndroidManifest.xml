@@ -13,18 +13,22 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:targetApi="31">
         <activity
+            android:name="._activity.ShowClinicInfoActivity"
+            android:exported="false" />
+        <activity
             android:name="._activity.BookingListActivity"
             android:exported="false" />
-
         <activity
             android:name="._activity.CreateProfileActivity"
             android:exported="false" />
         <activity
             android:name="._activity.AppointmentDateChoosingActivity"
             android:exported="true" />
-<!--        <activity
+        <!--
+        <activity
             android:name="._activity.AppointmentDateChoosingActivity"
-            android:exported="true" />-->
+            android:exported="true" />
+        -->
         <activity
             android:name="._activity.MenuActivity"
             android:exported="false" /> <!-- <activity -->
@@ -41,13 +45,15 @@
             android:name="._activity.MainActivity"
             android:exported="false" />
         <activity
+            android:name="._activity.SignUpActivity"
+            android:exported="false" />
+        <activity
             android:name="._activity.DoctorChoosingActivity"
             android:exported="true" />
         <activity
             android:name="._activity.MainMenuActivity"
             android:exported="true">
             <intent-filter>
-
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
