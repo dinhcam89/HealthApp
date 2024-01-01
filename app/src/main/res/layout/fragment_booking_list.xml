@@ -47,78 +47,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/rectangle_62"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <FrameLayout
-        android:id="@+id/hosokham"
-        android:layout_width="match_parent"
-        android:layout_height="102dp"
-        android:layout_marginHorizontal="30dp"
-        android:background="@color/rectangle_70_color"
-        android:clickable="true"
-        app:layout_constraintTop_toBottomOf="@id/rectangle_62"
-        android:layout_marginTop="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="5dp"
-            android:background="@drawable/ellipse_1">
-        </ImageView>
-
-        <TextView
-            android:id="@+id/textView_tenbacsi1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="100dp"
-            android:layout_marginRight="20dp"
-            android:text="GS. TS. BSi Nguyễn Trọng Tâm"
-            android:textColor="@color/ho_va_ten"
-            android:textSize="16dp"
-            android:textStyle="bold">
-        </TextView>
-
-        <TextView
-            android:id="@+id/textView_ngaykham"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="100dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginRight="20dp"
-            android:text="Ngày khám: 04/01/2024"
-            android:textColor="@color/rectangle_3_color"
-            android:textSize="14dp"
-            android:textStyle="bold"
-            tools:ignore="TextSizeCheck">
-        </TextView>
-
-        <TextView
-            android:id="@+id/textView_tinhtrangthanhtoan"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="100dp"
-            android:layout_marginTop="48dp"
-            android:layout_marginRight="20dp"
-            android:text="Thanh toán trực tiếp"
-            android:textColor="#EF141B"
-            android:textSize="14dp"
-            android:textStyle="bold"
-            tools:ignore="TextSizeCheck">
-        </TextView>
-
-        <ImageButton
-            android:id="@+id/btn_option"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="5dp"
-            android:background="@drawable/menu_1"
-            android:clickable="true"
-            android:contentDescription="click for option...">
-        </ImageButton>
-    </FrameLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcv_Appointments"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/rectangle_62"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/rectangle_62"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

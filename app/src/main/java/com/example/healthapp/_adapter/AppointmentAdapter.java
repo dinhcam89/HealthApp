@@ -11,6 +11,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.healthapp.R;
 import com.example.healthapp._class.Appointment;
+import com.example.healthapp._class.Doctor;
+import com.google.firebase.Firebase;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 import java.util.List;
 
@@ -18,7 +23,7 @@ public class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.
 
     private List<Appointment> appointmentList;
     private Context context;
-
+    FirebaseFirestore db;
     public AppointmentAdapter(List<Appointment> appointmentList, Context context) {
         this.appointmentList = appointmentList;
         this.context = context;
@@ -34,10 +39,25 @@ public class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.
     @Override
     public void onBindViewHolder(@NonNull AppointmentViewHolder holder, int position) {
         Appointment appointment = appointmentList.get(position);
-
-        // holder.tvDate.setText(appointment.getAppointmentDate());
-        // holder.tvHour.setText(appointment.getAppointmentHour());
-        // Add other views if needed
+        String doctorName, doctorSpeciality;
+        db = FirebaseFirestore.getInstance();
+        db.collection("Doctor").document(appointment.getDoctorID())
+                .get()
+                .addOnSuccessListener(documentSnapshot -> {
+                    if (documentSnapshot.exists()) {
+                        // Dữ liệu của bác sĩ được tìm thấy
+                        Doctor doctor = documentSnapshot.toObject(Doctor.class);
+                        holder.textView_DoctorName.setText(doctor.getDoctorName());
+                        holder.textView_DoctorSpeciality.setText(doctor.getDoctorSpeciality());
+                        // Xử lý dữ liệu bác sĩ ở đây
+                    } else {
+                        // Bác sĩ không tồn tại
+                    }
+                })
+                .addOnFailureListener(e -> {
+                    // Xử lý khi truy vấn thất bại
+                });
+        holder.textView_AppointmentDate.setText(appointment.getAppointmentHour() + " ngày " + appointment.getAppointmentDate());
     }
 
     @Override
