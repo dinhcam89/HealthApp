@@ -66,7 +66,7 @@ public class ProfileFragment extends Fragment {
     }
     private void updateProfile(String uid) {
         // Lấy reference đến collection "profile" và document có ID là UID
-        FirebaseFirestore.getInstance().collection("HoSo")
+        FirebaseFirestore.getInstance().collection("UserProfile")
                 .whereEqualTo("uid", uid)
                 .get()
                 .addOnSuccessListener(queryDocumentSnapshots  -> {

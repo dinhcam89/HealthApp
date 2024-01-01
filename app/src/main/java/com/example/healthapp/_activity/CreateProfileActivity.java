@@ -72,14 +72,13 @@ public class CreateProfileActivity extends AppCompatActivity {
                 int radId = radioGroupGender.getCheckedRadioButtonId();
                 if (radId == R.id.radioButton_Male) {
                     gender = "Nam";
-                } else if (radId == R.id.radioButton_Female)
-                {
+                } else if (radId == R.id.radioButton_Female) {
                     gender = "Nữ";
                 } else {
                     gender = "Chưa biết";
                 }
                 // Lấy reference đến collection "HoSo"
-                CollectionReference hoSoRef = db.collection("HoSo");
+                CollectionReference hoSoRef = db.collection("UserProfile");
 
                 // Lấy các giá trị từ EditTexts
                 userName = editTextUserName.getText().toString().trim();

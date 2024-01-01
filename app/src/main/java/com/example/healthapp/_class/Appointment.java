@@ -7,23 +7,18 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Appointment {
-    private String appointmentID;
     private String doctorID;
     private String appointmentDate;
     private String appointmentHour;
     private String patientID;
 
-    public Appointment(String appointmentID, String doctorID, String appointmentDate, String appointmentHour, String patientID) {
-        this.appointmentID = appointmentID;
+    public Appointment(String doctorID, String appointmentDate, String appointmentHour, String patientID) {
         this.doctorID = doctorID;
         this.appointmentDate = appointmentDate;
         this.appointmentHour = appointmentHour;
         this.patientID = patientID;
     }
 
-    public String getAppointmentID() {
-        return appointmentID;
-    }
 
     public String getDoctorID() {
         return doctorID;
@@ -41,9 +36,6 @@ public class Appointment {
         return patientID;
     }
 
-    public void setAppointmentID(String appointmentID) {
-        this.appointmentID = appointmentID;
-    }
 
     public void setDoctorID(String doctorID) {
         this.doctorID = doctorID;
@@ -63,7 +55,7 @@ public class Appointment {
 
     public Map<String, Object> toMap() {
         HashMap<String, Object> result = new HashMap<>();
-        result.put("appointmentID", appointmentID);
+        result.put("patientID", patientID);
         result.put("doctorID", doctorID);
         result.put("appointmentDate", appointmentDate);
         result.put("appointmentHour", appointmentHour);

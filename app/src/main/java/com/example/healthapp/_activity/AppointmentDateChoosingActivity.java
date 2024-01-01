@@ -19,11 +19,16 @@ import android.widget.Toast;
 
 import com.example.healthapp.R;
 import com.example.healthapp._class.Appointment;
+import com.example.healthapp._class.DoctorAppointment;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
+
+import org.checkerframework.checker.units.qual.A;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -46,12 +51,25 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
     private TextView chosenDateTextView;
     private ImageButton bookButton;
     private String doctorID;
+    private FirebaseAuth mAuth;
+    private FirebaseFirestore db;
+    private String userUID;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_appointment_date_choosing);
         initUI();
         doctorID = getIntent().getStringExtra("doctorID");
+
+        // GET USER UID
+        mAuth.addAuthStateListener(auth -> {
+            FirebaseUser user = mAuth.getCurrentUser();
+            if (user != null) {
+                userUID = user.getUid();
+            } else {
+                // Đăng xuất, xử lý theo ý muốn
+            }
+        });
 
         btn_Back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,7 +95,7 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
                     updateChosenDate();
                 }
         );
-        getDoctorInfor();
+        getDoctorInfo();
 
         // Thêm sự kiện cho nút "Đặt lịch"
         bookButton.setOnClickListener(new View.OnClickListener() {
@@ -85,7 +103,8 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(checkButtonState())
                 {
-
+                    addBooking();
+                    addDoctorSchedule();
                 }
                 else
                 {
@@ -234,13 +253,14 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
     }
 
     private void updateAppointmentButtons(String doctorId, String chosenDate) {
-        // Reference đến collection LichKhamCuaBacSi
-        CollectionReference scheduleRef = FirebaseFirestore.getInstance().collection("LichKhamCuaBacSi");
+        // Reference đến collection DoctorSchedule
+        CollectionReference scheduleRef = FirebaseFirestore.getInstance().collection("DoctorSchedule");
 
         // Tạo query để lấy lịch của bác sĩ trong ngày đã chọn
         Query query = scheduleRef
                 .whereEqualTo("doctorId", doctorId)
-                .whereEqualTo("date", chosenDate);
+                .whereEqualTo("date", chosenDate)
+                .whereEqualTo("bookingStatus", true);
 
         // Thực hiện truy vấn
         query.get().addOnCompleteListener(task -> {
@@ -250,7 +270,7 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
                     // Lấy danh sách các khung giờ đã được hẹn
                     //List<String> reservedTimes = new ArrayList<>();
                     for (DocumentSnapshot document : querySnapshot.getDocuments()) {
-                        String reservedTimes = document.getString("time");
+                        String reservedTimes = document.getString("hour");
                         switch (reservedTimes)
                         {
                             case "8h - 9h":
@@ -286,96 +306,75 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
         });
     }
 
-    private void resetAllButtons() {
-        btn8h.setEnabled(true);
-        btn9h.setEnabled(true);
-        btn10h.setEnabled(true);
-        btn13h.setEnabled(true);
-        btn14h.setEnabled(true);
-        btn15h.setEnabled(true);
-        // Reset other buttons if needed
+    private String checkSelectedButton(){
+        if(btn8h.isSelected())
+            return "8h-9h";
+        if(btn9h.isSelected())
+            return "9h-10h";
+        if(btn10h.isSelected())
+            return "10h-11h";
+        if(btn13h.isSelected())
+            return "13h-14h";
+        if(btn14h.isSelected())
+            return "14h-15h";
+        if(btn15h.isSelected())
+            return "15h-16h";
+        return "null";
+    }
+    private void addBooking()
+    {
+        String chosenHour = checkSelectedButton();
+        String chosenDate = chosenDateTextView.getText().toString();
+        Appointment newAppointment = new Appointment(userUID, doctorID, chosenDate, chosenHour);
+
+        CollectionReference hoSoRef = db.collection("Booking");
+
+        hoSoRef.add(newAppointment.toMap())
+                .addOnSuccessListener(documentReference -> {
+                    // Ghi dữ liệu thành công
+                    String autoID = documentReference.getId();
+                    Toast.makeText(AppointmentDateChoosingActivity.this, "Tạo hồ sơ thành công", Toast.LENGTH_SHORT).show();
+
+                    // TODO: Thực hiện các hành động khác sau khi thêm thành công
+
+                    Intent intent = new Intent(getApplicationContext(), MainMenuActivity.class);
+                    startActivity(intent);
+                    finish();
+                })
+                .addOnFailureListener(e -> {
+                    // Xử lý khi ghi dữ liệu thất bại
+                    e.printStackTrace(); // In ra lỗi
+                    Toast.makeText(AppointmentDateChoosingActivity.this, "Đã xảy ra lỗi. Vui lòng thử lại sau!", Toast.LENGTH_SHORT).show();
+                });
     }
 
-    private void updateDoctorSchedule(String doctorId, String chosenDate, String chosenTime) {
-        // Reference đến collection LichKhamCuaBacSi
-        CollectionReference scheduleRef = FirebaseFirestore.getInstance().collection("LichKhamCuaBacSi");
+    private void addDoctorSchedule()
+    {
+        String chosenHour = checkSelectedButton();
+        String chosenDate = chosenDateTextView.getText().toString();
+        DoctorAppointment doctorAppointment = new DoctorAppointment(doctorID, chosenDate, chosenHour, true);
+        CollectionReference hoSoRef = db.collection("DoctorSchedule");
 
-        // Tạo query để tìm lịch cần cập nhật
-        Query query = scheduleRef
-                .whereEqualTo("doctorId", doctorId)
-                .whereEqualTo("date", chosenDate)
-                .whereEqualTo("time", chosenTime);
+        hoSoRef.add(doctorAppointment.toMap())
+                .addOnSuccessListener(documentReference -> {
+                    // Ghi dữ liệu thành công
+                    String autoID = documentReference.getId();
+                    Toast.makeText(AppointmentDateChoosingActivity.this, "Tạo hồ sơ thành công", Toast.LENGTH_SHORT).show();
 
-        // Thực hiện truy vấn
-        query.get().addOnCompleteListener(task -> {
-            if (task.isSuccessful()) {
-                QuerySnapshot querySnapshot = task.getResult();
-                if (querySnapshot != null && !querySnapshot.isEmpty()) {
-                    // Lấy ID của lịch cần cập nhật
-                    String scheduleId = querySnapshot.getDocuments().get(0).getId();
+                    // TODO: Thực hiện các hành động khác sau khi thêm thành công
 
-                    // Cập nhật trạng thái lịch của bác sĩ thành "Đã được hẹn" tương ứng với false
-                    scheduleRef.document(scheduleId).update("status", false)
-                            .addOnSuccessListener(aVoid -> {
-                                // Cập nhật thành công
-                                Toast.makeText(this, "Đặt lịch thành công.", Toast.LENGTH_SHORT).show();
-                                // TODO: Thực hiện thêm thông tin vào collection DatLichKham
-                                // (Lấy id của người khám, id của bác sĩ, ngày và giờ đặt lịch)
-                                addAppointmentToFirestore(/*userId,*/ doctorId, chosenDate, chosenTime);
-                                finish();
-                            })
-                            .addOnFailureListener(e -> {
-                                // Cập nhật thất bại
-                                Toast.makeText(this, "Lỗi khi cập nhật trạng thái lịch của bác sĩ.", Toast.LENGTH_SHORT).show();
-                            });
-                }
-            } else {
-                // Xử lý khi truy vấn thất bại
-                Toast.makeText(this, "Lỗi khi cập nhật trạng thái lịch của bác sĩ.", Toast.LENGTH_SHORT).show();
-            }
-        });
+                    Intent intent = new Intent(getApplicationContext(), MainMenuActivity.class);
+                    startActivity(intent);
+                    finish();
+                })
+                .addOnFailureListener(e -> {
+                    // Xử lý khi ghi dữ liệu thất bại
+                    e.printStackTrace(); // In ra lỗi
+                    Toast.makeText(AppointmentDateChoosingActivity.this, "Đã xảy ra lỗi. Vui lòng thử lại sau!", Toast.LENGTH_SHORT).show();
+                });
     }
 
-    private void addAppointmentToFirestore(String doctorId, String chosenDate, String chosenTime) {
-        // Lấy ID của bác sĩ từ Intent hoặc từ nơi khác
-        // String doctorId = "YourDoctorId"; // Bạn cần cung cấp ID của bác sĩ
 
-        // Lấy ID của bệnh nhân từ collection Hoso
-        String patientId = "YourPatientId"; // Bạn cần cung cấp ID của bệnh nhân
-        getPatientIdFromFirestore(patientId, doctorId, chosenDate, chosenTime);
-    }
-
-    private void getPatientIdFromFirestore(String patientId, String doctorId, String chosenDate, String chosenTime) {
-        // Reference đến collection Hoso
-        CollectionReference patientRef = FirebaseFirestore.getInstance().collection("Hoso");
-
-        // Tạo query để lấy thông tin của bệnh nhân
-        Query query = patientRef.whereEqualTo("patientId", patientId);
-
-        // Thực hiện truy vấn
-        query.get().addOnCompleteListener(task -> {
-            if (task.isSuccessful()) {
-                QuerySnapshot querySnapshot = task.getResult();
-                if (querySnapshot != null && !querySnapshot.isEmpty()) {
-                    // Lấy thông tin của bệnh nhân
-                    // Ví dụ: String patientName = querySnapshot.getDocuments().get(0).getString("patientName");
-
-                    // Tạo một đối tượng Appointment
-                    Appointment appointment = new Appointment(null, doctorId, chosenDate, chosenTime, patientId);
-
-                    // Thêm thông tin đặt lịch vào Firestore
-                    appointment.addToFirestore();
-
-                } else {
-                    // Không tìm thấy thông tin của bệnh nhân
-                    Toast.makeText(this, "Không tìm thấy thông tin của bệnh nhân.", Toast.LENGTH_SHORT).show();
-                }
-            } else {
-                // Xử lý khi truy vấn thất bại
-                Toast.makeText(this, "Lỗi khi lấy thông tin của bệnh nhân.", Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
 
     private void initUI() {
         btn_Back = findViewById(R.id.btn_Back);
@@ -409,7 +408,7 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
         //String chosenDate = getChosenDate();
         updateAppointmentButtons(doctorID, formattedDate);
     }
-    private void getDoctorInfor()
+    private void getDoctorInfo()
     {
         Intent intent = getIntent();
         if (intent != null) {

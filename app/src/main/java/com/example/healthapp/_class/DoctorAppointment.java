@@ -11,11 +11,11 @@ public class DoctorAppointment {
 
     public DoctorAppointment() {}
 
-    public DoctorAppointment(String doctorID, String date, boolean bookingStatus, String hour) {
+    public DoctorAppointment(String doctorID, String date, String hour, boolean bookingStatus) {
         this.doctorID = doctorID;
         this.date = date;
-        this.bookingStatus = bookingStatus;
         this.hour = hour;
+        this.bookingStatus = bookingStatus;
     }
 
     public String getDoctorID() {
