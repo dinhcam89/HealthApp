@@ -20,6 +20,7 @@ import android.widget.Toast;
 import com.example.healthapp.R;
 import com.example.healthapp._class.Appointment;
 import com.example.healthapp._class.DoctorAppointment;
+import com.example.healthapp._class.Profile;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
@@ -192,6 +193,8 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
                 {
                     addBooking();
                     addDoctorSchedule();
+                    Toast.makeText(v.getContext(), "aaa!", Toast.LENGTH_SHORT).show();
+
                 }
                 else
                 {
@@ -322,54 +325,6 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
         else
             return "15h - 16h";
     }
-    public void addBooking()
-    {
-        String chosenHour = checkSelectedButton();
-        String chosenDate = getChosenDate();
-        Appointment newAppointment = new Appointment(userUID, doctorID, chosenDate, chosenHour);
-
-        CollectionReference BookingRef = db.collection("Booking");
-
-        BookingRef.add(newAppointment.toMap())
-                .addOnSuccessListener(documentReference -> {
-                    // Ghi dữ liệu thành công
-                    String autoID = documentReference.getId();
-                    Toast.makeText(AppointmentDateChoosingActivity.this, "Tạo hồ sơ thành công", Toast.LENGTH_SHORT).show();
-
-                    // TODO: Thực hiện các hành động khác sau khi thêm thành công
-
-                })
-                .addOnFailureListener(e -> {
-                    // Xử lý khi ghi dữ liệu thất bại
-                    e.printStackTrace(); // In ra lỗi
-                    Toast.makeText(AppointmentDateChoosingActivity.this, "Đã xảy ra lỗi. Vui lòng thử lại sau!", Toast.LENGTH_SHORT).show();
-                });
-    }
-
-    public void addDoctorSchedule()
-    {
-        String chosenHour = checkSelectedButton();
-        String chosenDate = getChosenDate();
-        DoctorAppointment doctorAppointment = new DoctorAppointment(doctorID, chosenDate, chosenHour, true);
-        CollectionReference DoctorScheduleRef = db.collection("DoctorSchedule");
-
-        DoctorScheduleRef.add(doctorAppointment.toMap())
-                .addOnSuccessListener(documentReference -> {
-                    // Ghi dữ liệu thành công
-                    String autoID = documentReference.getId();
-                    Toast.makeText(AppointmentDateChoosingActivity.this, "Tạo hồ sơ thành công", Toast.LENGTH_SHORT).show();
-
-                    // TODO: Thực hiện các hành động khác sau khi thêm thành công
-
-                })
-                .addOnFailureListener(e -> {
-                    // Xử lý khi ghi dữ liệu thất bại
-                    e.printStackTrace(); // In ra lỗi
-                    Toast.makeText(AppointmentDateChoosingActivity.this, "Đã xảy ra lỗi. Vui lòng thử lại sau!", Toast.LENGTH_SHORT).show();
-                });
-    }
-
-
 
     private void initUI() {
         btn_Back = findViewById(R.id.btn_Back);
@@ -405,5 +360,51 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
             doctorNameTextView.setText(doctorName);
             doctorSpecialityTextView.setText(doctorSpeciality);
         }
+    }
+    public void addBooking()
+    {
+        String chosenHour = checkSelectedButton();
+        String chosenDate = getChosenDate();
+        Appointment newAppointment = new Appointment(doctorID, userUID, chosenDate, chosenHour);
+
+        CollectionReference BookingRef = FirebaseFirestore.getInstance().collection("Booking");
+
+        BookingRef.add(newAppointment.toMap())
+                .addOnSuccessListener(documentReference -> {
+                    // Ghi dữ liệu thành công
+                    String autoID = documentReference.getId();
+                    Toast.makeText(AppointmentDateChoosingActivity.this, "Tạo hồ sơ thành công", Toast.LENGTH_SHORT).show();
+
+                    // TODO: Thực hiện các hành động khác sau khi thêm thành công
+
+                })
+                .addOnFailureListener(e -> {
+                    // Xử lý khi ghi dữ liệu thất bại
+                    e.printStackTrace(); // In ra lỗi
+                    Toast.makeText(AppointmentDateChoosingActivity.this, "Đã xảy ra lỗi. Vui lòng thử lại sau!", Toast.LENGTH_SHORT).show();
+                });
+    }
+
+    public void addDoctorSchedule()
+    {
+        String chosenHour = checkSelectedButton();
+        String chosenDate = getChosenDate();
+        DoctorAppointment doctorAppointment = new DoctorAppointment(doctorID, chosenDate, chosenHour, true);
+        CollectionReference DoctorScheduleRef = FirebaseFirestore.getInstance().collection("DoctorSchedule");
+
+        DoctorScheduleRef.add(doctorAppointment.toMap())
+                .addOnSuccessListener(documentReference -> {
+                    // Ghi dữ liệu thành công
+                    String autoID = documentReference.getId();
+                    Toast.makeText(AppointmentDateChoosingActivity.this, "Tạo hồ sơ thành công", Toast.LENGTH_SHORT).show();
+
+                    // TODO: Thực hiện các hành động khác sau khi thêm thành công
+
+                })
+                .addOnFailureListener(e -> {
+                    // Xử lý khi ghi dữ liệu thất bại
+                    e.printStackTrace(); // In ra lỗi
+                    Toast.makeText(AppointmentDateChoosingActivity.this, "Đã xảy ra lỗi. Vui lòng thử lại sau!", Toast.LENGTH_SHORT).show();
+                });
     }
 }

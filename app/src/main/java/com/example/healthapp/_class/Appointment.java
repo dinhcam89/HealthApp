@@ -8,15 +8,17 @@ import java.util.Map;
 
 public class Appointment {
     private String doctorID;
+    private String patientID;
     private String appointmentDate;
     private String appointmentHour;
-    private String patientID;
 
-    public Appointment(String doctorID, String appointmentDate, String appointmentHour, String patientID) {
+
+    public Appointment(String doctorID, String patientID, String appointmentDate, String appointmentHour) {
         this.doctorID = doctorID;
+        this.patientID = patientID;
         this.appointmentDate = appointmentDate;
         this.appointmentHour = appointmentHour;
-        this.patientID = patientID;
+
     }
 
 
@@ -55,8 +57,8 @@ public class Appointment {
 
     public Map<String, Object> toMap() {
         HashMap<String, Object> result = new HashMap<>();
-        result.put("patientID", patientID);
         result.put("doctorID", doctorID);
+        result.put("patientID", patientID);
         result.put("appointmentDate", appointmentDate);
         result.put("appointmentHour", appointmentHour);
 

@@ -113,7 +113,6 @@ public class DoctorAdapter extends  RecyclerView.Adapter<DoctorAdapter.DoctorVie
 
                     // Khởi chạy Activity mới
                     v.getContext().startActivity(intent);
-
 //                    Doctor selectedDoctor = ListDoctors.get(getAdapterPosition());
 //                    if (selectedDoctor != null) {
 //                        // Chuyển sang AppointmentDateChoosingActivity khi chọn bác sĩ
