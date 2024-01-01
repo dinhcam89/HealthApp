@@ -51,9 +51,9 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
     private TextView chosenDateTextView;
     private ImageButton bookButton;
     private String doctorID;
-    private FirebaseAuth mAuth;
-    private FirebaseFirestore db;
-    private String userUID;
+    FirebaseAuth mAuth;
+    FirebaseFirestore db;
+    String userUID;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,7 +61,8 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
         initUI();
         doctorID = getIntent().getStringExtra("doctorID");
 
-        // GET USER UID
+        //GET USER UID
+        mAuth = FirebaseAuth.getInstance();
         mAuth.addAuthStateListener(auth -> {
             FirebaseUser user = mAuth.getCurrentUser();
             if (user != null) {
@@ -98,20 +99,6 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
         getDoctorInfo();
 
         // Thêm sự kiện cho nút "Đặt lịch"
-        bookButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(checkButtonState())
-                {
-                    addBooking();
-                    addDoctorSchedule();
-                }
-                else
-                {
-                    Toast.makeText(v.getContext(), "Vui lòng chọn giờ khám!", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
 
 
         btn8h.setOnClickListener(new View.OnClickListener() {
@@ -197,6 +184,21 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
                 selectButton(btn15h);
             }
         });
+
+        bookButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(checkButtonState())
+                {
+                    addBooking();
+                    addDoctorSchedule();
+                }
+                else
+                {
+                    Toast.makeText(v.getContext(), "Vui lòng chọn giờ khám!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     private Button selectedButton = null;
@@ -258,7 +260,7 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
 
         // Tạo query để lấy lịch của bác sĩ trong ngày đã chọn
         Query query = scheduleRef
-                .whereEqualTo("doctorId", doctorId)
+                .whereEqualTo("doctorID", doctorId)
                 .whereEqualTo("date", chosenDate)
                 .whereEqualTo("bookingStatus", true);
 
@@ -308,28 +310,27 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
 
     private String checkSelectedButton(){
         if(btn8h.isSelected())
-            return "8h-9h";
-        if(btn9h.isSelected())
-            return "9h-10h";
-        if(btn10h.isSelected())
-            return "10h-11h";
-        if(btn13h.isSelected())
-            return "13h-14h";
-        if(btn14h.isSelected())
-            return "14h-15h";
-        if(btn15h.isSelected())
-            return "15h-16h";
-        return "null";
+            return "8h - 9h";
+        else if(btn9h.isSelected())
+            return "9h - 10h";
+        else if(btn10h.isSelected())
+            return "10h - 11h";
+        else if(btn13h.isSelected())
+            return "13h - 14h";
+        else if(btn14h.isSelected())
+            return "14h - 15h";
+        else
+            return "15h - 16h";
     }
-    private void addBooking()
+    public void addBooking()
     {
         String chosenHour = checkSelectedButton();
-        String chosenDate = chosenDateTextView.getText().toString();
+        String chosenDate = getChosenDate();
         Appointment newAppointment = new Appointment(userUID, doctorID, chosenDate, chosenHour);
 
-        CollectionReference hoSoRef = db.collection("Booking");
+        CollectionReference BookingRef = db.collection("Booking");
 
-        hoSoRef.add(newAppointment.toMap())
+        BookingRef.add(newAppointment.toMap())
                 .addOnSuccessListener(documentReference -> {
                     // Ghi dữ liệu thành công
                     String autoID = documentReference.getId();
@@ -337,9 +338,6 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
 
                     // TODO: Thực hiện các hành động khác sau khi thêm thành công
 
-                    Intent intent = new Intent(getApplicationContext(), MainMenuActivity.class);
-                    startActivity(intent);
-                    finish();
                 })
                 .addOnFailureListener(e -> {
                     // Xử lý khi ghi dữ liệu thất bại
@@ -348,14 +346,14 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
                 });
     }
 
-    private void addDoctorSchedule()
+    public void addDoctorSchedule()
     {
         String chosenHour = checkSelectedButton();
-        String chosenDate = chosenDateTextView.getText().toString();
+        String chosenDate = getChosenDate();
         DoctorAppointment doctorAppointment = new DoctorAppointment(doctorID, chosenDate, chosenHour, true);
-        CollectionReference hoSoRef = db.collection("DoctorSchedule");
+        CollectionReference DoctorScheduleRef = db.collection("DoctorSchedule");
 
-        hoSoRef.add(doctorAppointment.toMap())
+        DoctorScheduleRef.add(doctorAppointment.toMap())
                 .addOnSuccessListener(documentReference -> {
                     // Ghi dữ liệu thành công
                     String autoID = documentReference.getId();
@@ -363,9 +361,6 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
 
                     // TODO: Thực hiện các hành động khác sau khi thêm thành công
 
-                    Intent intent = new Intent(getApplicationContext(), MainMenuActivity.class);
-                    startActivity(intent);
-                    finish();
                 })
                 .addOnFailureListener(e -> {
                     // Xử lý khi ghi dữ liệu thất bại
@@ -392,22 +387,12 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
         bookButton = findViewById(R.id.btn_Book);
     }
     private void updateChosenDate() {
-        int day = chooseAppointmentDatePicker.getDayOfMonth();
-        int month = chooseAppointmentDatePicker.getMonth();
-        int year = chooseAppointmentDatePicker.getYear();
-
-        // Tạo một đối tượng Calendar để định dạng ngày
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(year, month, day);
-
-        // Định dạng ngày tháng năm và hiển thị trên TextView
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
-        String formattedDate = sdf.format(calendar.getTime());
-        chosenDateTextView.setText("Ngày đã chọn: " + formattedDate);
+        chosenDateTextView.setText("Ngày đã chọn: " + getChosenDate());
         //String doctorId = getIntent().getStringExtra("doctorId");
         //String chosenDate = getChosenDate();
-        updateAppointmentButtons(doctorID, formattedDate);
+        updateAppointmentButtons(doctorID, getChosenDate());
     }
+
     private void getDoctorInfo()
     {
         Intent intent = getIntent();

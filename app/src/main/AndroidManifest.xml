@@ -51,7 +51,7 @@
             android:name="._activity.DoctorChoosingActivity"
             android:exported="true" />
         <activity
-            android:name="._activity.SignUpActivity"
+            android:name="._activity.SignInActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -60,7 +60,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="._activity.SignInActivity"
+            android:name="._activity.SignUpActivity"
             android:exported="false" />
 
         <meta-data
