@@ -5,7 +5,6 @@ import java.util.Map;
 
 public class Profile {
     private String uid;
-    private String profileID;
     private String name;
     private String phoneNumber;
     private String dateOfBirth;
@@ -15,9 +14,8 @@ public class Profile {
 
     public Profile() {}
 
-    public Profile(String uid, String profileID, String name, String phoneNumber, String dateOfBirth, String insuranceID, String email, String gender) {
+    public Profile(String uid, String name, String phoneNumber, String dateOfBirth, String insuranceID, String email, String gender) {
         this.uid = uid;
-        this.profileID = profileID;
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.dateOfBirth = dateOfBirth;
@@ -28,10 +26,6 @@ public class Profile {
 
     public String getUid() {
         return uid;
-    }
-
-    public String getProfileID() {
-        return profileID;
     }
 
     public String getName() {
@@ -60,9 +54,6 @@ public class Profile {
     public void setUid(String uid) {
         this.uid = uid;
     }
-    public void setProfileID(String profileID) {
-        this.profileID = profileID;
-    }
 
     public void setName(String name) {
         this.name = name;
@@ -90,7 +81,6 @@ public class Profile {
     public Map<String, Object> toMap() {
         HashMap<String, Object> result = new HashMap<>();
         result.put("uid", uid);
-        result.put("profileID", profileID);
         result.put("name", name);
         result.put("phoneNumber", phoneNumber);
         result.put("dateOfBirth", dateOfBirth);

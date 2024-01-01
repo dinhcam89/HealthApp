@@ -49,12 +49,4 @@ public class Doctor {
     public void setDoctorSpeciality(String doctorSpeciality) {
         this.doctorSpeciality = doctorSpeciality;
     }
-    public Map<String, Object> toMap() {
-        HashMap<String, Object> result = new HashMap<>();
-        result.put("doctor-id", doctorID);
-        result.put("name", doctorName);
-        result.put("speciality", doctorSpeciality);
-        result.put("exp", doctorExp);
-        return result;
-    }
 }

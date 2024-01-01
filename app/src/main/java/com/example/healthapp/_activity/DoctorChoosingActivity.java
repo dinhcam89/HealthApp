@@ -60,42 +60,7 @@ public class DoctorChoosingActivity extends AppCompatActivity implements DoctorA
     }
     private void getData()
     {
-//        CollectionReference doctorsRef = db.collection("Doctor");
-//
-//        doctorsRef.get().addOnSuccessListener(queryDocumentSnapshots -> {
-//
-//            for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
-//                if (documentSnapshot.exists()) {
-//                    Doctor doctor = documentSnapshot.toObject(Doctor.class);
-//                    list_Doctors.add(doctor);
-//                }
-//                adapter_Doctors.notifyDataSetChanged();
-//            }
-//
-//            // Gọi phương thức để xử lý danh sách bác sĩ (ví dụ: đưa vào Adapter)
-//        }).addOnFailureListener(e -> {
-//            // Xử lý khi có lỗi xảy ra
-//            // e.printStackTrace(); để in ra lỗi
-//        });
-//        CollectionReference doctorsRef = db.collection("BacSi");
-//
-//        doctorsRef.get().addOnSuccessListener(queryDocumentSnapshots -> {
-//
-//            for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
-//                if (documentSnapshot.exists()) {
-//                    Doctor doctor = documentSnapshot.toObject(Doctor.class);
-//                    list_Doctors.add(doctor);
-//                }
-//                adapter_Doctors.notifyDataSetChanged();
-//            }
-//
-//            // Gọi phương thức để xử lý danh sách bác sĩ (ví dụ: đưa vào Adapter)
-//        }).addOnFailureListener(e -> {
-//            // Xử lý khi có lỗi xảy ra
-//            // e.printStackTrace(); để in ra lỗi
-//        });
-
-        CollectionReference doctorsRef = db.collection("BacSi");
+        CollectionReference doctorsRef = db.collection("Doctor");
 
         // Lắng nghe sự kiện thay đổi dữ liệu trong collection "Doctor"
         doctorsRef.addSnapshotListener((value, error) -> {

@@ -3,6 +3,9 @@ package com.example.healthapp._class;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Appointment {
     private String appointmentID;
     private String doctorID;
@@ -58,20 +61,13 @@ public class Appointment {
         this.patientID = patientID;
     }
 
-    // Phương thức để thêm thông tin đặt lịch vào Firestore
-    public void addToFirestore() {
-        // Lấy reference đến collection DatLichKham
-        CollectionReference appointmentRef = FirebaseFirestore.getInstance().collection("DatLichKham");
+    public Map<String, Object> toMap() {
+        HashMap<String, Object> result = new HashMap<>();
+        result.put("appointmentID", appointmentID);
+        result.put("doctorID", doctorID);
+        result.put("appointmentDate", appointmentDate);
+        result.put("appointmentHour", appointmentHour);
 
-        // Thêm thông tin đặt lịch vào collection
-        appointmentRef.document(appointmentID).set(this)
-                .addOnSuccessListener(aVoid -> {
-                    // Thêm thành công
-                    // TODO: Xử lý khi thêm thành công (nếu cần)
-                })
-                .addOnFailureListener(e -> {
-                    // Thêm thất bại
-                    // TODO: Xử lý khi thêm thất bại (nếu cần)
-                });
+        return result;
     }
 }

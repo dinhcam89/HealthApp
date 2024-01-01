@@ -45,13 +45,13 @@
             android:name="._activity.MainActivity"
             android:exported="false" />
         <activity
-            android:name="._activity.SignUpActivity"
+            android:name="._activity.MainMenuActivity"
             android:exported="false" />
         <activity
             android:name="._activity.DoctorChoosingActivity"
             android:exported="true" />
         <activity
-            android:name="._activity.MainMenuActivity"
+            android:name="._activity.SignUpActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

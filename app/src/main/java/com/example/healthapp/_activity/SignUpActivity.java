@@ -77,6 +77,7 @@ public class SignUpActivity extends AppCompatActivity {
                                     FirebaseUser user = mailAuth.getCurrentUser();
                                     Toast.makeText(SignUpActivity.this, "Đăng ký thành công!", Toast.LENGTH_SHORT).show();
                                     Intent intent = new Intent(getApplicationContext(), CreateProfileActivity.class);
+                                    intent.putExtra("email", editTextEmail.getText().toString());
                                     startActivity(intent);
                                     finish();
                                 }

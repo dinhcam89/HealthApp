@@ -79,7 +79,7 @@ public class SignInActivity extends AppCompatActivity {
                                     //String user_Uid = currentUser.getUid();
                                     Toast.makeText(SignInActivity.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
                                     Intent intent = new Intent(getApplicationContext(), MainMenuActivity.class);
-                                    //intent.putExtra("user_Uid", user_Uid);
+                                    //intent.putExtra("email", editTextEmail.getText());
                                     startActivity(intent);
                                     finish();
                                 }

@@ -32,22 +32,14 @@ import java.util.List;
 import java.util.Locale;
 
 public class AppointmentDateChoosingActivity extends AppCompatActivity {
-    private ConstraintLayout constraintLayout;
-    private View bgView;
-    private View rectangle62;
-    private FrameLayout frameLayout;
     private ImageButton btn_Back;
-    private TextView titleTextView;
-    private ImageView doctorAvatarImageView;
     private TextView doctorNameTextView;
     private TextView doctorSpecialityTextView;
     private TextView chooseDateTextView;
     private DatePicker chooseAppointmentDatePicker;
-    private LinearLayout linearLayout1;
     private Button btn8h;
     private Button btn9h;
     private Button btn10h;
-    private LinearLayout linearLayout2;
     private Button btn13h;
     private Button btn14h;
     private Button btn15h;
@@ -91,14 +83,14 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
         bookButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Lấy thông tin đã chọn
-                String doctorId = getIntent().getStringExtra("doctorID");
-                String chosenDate = getChosenDate();
-                updateAppointmentButtons(doctorId, chosenDate);
-                //String chosenTime = getChosenTime();
+                if(checkButtonState())
+                {
 
-                // Kiểm tra và đặt lịch
-                //checkDoctorSchedule(doctorId, chosenDate, chosenTime);
+                }
+                else
+                {
+                    Toast.makeText(v.getContext(), "Vui lòng chọn giờ khám!", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -208,6 +200,14 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
             selectedButton = button;
         }
     }
+    private boolean checkButtonState()
+    {
+        if(!btn8h.isSelected() && !btn9h.isSelected() && !btn10h.isSelected()
+                && !btn13h.isSelected() && !btn14h.isSelected() && !btn15h.isSelected())
+            return false;
+        return true;
+    }
+
 
     private String getChosenDate() {
         int day = chooseAppointmentDatePicker.getDayOfMonth();
@@ -223,7 +223,6 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
         return sdf.format(calendar.getTime());
     }
 
-    // Thêm phương thức để lấy giờ đã chọn
     private void resetButton() {
         // Lấy giờ từ nút đã chọn
         btn8h.setEnabled(true);
@@ -233,7 +232,7 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
         btn14h.setEnabled(true);
         btn15h.setEnabled(true);
     }
-    // Phương thức để cập nhật trạng thái của các button dựa trên lịch khám
+
     private void updateAppointmentButtons(String doctorId, String chosenDate) {
         // Reference đến collection LichKhamCuaBacSi
         CollectionReference scheduleRef = FirebaseFirestore.getInstance().collection("LichKhamCuaBacSi");
@@ -282,30 +281,10 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
                 }
             } else {
                 // Xử lý khi truy vấn thất bại
-                Toast.makeText(this, "Lỗi khi kiểm tra lịch khám của bác sĩ.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Đã có lỗi xảy ra, Vui lòng thử lại sau!", Toast.LENGTH_SHORT).show();
             }
         });
     }
-
-    private Button getButtonForTime(String time) {
-        switch (time) {
-            case "8h - 9h":
-                return btn8h;
-            case "9h - 10h":
-                return btn9h;
-            case "10h - 11h":
-                return btn10h;
-            case "13h - 14h":
-                return btn13h;
-            case "14h - 15h":
-                return btn14h;
-            case "15h - 16h":
-                return btn15h;
-            default:
-                return null;
-        }
-    }
-
 
     private void resetAllButtons() {
         btn8h.setEnabled(true);
@@ -399,22 +378,14 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
     }
 
     private void initUI() {
-        constraintLayout = findViewById(R.id.button);
-        bgView = findViewById(R.id._bg__tracuudonthuoc2_ek2);
-        rectangle62 = findViewById(R.id.rectangle_62);
-        frameLayout = findViewById(R.id.frameLayout);
         btn_Back = findViewById(R.id.btn_Back);
-        titleTextView = findViewById(R.id.tittle_tracuudonthuoc);
-        doctorAvatarImageView = findViewById(R.id.imgView_DoctorAvatar);
         doctorNameTextView = findViewById(R.id.textView_DoctorName);
         doctorSpecialityTextView = findViewById(R.id.textView_DoctorSpeciality);
         chooseDateTextView = findViewById(R.id.textView_ChooseDate);
         chooseAppointmentDatePicker = findViewById(R.id.datePicker_ChooseAppointmentDate);
-        linearLayout1 = findViewById(R.id.linear1);
         btn8h = findViewById(R.id.btn_8h);
         btn9h = findViewById(R.id.btn_9h);
         btn10h = findViewById(R.id.btn_10h);
-        linearLayout2 = findViewById(R.id.linear2);
         btn13h = findViewById(R.id.btn_13h);
         btn14h = findViewById(R.id.btn_14h);
         btn15h = findViewById(R.id.btn_15h);
