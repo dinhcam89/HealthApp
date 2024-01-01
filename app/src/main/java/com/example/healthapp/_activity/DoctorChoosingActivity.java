@@ -1,14 +1,17 @@
 package com.example.healthapp._activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.healthapp.R;
 import com.example.healthapp._adapter.DoctorAdapter;
@@ -23,6 +26,7 @@ public class DoctorChoosingActivity extends AppCompatActivity implements DoctorA
     private RecyclerView rcv_Doctors;
     private DoctorAdapter adapter_Doctors;
     private List<Doctor> list_Doctors;
+    private SearchView searchView;
     FirebaseFirestore db;
 
     @Override
@@ -38,7 +42,39 @@ public class DoctorChoosingActivity extends AppCompatActivity implements DoctorA
                 finish(); // Go back to the previous activity
             }
         });
+        searchView.clearFocus();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                filterlist(newText);
+                return false;
+            }
+        });
     }
+
+    private void filterlist(String newText) {
+        List<Doctor> filteredList = new ArrayList<>();
+        for(Doctor doctor : list_Doctors)
+        {
+            if(doctor.getDoctorName().toLowerCase().contains(newText.toLowerCase()))
+            {
+                filteredList.add(doctor);
+            }
+        }
+        if(filteredList.isEmpty())
+        {
+            Toast.makeText(this, "Không tìm thấy bác sĩ", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            adapter_Doctors.setFilteredList(filteredList);
+        }
+    }
+
 
 
     private void initUI()
@@ -56,6 +92,7 @@ public class DoctorChoosingActivity extends AppCompatActivity implements DoctorA
         adapter_Doctors = new DoctorAdapter(list_Doctors, (DoctorAdapter.OnDoctorClickListener) this);
 
         rcv_Doctors.setAdapter(adapter_Doctors);
+        searchView = findViewById(R.id.search_bar);
 
     }
     private void getData()
@@ -94,4 +131,5 @@ public class DoctorChoosingActivity extends AppCompatActivity implements DoctorA
         intent.putExtra("doctorID", doctorID);
         startActivity(intent);
     }
+
 }
