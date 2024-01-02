@@ -120,5 +120,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="booking_list">Lịch khám</string>
+
+
+    <string name="payment1">Scan card to pay</string>
 </resources>
 
