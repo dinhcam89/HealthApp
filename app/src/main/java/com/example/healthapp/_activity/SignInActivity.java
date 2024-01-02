@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -17,6 +18,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class SignInActivity extends AppCompatActivity {
     private EditText editTextEmail;
@@ -25,7 +27,7 @@ public class SignInActivity extends AppCompatActivity {
     private FirebaseAuth mailAuth;
     private TextView textViewSignUp;
     private TextView textViewForgotPwd;
-
+    private CheckBox btn_checkBoxRememberMe;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +39,7 @@ public class SignInActivity extends AppCompatActivity {
         mailAuth = FirebaseAuth.getInstance();
         textViewSignUp = findViewById(R.id.textView_SignUp);
         textViewForgotPwd = findViewById(R.id.textView_ForgotPassword);
-
+        btn_checkBoxRememberMe = findViewById(R.id.btn_checkBoxRememberMe);
         textViewSignUp.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -48,6 +50,14 @@ public class SignInActivity extends AppCompatActivity {
                 finish();
             }
         });
+        FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();
+        if(user != null)
+        {
+            Intent intent = new Intent(getApplicationContext(), MainMenuActivity.class);
+            startActivity(intent);
+            finish();
+        }
+
         btnSignIn.setOnClickListener(new View.OnClickListener()
         {
             @Override

@@ -34,7 +34,7 @@
             <View
                 android:id="@+id/view"
                 android:layout_width="419dp"
-                android:layout_height="420dp"
+                android:layout_height="462dp"
                 android:background="@drawable/bigshape"
                 android:layout_marginTop="5dp"
                 app:layout_constraintEnd_toEndOf="parent"

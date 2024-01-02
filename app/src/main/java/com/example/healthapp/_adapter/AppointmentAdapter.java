@@ -16,6 +16,7 @@ import com.google.firebase.Firebase;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.protobuf.StringValue;
 
 import java.util.List;
 
@@ -58,6 +59,15 @@ public class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.
                     // Xử lý khi truy vấn thất bại
                 });
         holder.textView_AppointmentDate.setText(appointment.getAppointmentHour() + " ngày " + appointment.getAppointmentDate());
+        if(appointment.isPay())
+        {
+            holder.textView_PaymentMethod.setText("Đã thanh toán");
+        }
+        if(!appointment.isPay())
+        {
+            holder.textView_PaymentMethod.setText("Chưa thanh toán");
+        }
+
     }
 
     @Override

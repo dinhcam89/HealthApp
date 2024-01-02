@@ -6,224 +6,217 @@
     android:layout_height="match_parent"
     tools:context="._activity.PaymentChoosingActivity">
 
-    <ScrollView
+    <View
+        android:id="@+id/rectangle_62"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_height="55dp"
+        android:background="@drawable/topshape"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/frameLayout4"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/rectangle_62"
+        app:layout_constraintStart_toStartOf="@+id/rectangle_62"
+        app:layout_constraintTop_toTopOf="@+id/rectangle_62">
+
+        <ImageButton
+            android:id="@+id/btn_Back"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:clickable="true"
+            android:contentDescription="arrow_1"
+            android:src="@drawable/arrow_1"
+            tools:ignore="TouchTargetSizeCheck" />
+    </FrameLayout>
 
-            <View
-                android:id="@+id/rectangle_62"
-                android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:background="@drawable/topshape"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/tittle_tracuudonthuoc"
+        android:layout_width="170dp"
+        android:layout_height="39dp"
+        android:layout_gravity="center_horizontal|center"
+        android:gravity="center"
+        android:text="Đặt lịch khám"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/rectangle_62"
+        app:layout_constraintEnd_toEndOf="@+id/rectangle_62"
+        app:layout_constraintStart_toStartOf="@+id/rectangle_62"
+        app:layout_constraintTop_toTopOf="parent" />
 
-            <FrameLayout
-                android:id="@+id/frameLayout4"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center"
-                android:layout_marginStart="15dp"
-                app:layout_constraintBottom_toBottomOf="@+id/rectangle_62"
-                app:layout_constraintStart_toStartOf="@+id/rectangle_62"
-                app:layout_constraintTop_toTopOf="@+id/rectangle_62">
+    <ImageView
+        android:id="@+id/imgView_DoctorAvatar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="22dp"
+        android:src="@drawable/ellipse_1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rectangle_62" />
 
-                <ImageButton
-                    android:id="@+id/btn_Back"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@android:color/transparent"
-                    android:clickable="true"
-                    android:contentDescription="arrow_1"
-                    android:src="@drawable/arrow_1"
-                    tools:ignore="TouchTargetSizeCheck" />
-            </FrameLayout>
+    <TextView
+        android:id="@+id/textView_DoctorName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="0dp"
+        android:text="Doctor's Name"
+        android:textColor="#009688"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toRightOf="@+id/imgView_DoctorAvatar"
+        app:layout_constraintTop_toTopOf="@+id/imgView_DoctorAvatar"></TextView>
 
-            <TextView
-                android:id="@+id/tittle_tracuudonthuoc"
-                android:layout_width="170dp"
-                android:layout_height="39dp"
-                android:layout_gravity="center_horizontal|center"
-                android:gravity="center"
-                android:text="Đặt lịch khám"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@+id/rectangle_62"
-                app:layout_constraintEnd_toEndOf="@+id/rectangle_62"
-                app:layout_constraintStart_toStartOf="@+id/rectangle_62"
-                app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/textView_DoctorSpeciality"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:text="Doctor's Speciality"
+        android:textColor="#009688"
+        android:textSize="15dp"
+        android:textStyle="italic"
+        app:layout_constraintLeft_toRightOf="@+id/imgView_DoctorAvatar"
+        app:layout_constraintTop_toBottomOf="@+id/textView_DoctorName"
+        tools:ignore="TextSizeCheck"></TextView>
 
-            <ImageView
-                android:id="@+id/imgView_DoctorAvatar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ellipse_1"
-                android:layout_marginLeft="28dp"
-                android:layout_marginTop="22dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/rectangle_62"/>
+    <TextView
+        android:id="@+id/textView_Price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:text="60.000đ"
+        android:textColor="#F44336"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toRightOf="@+id/imgView_DoctorAvatar"
+        app:layout_constraintTop_toBottomOf="@+id/textView_DoctorSpeciality"></TextView>
 
-            <TextView
-                android:id="@+id/textView_DoctorName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:text="Doctor's Name"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginBottom="0dp"
-                app:layout_constraintLeft_toRightOf="@+id/imgView_DoctorAvatar"
-                app:layout_constraintTop_toTopOf="@+id/imgView_DoctorAvatar"
-                android:textColor="#009688"
-                android:textStyle="bold">
-            </TextView>
-            <TextView
-                android:id="@+id/textView_DoctorSpeciality"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="5dp"
-                android:text="Doctor's Speciality"
-                android:textColor="#009688"
-                android:textSize="15dp"
-                android:textStyle="italic"
-                tools:ignore="TextSizeCheck"
-                app:layout_constraintLeft_toRightOf="@+id/imgView_DoctorAvatar"
-                app:layout_constraintTop_toBottomOf="@+id/textView_DoctorName">
-            </TextView>
-            <TextView
-                android:id="@+id/textView_Price"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="5dp"
-                app:layout_constraintLeft_toRightOf="@+id/imgView_DoctorAvatar"
-                app:layout_constraintTop_toBottomOf="@+id/textView_DoctorSpeciality"
-                android:text="60.000đ"
-                android:textColor="#F44336"
-                android:textStyle="bold">
-            </TextView>
+    <TextView
+        android:id="@+id/textView_BookingStatus"
+        android:layout_width="380dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/img_1"
+        android:gravity="center"
+        android:textColor="@android:color/holo_red_light"
+        android:textStyle="bold"
+        android:hint="Chosen Date"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgView_DoctorAvatar" />
 
-            <TextView
-                android:id="@+id/textView_ChoosenDate"
-                android:layout_width="340dp"
-                android:layout_height="38dp"
-                android:background="@drawable/img_1"
-                android:gravity="center"
-                android:hint="Chosen Date"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                android:layout_marginTop="30dp"
-                app:layout_constraintTop_toBottomOf="@+id/imgView_DoctorAvatar" />
+    <TextView
+        android:id="@+id/textView_notiPayment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:text="Vui lòng chọn hình thức thanh toán"
+        android:textColor="@color/_123_v__vi_t_v___ph__ng_13__qu_n_10__tp_hcm__vi_t_nam_color"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_BookingStatus">
 
-            <TextView
-                android:id="@+id/textView_notiPayment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="30dp"
-                android:layout_marginTop="15dp"
-                android:gravity="center"
-                android:text="Vui lòng chọn hình thức thanh toán"
-                android:textColor="@color/_123_v__vi_t_v___ph__ng_13__qu_n_10__tp_hcm__vi_t_nam_color"
-                android:textSize="20dp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView_ChoosenDate">
+    </TextView>
 
-            </TextView>
+    <RadioGroup
+        android:id="@+id/radioGr_PaymentMethod"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="75dp"
+        android:layout_marginTop="15dp"
+        android:orientation="vertical"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_notiPayment">
 
-            <RadioGroup
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="75dp"
-                android:layout_marginTop="15dp"
-                android:orientation="vertical"
-                app:layout_constraintTop_toBottomOf="@+id/textView_notiPayment"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                >
+        <RadioButton
+            android:id="@+id/radioButton_ScanCard"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/payment_frame"
+            android:drawableStart="@drawable/scan_to_pay_shape"
+            android:drawablePadding="5dp"
+            android:paddingStart="5dp"
+            android:text="Quét thẻ và thanh toán"
+            android:textColor="@color/_123_v__vi_t_v___ph__ng_13__qu_n_10__tp_hcm__vi_t_nam_color"
+            android:textSize="18dp"
+            android:textStyle="bold"></RadioButton>
 
-                <RadioButton
-                    android:id="@+id/radioButton_ScanCard"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:background="@drawable/payment_frame"
-                    android:text="Quét thẻ và thanh toán"
-                    android:textSize="18dp"
-                    android:drawableStart="@drawable/scan_to_pay_shape"
-                    android:paddingStart="5dp"
-                    android:drawablePadding="5dp"
-                    android:textColor="@color/_123_v__vi_t_v___ph__ng_13__qu_n_10__tp_hcm__vi_t_nam_color"
-                    android:textStyle="bold"
-                    >
-                </RadioButton>
+        <RadioButton
+            android:id="@+id/radioButton_PayWithCash"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/payment_frame"
+            android:drawableStart="@drawable/wallet_payment_shape"
+            android:drawablePadding="5dp"
+            android:paddingStart="5dp"
+            android:text="Thanh toán bằng tiền mặt"
+            android:textColor="@color/_123_v__vi_t_v___ph__ng_13__qu_n_10__tp_hcm__vi_t_nam_color"
+            android:textSize="18dp"
+            android:textStyle="bold"></RadioButton>
 
-                <RadioButton
-                    android:id="@+id/radioButton_AvailableWallet"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:background="@drawable/payment_frame"
-                    android:text="Số dư ví"
-                    android:textSize="20dp"
-                    android:drawableStart="@drawable/wallet_payment_shape"
-                    android:paddingStart="5dp"
-                    android:drawablePadding="5dp"
-                    android:textColor="@color/_123_v__vi_t_v___ph__ng_13__qu_n_10__tp_hcm__vi_t_nam_color"
-                    android:textStyle="bold"
-                    android:layout_marginTop="15dp"
-                    >
-                </RadioButton>
+        <RadioButton
+            android:id="@+id/radioButton_Momo"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/payment_frame"
+            android:drawableStart="@drawable/momo"
+            android:drawablePadding="5dp"
+            android:paddingStart="5dp"
+            android:text="Thanh toán bằng Momo"
+            android:textColor="@color/_123_v__vi_t_v___ph__ng_13__qu_n_10__tp_hcm__vi_t_nam_color"
+            android:textSize="18dp"
+            android:textStyle="bold"></RadioButton>
 
-                <RadioButton
-                    android:id="@+id/radioButton_Momo"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:background="@drawable/payment_frame"
-                    android:text="Thanh toán bằng Momo"
-                    android:textSize="18dp"
-                    android:drawableStart="@drawable/momo"
-                    android:paddingStart="5dp"
-                    android:drawablePadding="5dp"
-                    android:textColor="@color/_123_v__vi_t_v___ph__ng_13__qu_n_10__tp_hcm__vi_t_nam_color"
-                    android:textStyle="bold"
-                    android:layout_marginTop="15dp"
-                    >
-                </RadioButton>
+        <RadioButton
+            android:id="@+id/radioButton_Other"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/payment_frame"
+            android:drawablePadding="5dp"
 
-                <RadioButton
-                    android:id="@+id/radioButton_Other"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:background="@drawable/payment_frame"
-                    android:text="Phương thức khác"
-                    android:textSize="18dp"
-
-                    android:paddingStart="5dp"
-                    android:drawablePadding="5dp"
-                    android:textColor="@color/_123_v__vi_t_v___ph__ng_13__qu_n_10__tp_hcm__vi_t_nam_color"
-                    android:textStyle="bold"
-                    android:layout_marginTop="15dp"
-                    >
-                </RadioButton>
+            android:paddingStart="5dp"
+            android:text="Phương thức khác"
+            android:textColor="@color/_123_v__vi_t_v___ph__ng_13__qu_n_10__tp_hcm__vi_t_nam_color"
+            android:textSize="18dp"
+            android:textStyle="bold"></RadioButton>
 
 
+    </RadioGroup>
 
+    <Button
+        android:id="@+id/btn_CompleteBooking"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Hoàn tất đặt lịch"
+        android:layout_marginTop="30dp"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textAllCaps="false"
+        android:textStyle="normal"
+        android:background="@drawable/rectangle_62_shape"
+        app:layout_constraintTop_toBottomOf="@+id/radioGr_PaymentMethod"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
 
-            </RadioGroup>
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

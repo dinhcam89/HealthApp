@@ -123,9 +123,6 @@ public class DoctorAdapter extends  RecyclerView.Adapter<DoctorAdapter.DoctorVie
                 }
             });
         }
-
-
-
     }
     public void setFilteredList(List<Doctor> filteredList)
     {

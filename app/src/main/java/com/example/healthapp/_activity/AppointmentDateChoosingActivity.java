@@ -212,7 +212,7 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
                                         for (DocumentSnapshot document : querySnapshot.getDocuments()) {
                                             String reservedDate = document.getString("appointmentHour");
                                             if (reservedDate.equals(checkSelectedButton())) {
-                                                Toast.makeText(v.getContext(), "Bạn đã có lịch vào giờ đã chọn! \n\t\t\tVui lòng kiểm tra lại!", Toast.LENGTH_SHORT).show();
+                                                Toast.makeText(getApplicationContext(), "Bạn đã có lịch vào giờ đã chọn! \n\t\t\tVui lòng kiểm tra lại!", Toast.LENGTH_SHORT).show();
                                                 hasConflict = true;
                                                 break; // Thoát khỏi vòng lặp khi có giờ trùng khớp
                                             }
@@ -220,13 +220,16 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
 
                                         if (!hasConflict) {
                                             // Nếu không có giờ trùng khớp, thêm lịch và thực hiện các bước khác
-                                            addBooking();
-                                            addDoctorSchedule();
-                                            Toast.makeText(v.getContext(), "Đặt lịch thành công!", Toast.LENGTH_SHORT).show();
+                                            //addBooking();
+                                            //addDoctorSchedule();
+                                            //Toast.makeText(getApplicationContext(), "Đặt lịch thành công!", Toast.LENGTH_SHORT).show();
                                             Intent intent = new Intent(v.getContext(), PaymentChoosingActivity.class);
 
+                                            intent.putExtra("doctorID", doctorID);
                                             intent.putExtra("doctorName", doctorName);
                                             intent.putExtra("doctorSpeciality", doctorSpeciality);
+                                            intent.putExtra("chosenDate", getChosenDate());
+                                            intent.putExtra("chosenHour", checkSelectedButton());
                                             startActivity(intent);
                                         }
 
@@ -410,7 +413,7 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
     {
         String chosenHour = checkSelectedButton();
         String chosenDate = getChosenDate();
-        Appointment newAppointment = new Appointment(doctorID, userUID, chosenDate, chosenHour);
+        Appointment newAppointment = new Appointment(doctorID, userUID, chosenDate, chosenHour, true);
 
         CollectionReference BookingRef = FirebaseFirestore.getInstance().collection("Booking");
 
@@ -418,7 +421,6 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
                 .addOnSuccessListener(documentReference -> {
                     // Ghi dữ liệu thành công
                     String autoID = documentReference.getId();
-                    Toast.makeText(AppointmentDateChoosingActivity.this, "Tạo hồ sơ thành công", Toast.LENGTH_SHORT).show();
 
                     // TODO: Thực hiện các hành động khác sau khi thêm thành công
 
@@ -441,8 +443,6 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
                 .addOnSuccessListener(documentReference -> {
                     // Ghi dữ liệu thành công
                     String autoID = documentReference.getId();
-                    Toast.makeText(AppointmentDateChoosingActivity.this, "Tạo hồ sơ thành công", Toast.LENGTH_SHORT).show();
-
                 })
                 .addOnFailureListener(e -> {
                     // Xử lý khi ghi dữ liệu thất bại

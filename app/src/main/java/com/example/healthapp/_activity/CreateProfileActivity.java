@@ -96,7 +96,7 @@ public class CreateProfileActivity extends AppCompatActivity {
                 hoSoRef.add(profile.toMap())
                         .addOnSuccessListener(documentReference -> {
                             // Ghi dữ liệu thành công
-                            String generatedProfileId = documentReference.getId();
+                            //String generatedProfileId = documentReference.getId();
                             Toast.makeText(CreateProfileActivity.this, "Tạo hồ sơ thành công", Toast.LENGTH_SHORT).show();
 
                             // TODO: Thực hiện các hành động khác sau khi thêm thành công

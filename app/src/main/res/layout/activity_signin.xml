@@ -27,7 +27,7 @@
         android:textColor="#246A73"
         android:textStyle="italic"
         app:layout_constraintRight_toRightOf="@+id/btn_SignIn"
-        app:layout_constraintTop_toBottomOf="@+id/btn_SignIn" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_checkBoxRememberMe" />
 
 <!--    <EditText-->
 <!--        android:id="@+id/editText_Email"-->
@@ -155,6 +155,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputET_PasswordLayout"
         app:srcCompat="@drawable/img_signin" />
+    <CheckBox
+        android:id="@+id/btn_checkBoxRememberMe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Remember me"
+        android:textColor="#246A73"
+        android:fontFamily="@font/inter_semibold"
+        android:textStyle="normal"
+        app:layout_constraintLeft_toLeftOf="@+id/btn_SignIn"
+        app:layout_constraintTop_toBottomOf="@+id/btn_SignIn"
+         />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
