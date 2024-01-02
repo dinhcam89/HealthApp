@@ -20,7 +20,6 @@
         tools:targetApi="31">
         <activity
 
-
             android:name="._activity.ShowClinicInfoActivity"
             android:exported="false" />
         <activity
@@ -32,20 +31,17 @@
         <activity
 
             android:name="._activity.MainMenuActivity"
-            android:exported="true" />
-        <!--
+            android:exported="false" />
         <activity
-                    android:name="._activity.AppointmentDateChoosingActivity"
-                    android:exported="true" />
-=======
-            android:name="._activity.AppointmentDateChoosingActivity"
-            android:exported="true" />
+
+            android:name="._activity.PaymentChoosingActivity"
+            android:exported="false" />
 
         <activity
             android:name="._activity.AppointmentDateChoosingActivity"
-            android:exported="true" />
->>>>>>> 6a1118e10e7f138ae49744e17b5812cb6e877555
-        -->
+            android:exported="false" />
+
+
         <activity
             android:name="._activity.MenuActivity"
             android:exported="false" /> <!-- <activity -->
@@ -66,7 +62,7 @@
             android:exported="false" />-->
         <activity
             android:name="._activity.DoctorChoosingActivity"
-            android:exported="true" />
+            android:exported="false" />
         <activity
 
 

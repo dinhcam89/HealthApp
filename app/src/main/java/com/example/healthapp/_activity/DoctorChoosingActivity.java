@@ -22,7 +22,7 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DoctorChoosingActivity extends AppCompatActivity {
+public class DoctorChoosingActivity extends AppCompatActivity implements DoctorAdapter.OnDoctorClickListener{
     private RecyclerView rcv_Doctors;
     private DoctorAdapter adapter_Doctors;
     private List<Doctor> list_Doctors;
@@ -122,5 +122,11 @@ public class DoctorChoosingActivity extends AppCompatActivity {
             adapter_Doctors.notifyDataSetChanged();
         });
     }
-
+    @Override
+    public void onDoctorClick(String doctorID) {
+        // Chuyển sang AppointmentDateChoosingActivity và truyền ID của bác sĩ
+        Intent intent = new Intent(this, AppointmentDateChoosingActivity.class);
+        intent.putExtra("doctorID", doctorID);
+        startActivity(intent);
+    }
 }

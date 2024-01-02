@@ -108,13 +108,6 @@ public class ProfileFragment extends Fragment {
         });
         return view;
     }
-    private void setEditableTextView(TextView textView)
-    {
-        textView.setCursorVisible(true);
-        textView.setFocusableInTouchMode(true);
-        textView.setInputType(InputType.TYPE_CLASS_TEXT);
-        textView.requestFocus(); //to trigger the soft input
-    }
     private void updateProfile(String uid) {
         // Lấy reference đến collection "profile" và document có ID là UID
         FirebaseFirestore.getInstance().collection("UserProfile")

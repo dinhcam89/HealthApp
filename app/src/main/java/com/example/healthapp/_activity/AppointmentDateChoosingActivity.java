@@ -206,26 +206,28 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
                                 if (task.isSuccessful()) {
                                     QuerySnapshot querySnapshot = task.getResult();
                                     if (querySnapshot != null) {
+                                        boolean hasConflict = false;
+
                                         // Lấy danh sách các khung giờ đã được hẹn
-                                        //List<String> reservedTimes = new ArrayList<>();
                                         for (DocumentSnapshot document : querySnapshot.getDocuments()) {
                                             String reservedDate = document.getString("appointmentHour");
-                                            String x = checkSelectedButton();
-                                            if (reservedDate.equals(checkSelectedButton()))
-                                            {
-                                                Toast.makeText(v.getContext(), "Bạn đã có lịch vào giờ đã chọn! \nvui lòng kiểm tra lại!", Toast.LENGTH_SHORT).show();
+                                            if (reservedDate.equals(checkSelectedButton())) {
+                                                Toast.makeText(v.getContext(), "Bạn đã có lịch vào giờ đã chọn! \n\t\t\tVui lòng kiểm tra lại!", Toast.LENGTH_SHORT).show();
+                                                hasConflict = true;
+                                                break; // Thoát khỏi vòng lặp khi có giờ trùng khớp
                                             }
-                                            else {
-                                                addBooking();
-                                                addDoctorSchedule();
-                                                Toast.makeText(v.getContext(), "Đặt lịch thành công!", Toast.LENGTH_SHORT).show();
-                                                Intent intent = new Intent(v.getContext(), PaymentChoosingActivity.class);
+                                        }
 
+                                        if (!hasConflict) {
+                                            // Nếu không có giờ trùng khớp, thêm lịch và thực hiện các bước khác
+                                            addBooking();
+                                            addDoctorSchedule();
+                                            Toast.makeText(v.getContext(), "Đặt lịch thành công!", Toast.LENGTH_SHORT).show();
+                                            Intent intent = new Intent(v.getContext(), PaymentChoosingActivity.class);
 
-                                                intent.putExtra("doctorName", doctorName);
-                                                intent.putExtra("doctorSpeciality", doctorSpeciality);
-                                                startActivity(intent);
-                                            }
+                                            intent.putExtra("doctorName", doctorName);
+                                            intent.putExtra("doctorSpeciality", doctorSpeciality);
+                                            startActivity(intent);
                                         }
 
                                         // Cập nhật trạng thái của các nút
@@ -394,6 +396,7 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
     {
         Intent intent = getIntent();
         if (intent != null) {
+
             doctorName = intent.getStringExtra("doctorName");
             doctorSpeciality = intent.getStringExtra("doctorSpeciality");
 
