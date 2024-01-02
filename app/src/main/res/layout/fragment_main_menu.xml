@@ -43,16 +43,16 @@
 
             <TextView
                 android:id="@+id/doctor_s_fr2"
-                android:layout_width="match_parent"
+                android:layout_width="360dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/inter_black"
-                android:text="Doctor's Friend"
+                android:text="Bệnh viện đa khoa Tâm Nga"
                 android:textAlignment="center"
                 android:textColor="#FFFFFF"
-                android:textSize="44dp"
+                android:textSize="38dp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -62,7 +62,7 @@
                 android:id="@+id/textView4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/slogan"
+                android:text="@string/slogan2"
                 android:textAlignment="center"
                 android:textColor="#FFFFFF"
                 android:textStyle="italic|bold"
@@ -363,8 +363,8 @@
 
                 <ImageView
                     android:id="@+id/img_bacsi"
-                    android:layout_width="155dp"
-                    android:layout_height="155dp"
+                    android:layout_width="125dp"
+                    android:layout_height="125dp"
                     android:layout_below="@+id/txt_bacsinoibat"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="10dp"
@@ -388,7 +388,7 @@
 
 
                 <TextView
-                    android:id="@+id/txt_tenbacsi"
+                    android:id="@+id/textView_StaredDoctorName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
@@ -398,7 +398,7 @@
                     android:layout_marginRight="15dp"
                     android:layout_marginBottom="0dp"
                     android:layout_toEndOf="@+id/img_bacsi"
-                    android:text="GS.TS.BS Nguyễn Trọng Tâm"
+                    android:text="PGS.TS Hoàng Đình Cẩm"
                     android:textColor="#009688"
                     android:textStyle="bold">
 
@@ -406,14 +406,14 @@
 
 
                 <TextView
-                    android:id="@+id/txt_khoakham"
+                    android:id="@+id/textView_StaredDoctorSpeciality"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/txt_tenbacsi"
+                    android:layout_below="@+id/textView_StaredDoctorName"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="5dp"
                     android:layout_toEndOf="@+id/img_bacsi"
-                    android:text="Tim mạch"
+                    android:text="CK II"
                     android:textColor="#009688"
                     android:textSize="15dp"
                     android:textStyle="italic"
@@ -424,7 +424,7 @@
                     android:id="@+id/txt_giatien"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/txt_khoakham"
+                    android:layout_below="@+id/textView_StaredDoctorSpeciality"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="5dp"
                     android:layout_toEndOf="@+id/img_bacsi"
@@ -436,7 +436,7 @@
 
 
                 <Button
-                    android:id="@+id/btn_book1"
+                    android:id="@+id/btn_BookStaredDoctor"
                     android:layout_width="wrap_content"
                     android:layout_height="35dp"
                     android:layout_below="@+id/txt_giatien"
@@ -457,13 +457,13 @@
                 </Button>
 
                 <Button
-                    android:id="@+id/btn_livechat1"
+                    android:id="@+id/btn_CallHotline"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
-                    android:layout_below="@+id/txt_tenbacsi"
+                    android:layout_below="@+id/textView_StaredDoctorName"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="55dp"
-                    android:layout_toEndOf="@+id/btn_book1"
+                    android:layout_toEndOf="@+id/btn_BookStaredDoctor"
                     android:background="@drawable/live_chat_2"
                     android:contentDescription="livechat for more information"
                     app:layout_constraintBottom_toBottomOf="parent"

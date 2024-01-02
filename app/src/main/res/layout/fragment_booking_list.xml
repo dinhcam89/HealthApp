@@ -16,22 +16,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btn_back"
-        android:layout_width="40dp"
-        android:layout_height="20dp"
-        android:background="#00FFFFFF"
-        android:contentDescription="Go back"
-        android:drawableLeft="@drawable/ic_arrow_back"
-        android:orientation="vertical"
-        android:layout_marginLeft="-5dp"
-        android:padding="14dp"
-        app:layout_constraintBottom_toBottomOf="@+id/rectangle_62"
-        app:layout_constraintEnd_toStartOf="@+id/textView_bookinglist"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="TouchTargetSizeCheck" />
-
     <TextView
         android:id="@+id/textView_bookinglist"
         android:layout_width="match_parent"

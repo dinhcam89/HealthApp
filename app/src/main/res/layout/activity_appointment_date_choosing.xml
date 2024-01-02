@@ -75,7 +75,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:text="GS.TS.BS Nguyễn Trọng Tâm"
+        android:text="Doctor's Name"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="15dp"
         android:layout_marginBottom="0dp"
@@ -90,13 +90,25 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="5dp"
-        android:text="Tim mạch"
+        android:text="Doctor's Speciality"
         android:textColor="#009688"
         android:textSize="15dp"
         android:textStyle="italic"
         tools:ignore="TextSizeCheck"
         app:layout_constraintLeft_toRightOf="@+id/imgView_DoctorAvatar"
         app:layout_constraintTop_toBottomOf="@+id/textView_DoctorName">
+    </TextView>
+    <TextView
+        android:id="@+id/textView_Price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintLeft_toRightOf="@+id/imgView_DoctorAvatar"
+        app:layout_constraintTop_toBottomOf="@+id/textView_DoctorSpeciality"
+        android:text="60.000đ"
+        android:textColor="#F44336"
+        android:textStyle="bold">
     </TextView>
 
     <TextView

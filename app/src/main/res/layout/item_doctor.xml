@@ -90,16 +90,4 @@
         >
     </Button>
 
-    <Button
-        android:id="@+id/btn_hotline"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_below="@+id/textView_Price"
-        android:layout_alignBottom="@+id/frame_doctor"
-        android:layout_toEndOf="@+id/btn_Book"
-        android:background="@drawable/live_chat_2"
-        android:contentDescription="livechat for more information"
-        android:layout_marginLeft="15dp"
-        android:layout_marginVertical="7dp">
-    </Button>
 </RelativeLayout>

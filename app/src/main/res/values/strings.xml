@@ -115,6 +115,8 @@
     <string name="thanh_toan_truc_tiep">Thanh toán trực tiếp</string>
 
     <string name="slogan">Bạn của bác sĩ - ứng dụng cho sức khỏe mọi nhà</string>
+    <string name="slogan2">Kính chào quý khách</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="booking_list">Lịch khám</string>

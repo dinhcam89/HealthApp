@@ -68,7 +68,7 @@ public class DoctorChoosingActivity extends AppCompatActivity implements DoctorA
         }
         if(filteredList.isEmpty())
         {
-            Toast.makeText(this, "Không tìm thấy bác sĩ", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "Không tìm thấy bác sĩ", Toast.LENGTH_SHORT).show();
         }
         else{
             adapter_Doctors.setFilteredList(filteredList);

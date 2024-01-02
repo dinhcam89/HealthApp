@@ -84,7 +84,7 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
         // Lấy ngày mặc định từ DatePicker và hiển thị trên TextView
         //updateChosenDate();
         Calendar currentDate = Calendar.getInstance();
-
+        updateChosenDate();
         // Thiết lập ngày tối thiểu cho DatePicker là ngày hiện tại
         chooseAppointmentDatePicker.setMinDate(currentDate.getTimeInMillis());
         // Thiết lập sự kiện lắng nghe cho DatePicker
@@ -430,8 +430,6 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
                     // Ghi dữ liệu thành công
                     String autoID = documentReference.getId();
                     Toast.makeText(AppointmentDateChoosingActivity.this, "Tạo hồ sơ thành công", Toast.LENGTH_SHORT).show();
-
-                    // TODO: Thực hiện các hành động khác sau khi thêm thành công
 
                 })
                 .addOnFailureListener(e -> {

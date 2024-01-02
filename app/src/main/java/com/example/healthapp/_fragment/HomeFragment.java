@@ -1,22 +1,31 @@
 package com.example.healthapp._fragment;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+
 import com.example.healthapp.R;
+import com.example.healthapp._activity.AppointmentDateChoosingActivity;
 import com.example.healthapp._activity.DoctorChoosingActivity;
 import com.example.healthapp._activity.ShowClinicInfoActivity;
+import com.example.healthapp._class.Doctor;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -44,6 +53,10 @@ public class HomeFragment extends Fragment {
         CardView btn_Categories = (CardView) view.findViewById(R.id.cardView_Categories);
         CardView btn_MedicalPackage = (CardView) view.findViewById(R.id.cardView_PackageList);
         TextView textView_ShowDoctorList = (TextView) view.findViewById(R.id.textView_ShowDoctorList);
+        TextView textView_StaredDoctorName = (TextView) view.findViewById(R.id.textView_StaredDoctorName);
+        TextView textView_StaredDoctorSpeciality = (TextView) view.findViewById(R.id.textView_StaredDoctorSpeciality);
+        Button btn_BookStaredDoctor = (Button) view.findViewById(R.id.btn_BookStaredDoctor);
+        Button btn_CallHotline = (Button) view.findViewById(R.id.btn_CallHotline);
         cardView_ShowDoctorList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,14 +78,39 @@ public class HomeFragment extends Fragment {
                 startActivity(intent);
             }
         });
-        Button datlich1;
+        btn_BookStaredDoctor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), AppointmentDateChoosingActivity.class);
 
-        Button datlich2;
-        Intent intent_bacsi;
-        Intent intent_tracuu;
-        Intent intent_danhmuc;
-        Intent intent_datlich1;
-        Intent intent_datlich2;
+                // Truyền dữ liệu nếu cần thiết
+                intent.putExtra("doctorID", "doctor-1");
+                intent.putExtra("doctorName", textView_StaredDoctorName.getText().toString());
+                intent.putExtra("doctorSpeciality", textView_StaredDoctorSpeciality.getText().toString());
+                v.getContext().startActivity(intent);
+
+            }
+        });
+        btn_CallHotline.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String phoneNumber = "0815942559";
+
+                // Tạo Intent với hành động ACTION_CALL
+                Intent dialIntent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + phoneNumber));
+
+                // Đặt số điện thoại cần gọi
+                //dialIntent.setData(Uri.parse("tel:" + phoneNumber));
+                if(ActivityCompat.checkSelfPermission(v.getContext(),
+                        Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED)
+                {
+                    ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.CALL_PHONE},1);
+                    return;
+                }
+                startActivity(dialIntent);
+
+            }
+        });
     }
 
     private static final String ARG_PARAM1 = "param1";
