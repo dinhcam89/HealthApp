@@ -31,7 +31,7 @@ public class SignInActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_signin);
+        setContentView(R.layout.activity_sign_in);
 
         editTextEmail = findViewById(R.id.textInputET_EmailText);
         editTextPwd = findViewById(R.id.textInputET_PasswordText);
@@ -39,7 +39,7 @@ public class SignInActivity extends AppCompatActivity {
         mailAuth = FirebaseAuth.getInstance();
         textViewSignUp = findViewById(R.id.textView_SignUp);
         textViewForgotPwd = findViewById(R.id.textView_ForgotPassword);
-        btn_checkBoxRememberMe = findViewById(R.id.btn_checkBoxRememberMe);
+        //btn_checkBoxRememberMe = findViewById(R.id.btn_checkBoxRememberMe);
         textViewSignUp.setOnClickListener(new View.OnClickListener()
         {
             @Override

@@ -428,7 +428,7 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="5dp"
                     android:layout_toEndOf="@+id/img_bacsi"
-                    android:text="500.000đ"
+                    android:text="60.000đ"
                     android:textColor="#F44336"
                     android:textStyle="bold">
 
