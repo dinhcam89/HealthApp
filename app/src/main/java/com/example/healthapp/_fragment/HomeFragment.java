@@ -58,6 +58,13 @@ public class HomeFragment extends Fragment {
                 startActivity(intent);
             }
         });
+        textView_ShowDoctorList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), DoctorChoosingActivity.class);
+                startActivity(intent);
+            }
+        });
         Button datlich1;
 
         Button datlich2;

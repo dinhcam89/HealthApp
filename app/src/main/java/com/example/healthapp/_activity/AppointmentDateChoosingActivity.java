@@ -191,9 +191,42 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(checkButtonState())
                 {
-                    addBooking();
-                    addDoctorSchedule();
-                    Toast.makeText(v.getContext(), "aaa!", Toast.LENGTH_SHORT).show();
+                    CollectionReference scheduleRef = FirebaseFirestore.getInstance().collection("Booking");
+
+                    // Tạo query để lấy lịch của bác sĩ trong ngày đã chọn
+                    Query query = scheduleRef
+                            .whereEqualTo("patientID", userUID)
+                            .whereEqualTo("appointmentDate", getChosenDate());
+
+                    // Thực hiện truy vấn
+                    query.get().addOnCompleteListener(task -> {
+                                if (task.isSuccessful()) {
+                                    QuerySnapshot querySnapshot = task.getResult();
+                                    if (querySnapshot != null) {
+                                        // Lấy danh sách các khung giờ đã được hẹn
+                                        //List<String> reservedTimes = new ArrayList<>();
+                                        for (DocumentSnapshot document : querySnapshot.getDocuments()) {
+                                            String reservedDate = document.getString("appointmentHour");
+                                            String x = checkSelectedButton();
+                                            if (reservedDate.equals(checkSelectedButton()))
+                                            {
+                                                Toast.makeText(v.getContext(), "Bạn đã có lịch vào giờ đã chọn! \nvui lòng kiểm tra lại!", Toast.LENGTH_SHORT).show();
+                                            }
+                                            else {
+                                                addBooking();
+                                                addDoctorSchedule();
+                                                Toast.makeText(v.getContext(), "aaa!", Toast.LENGTH_SHORT).show();
+                                            }
+                                        }
+
+                                        // Cập nhật trạng thái của các nút
+                                    }
+                                } else {
+                                    // Xử lý khi truy vấn thất bại
+                                    Toast.makeText(v.getContext(), "Đã có lỗi xảy ra, Vui lòng thử lại sau!", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+
 
                 }
                 else
