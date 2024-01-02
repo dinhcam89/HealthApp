@@ -55,6 +55,8 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
     FirebaseAuth mAuth;
     FirebaseFirestore db;
     String userUID;
+    String doctorName;
+    String doctorSpeciality;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -191,6 +193,7 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(checkButtonState())
                 {
+                    //      CHECK EXISTING APPOINTMENT AT CHOSEN DATE AND TIME
                     CollectionReference scheduleRef = FirebaseFirestore.getInstance().collection("Booking");
 
                     // Tạo query để lấy lịch của bác sĩ trong ngày đã chọn
@@ -215,7 +218,13 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
                                             else {
                                                 addBooking();
                                                 addDoctorSchedule();
-                                                Toast.makeText(v.getContext(), "aaa!", Toast.LENGTH_SHORT).show();
+                                                Toast.makeText(v.getContext(), "Đặt lịch thành công!", Toast.LENGTH_SHORT).show();
+                                                Intent intent = new Intent(v.getContext(), PaymentChoosingActivity.class);
+
+
+                                                intent.putExtra("doctorName", doctorName);
+                                                intent.putExtra("doctorSpeciality", doctorSpeciality);
+                                                startActivity(intent);
                                             }
                                         }
 
@@ -385,8 +394,8 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
     {
         Intent intent = getIntent();
         if (intent != null) {
-            String doctorName = intent.getStringExtra("doctorName");
-            String doctorSpeciality = intent.getStringExtra("doctorSpeciality");
+            doctorName = intent.getStringExtra("doctorName");
+            doctorSpeciality = intent.getStringExtra("doctorSpeciality");
 
             // Hiển thị dữ liệu trong TextView
             String bookInfo = "Doctor Name: " + doctorName + "\nSpeciality: " + doctorSpeciality;

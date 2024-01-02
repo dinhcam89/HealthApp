@@ -22,7 +22,7 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DoctorChoosingActivity extends AppCompatActivity implements DoctorAdapter.OnDoctorClickListener {
+public class DoctorChoosingActivity extends AppCompatActivity {
     private RecyclerView rcv_Doctors;
     private DoctorAdapter adapter_Doctors;
     private List<Doctor> list_Doctors;
@@ -121,15 +121,6 @@ public class DoctorChoosingActivity extends AppCompatActivity implements DoctorA
             // Cập nhật Adapter hoặc thực hiện các bước cần thiết để xử lý dữ liệu
             adapter_Doctors.notifyDataSetChanged();
         });
-    }
-
-    // Phương thức từ interface để lắng nghe sự kiện khi người dùng chọn một bác sĩ
-    @Override
-    public void onDoctorClick(String doctorID) {
-        // Chuyển sang AppointmentDateChoosingActivity và truyền ID của bác sĩ
-        Intent intent = new Intent(this, AppointmentDateChoosingActivity.class);
-        intent.putExtra("doctorID", doctorID);
-        startActivity(intent);
     }
 
 }

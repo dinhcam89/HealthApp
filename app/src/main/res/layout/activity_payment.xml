@@ -17,7 +17,7 @@
         android:id="@+id/rectangle_62"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:background="@drawable/rectangle_62_shape"
+        android:background="@drawable/topshape"
         app:layout_constraintEnd_toEndOf="@+id/bg_appointment3"
         app:layout_constraintStart_toStartOf="@+id/bg_appointment3"
         app:layout_constraintTop_toTopOf="parent" />
