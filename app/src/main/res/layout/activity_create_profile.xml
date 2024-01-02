@@ -20,7 +20,7 @@
                 android:text="Tạo hồ sơ khám"
                 android:textAlignment="center"
                 android:textColor="@color/b_c_s__n_i_b_t_color"
-                android:textSize="30dp"
+                android:textSize="38dp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -79,6 +79,7 @@
                 android:inputType="text"
                 android:textSize="24dp"
                 android:hint="  Nhập họ và tên"
+                android:paddingLeft="8dp"
                 android:background="@drawable/create_bar"
                 app:layout_constraintTop_toBottomOf="@+id/textView_hovaten"
                 app:layout_constraintStart_toStartOf="parent"
@@ -107,9 +108,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:ems="13"
-                android:inputType="text"
+                android:inputType="number"
                 android:textSize="24dp"
                 android:hint="  Nhập số điện thoại"
+                android:paddingLeft="8dp"
                 android:background="@drawable/create_bar"
                 app:layout_constraintTop_toBottomOf="@+id/textView_sdt2"
                 app:layout_constraintStart_toStartOf="parent"
@@ -138,9 +140,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:ems="13"
-                android:inputType="text"
+                android:inputType="date"
                 android:textSize="24dp"
                 android:hint="  Nhập ngày sinh"
+                android:paddingLeft="8dp"
                 android:background="@drawable/create_bar"
                 app:layout_constraintTop_toBottomOf="@+id/textView_ngaysinh"
                 app:layout_constraintStart_toStartOf="parent"
@@ -169,9 +172,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:ems="13"
-                android:inputType="text"
+                android:inputType="number"
                 android:textSize="24dp"
                 android:hint="  Nhập số BHYT"
+                android:paddingLeft="8dp"
                 android:background="@drawable/create_bar"
                 app:layout_constraintTop_toBottomOf="@+id/textView_soBHYT1"
                 app:layout_constraintStart_toStartOf="parent"
@@ -202,7 +206,8 @@
                 android:ems="13"
                 android:inputType="text"
                 android:textSize="24dp"
-                android:text="  Nhập email"
+                android:hint="  Nhập email"
+                android:paddingLeft="8dp"
                 android:background="@drawable/create_bar"
                 app:layout_constraintTop_toBottomOf="@+id/textView_email"
                 app:layout_constraintStart_toStartOf="parent"
@@ -232,7 +237,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginHorizontal="30dp"
                 android:layout_marginTop="10dp"
-                android:id="@+id/radio_gioitinh"
+                android:id="@+id/radioGroupGender"
                 >
 
                 <RadioButton
@@ -282,7 +287,7 @@
                 android:textSize="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/radio_gioitinh"></Button>
+                app:layout_constraintTop_toBottomOf="@id/radioGroupGender"></Button>
 
 
 

@@ -17,24 +17,26 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 public class SignInActivity extends AppCompatActivity {
-    EditText editTextEmail;
-    EditText editTextPwd;
-    ImageButton btnSignIn;
-    FirebaseAuth mailAuth;
-    TextView textViewSignUp;
+    private EditText editTextEmail;
+    private EditText editTextPwd;
+    private ImageButton btnSignIn;
+    private FirebaseAuth mailAuth;
+    private TextView textViewSignUp;
+    private TextView textViewForgotPwd;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_signin);
 
         editTextEmail = findViewById(R.id.textInputET_EmailText);
         editTextPwd = findViewById(R.id.textInputET_PasswordText);
         btnSignIn = findViewById(R.id.btn_SignIn);
         mailAuth = FirebaseAuth.getInstance();
         textViewSignUp = findViewById(R.id.textView_SignUp);
+        textViewForgotPwd = findViewById(R.id.textView_ForgotPassword);
 
         textViewSignUp.setOnClickListener(new View.OnClickListener()
         {
@@ -46,7 +48,6 @@ public class SignInActivity extends AppCompatActivity {
                 finish();
             }
         });
-
         btnSignIn.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -63,7 +64,7 @@ public class SignInActivity extends AppCompatActivity {
                 }
                 if(TextUtils.isEmpty(pwd))
                 {
-                    Toast.makeText(SignInActivity.this, "Vui lòng nhập email!", Toast.LENGTH_SHORT);
+                    Toast.makeText(SignInActivity.this, "Vui lòng nhập mật khẩu!", Toast.LENGTH_SHORT);
                     return;
                 }
                 mailAuth.signInWithEmailAndPassword(email, pwd)
@@ -74,21 +75,43 @@ public class SignInActivity extends AppCompatActivity {
                             {
                                 if(task.isSuccessful())
                                 {
-                                    FirebaseUser currentUser = mailAuth.getCurrentUser();
-                                    String user_Uid = currentUser.getUid();
-                                    Toast.makeText(SignInActivity.this, "Login Successfully", Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(getApplicationContext(), CreateProfileActivity.class);
-                                    intent.putExtra("user_Uid", user_Uid);
+                                    //FirebaseUser currentUser = mailAuth.getCurrentUser();
+                                    //String user_Uid = currentUser.getUid();
+                                    Toast.makeText(SignInActivity.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(getApplicationContext(), MainMenuActivity.class);
+                                    //intent.putExtra("email", editTextEmail.getText());
                                     startActivity(intent);
                                     finish();
                                 }
                                 else
                                 {
-                                    Toast.makeText(SignInActivity.this, "Authentication Failed", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(SignInActivity.this, "Đăng nhập thất bại, Vui lòng thử lại sau", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });
             }
         });
+        textViewForgotPwd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String email = editTextEmail.getText().toString().trim();
+                if (!TextUtils.isEmpty(email)) {
+                    sendPasswordResetEmail(email);
+                } else {
+                    Toast.makeText(SignInActivity.this, "Vui lòng nhập địa chỉ email của bạn.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+    private void sendPasswordResetEmail(String email) {
+        mailAuth = FirebaseAuth.getInstance();
+        mailAuth.sendPasswordResetEmail(email)
+                .addOnCompleteListener(this, task -> {
+                    if (task.isSuccessful()) {
+                        Toast.makeText(SignInActivity.this, "Email đặt lại mật khẩu đã được gửi!", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(SignInActivity.this, "Đã xảy ra lỗi. Vui lòng thử lại sau!", Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 }

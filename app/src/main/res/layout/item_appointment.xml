@@ -58,7 +58,7 @@
     </TextView>
 
     <TextView
-        android:id="@+id/textView_Price"
+        android:id="@+id/textView_PaymentMethod"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/frame_doctor"
@@ -66,40 +66,24 @@
         android:layout_marginHorizontal="10dp"
         android:layout_marginTop="55dp"
         android:layout_toEndOf="@+id/image_Doctor"
-        android:text="60.000đ"
+        android:text="Hình thức thanh toán"
         android:textColor="#F44336"
         android:textStyle="bold">
     </TextView>
-
-    <Button
-        android:id="@+id/btn_Book"
-        android:layout_width="wrap_content"
-        android:layout_height="35dp"
-        android:layout_below="@+id/textView_Price"
-        android:layout_alignBottom="@+id/frame_doctor"
+    <TextView
+        android:id="@+id/textView_AppointmentDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/frame_doctor"
+        android:layout_alignEnd="@+id/frame_doctor"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="75dp"
         android:layout_toEndOf="@+id/image_Doctor"
-        android:background="@drawable/btn_book"
-        android:drawableEnd="@drawable/calendar_1"
-        android:gravity="center"
-        android:layout_marginVertical="7dp"
-        android:layout_marginLeft="10dp"
-        android:paddingEnd="10dp"
-        android:text="Đặt lịch"
-        android:textAllCaps="false"
-        android:textColor="#FFFFFF"
+        android:text="Ngày khám"
+        android:textColor="@color/teal_700"
+        android:textSize="14dp"
+        android:textStyle="bold"
         >
-    </Button>
+    </TextView>
 
-    <Button
-        android:id="@+id/btn_hotline"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_below="@+id/textView_Price"
-        android:layout_alignBottom="@+id/frame_doctor"
-        android:layout_toEndOf="@+id/btn_Book"
-        android:background="@drawable/live_chat_2"
-        android:contentDescription="livechat for more information"
-        android:layout_marginLeft="15dp"
-        android:layout_marginVertical="7dp">
-    </Button>
 </RelativeLayout>

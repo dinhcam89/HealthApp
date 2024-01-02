@@ -65,13 +65,13 @@ public class DoctorAdapter extends  RecyclerView.Adapter<DoctorAdapter.DoctorVie
         //holder.textView_Availability.setText("Availability: " + doctor.getAvailability());
 
         // Xử lý sự kiện khi người dùng nhấn nút "Book"
-        holder.btn_Book.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Gọi sự kiện thông báo rằng một bác sĩ đã được chọn
-                onDoctorClickListener.onDoctorClick(doctor.getDoctorID());
-            }
-        });
+//        holder.btn_Book.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                // Gọi sự kiện thông báo rằng một bác sĩ đã được chọn
+//                onDoctorClickListener.onDoctorClick(doctor.getDoctorID());
+//            }
+//        });
     }
 
     @Override
@@ -100,28 +100,36 @@ public class DoctorAdapter extends  RecyclerView.Adapter<DoctorAdapter.DoctorVie
             btn_Book = itemView.findViewById(R.id.btn_Book);
             //FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-            /*btn_Book.setOnClickListener(new View.OnClickListener() {
+            btn_Book.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    *//*Intent intent = new Intent(v.getContext(), AppointmentDateChoosingActivity.class);
+                    Intent intent = new Intent(v.getContext(), AppointmentDateChoosingActivity.class);
+                    Doctor selectedDoctor = ListDoctors.get(getAdapterPosition());
 
                     // Truyền dữ liệu nếu cần thiết
-                    intent.putExtra("doctorName", textView_DoctorName.getText().toString());
-                    intent.putExtra("doctorSpeciality", textView_DoctorSpeciality.getText().toString());
+                    intent.putExtra("doctorID", selectedDoctor.getDoctorID());
+                    intent.putExtra("doctorName", selectedDoctor.getDoctorName());
+                    intent.putExtra("doctorSpeciality", selectedDoctor.getDoctorSpeciality());
 
                     // Khởi chạy Activity mới
-                    v.getContext().startActivity(intent);*//*
-                    Doctor selectedDoctor = ListDoctors.get(getAdapterPosition());
-                    if (selectedDoctor != null) {
-                        // Chuyển sang AppointmentDateChoosingActivity khi chọn bác sĩ
-                        Intent intent = new Intent(v.getContext(), AppointmentDateChoosingActivity.class);
-                        intent.putExtra("doctorID", selectedDoctor.getDoctorID());
-                        v.getContext().startActivity(intent);
-                    }
+                    v.getContext().startActivity(intent);
+//                    Doctor selectedDoctor = ListDoctors.get(getAdapterPosition());
+//                    if (selectedDoctor != null) {
+//                        // Chuyển sang AppointmentDateChoosingActivity khi chọn bác sĩ
+//                        //Intent intent = new Intent(v.getContext(), AppointmentDateChoosingActivity.class);
+//                        intent.putExtra("doctorID", selectedDoctor.getDoctorID());
+//                        v.getContext().startActivity(intent);
+//                    }
                 }
-            });*/
+            });
         }
 
 
+
+    }
+    public void setFilteredList(List<Doctor> filteredList)
+    {
+        this.ListDoctors = filteredList;
+        notifyDataSetChanged();
     }
 }

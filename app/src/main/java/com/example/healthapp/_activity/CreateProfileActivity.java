@@ -4,30 +4,43 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.healthapp.R;
 import com.example.healthapp._class.Doctor;
 import com.example.healthapp._class.Profile;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 import java.util.Map;
 
 public class CreateProfileActivity extends AppCompatActivity {
 
     private EditText editTextUserName, editTextPhoneNumber, editTextDateOfBirth, editTextInsuranceID, editTextEmail;
-    private RadioGroup radioGroupGioiTinh;
-    private RadioButton radioButtonFemale, radioButtonMale, radioButtonUnknown;
+    private RadioGroup radioGroupGender;
     private Button btnCreateProfile;
     private String userUid;
     FirebaseFirestore db;
+    FirebaseAuth mAuth;
+
+    private String gender = "";
+    private String userName;
+    private String phoneNumber;
+    private String dateOfBirth;
+    private String insuranceID;
+    private String email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,46 +48,75 @@ public class CreateProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_create_profile);
         initUI();
         Intent intent = getIntent();
+        mAuth = FirebaseAuth.getInstance();
 
-        // Kiểm tra xem Intent có dữ liệu "user_uid" hay không
-        if (intent.hasExtra("user_Uid")) {
-            // Lấy UID từ Intent
-            userUid = intent.getStringExtra("user_Uid");
-
-            // Bạn có thể sử dụng UID theo nhu cầu của mình ở đây
+        // Get User UID
+        mAuth.addAuthStateListener(auth -> {
+            FirebaseUser user = mAuth.getCurrentUser();
+            if (user != null) {
+                userUid = user.getUid();
+            } else {
+                // Đăng xuất, xử lý theo ý muốn
+            }
+        });
+        // Get email from SignIn Activity
+        if (intent.hasExtra("email")) {
+            editTextEmail.setText(intent.getStringExtra("email"));
         }
 
-
-        String profileID = "profile01";
-        String userName = editTextUserName.getText().toString();
-        String phoneNumber = editTextPhoneNumber.getText().toString();
-        String dateOfBirth = editTextDateOfBirth.getText().toString();
-        String insuranceID = editTextInsuranceID.getText().toString();
-        String email = editTextEmail.getText().toString();
-        String gender = "male";
         FirebaseAuth auth = FirebaseAuth.getInstance();
-
 
         btnCreateProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                int radId = radioGroupGender.getCheckedRadioButtonId();
+                if (radId == R.id.radioButton_Male) {
+                    gender = "Nam";
+                } else if (radId == R.id.radioButton_Female) {
+                    gender = "Nữ";
+                } else {
+                    gender = "Chưa biết";
+                }
+                // Lấy reference đến collection "HoSo"
+                CollectionReference hoSoRef = db.collection("UserProfile");
 
-                Profile profile = new Profile(userUid, profileID, userName, phoneNumber, dateOfBirth, insuranceID, email, gender);
-                Map<String, Object> profileValues = profile.toMap();
+                // Lấy các giá trị từ EditTexts
+                userName = editTextUserName.getText().toString().trim();
+                phoneNumber = editTextPhoneNumber.getText().toString().trim();
+                dateOfBirth = editTextDateOfBirth.getText().toString().trim();
+                insuranceID = editTextInsuranceID.getText().toString().trim();
+                email = editTextEmail.getText().toString().trim();
 
-                db.collection("HoSo")
-                        .document("hoso-6")
-                        .set(profile)
-                        .addOnSuccessListener(aVoid -> {
+                // TODO: Lấy các giá trị khác theo cách bạn muốn
+
+                // Tạo một đối tượng Profile
+                Profile profile = new Profile(userUid, userName, phoneNumber, dateOfBirth, insuranceID, email, gender);
+
+                // Thêm dữ liệu vào Firestore với ID được tạo ngẫu nhiên
+                hoSoRef.add(profile.toMap())
+                        .addOnSuccessListener(documentReference -> {
                             // Ghi dữ liệu thành công
+                            String generatedProfileId = documentReference.getId();
+                            Toast.makeText(CreateProfileActivity.this, "Tạo hồ sơ thành công", Toast.LENGTH_SHORT).show();
+
+                            // TODO: Thực hiện các hành động khác sau khi thêm thành công
+
+                            Intent intent = new Intent(getApplicationContext(), MainMenuActivity.class);
+                            startActivity(intent);
+                            finish();
                         })
                         .addOnFailureListener(e -> {
                             // Xử lý khi ghi dữ liệu thất bại
-                            // e.printStackTrace(); để in ra lỗi
+                            e.printStackTrace(); // In ra lỗi
+                            Toast.makeText(CreateProfileActivity.this, "Đã xảy ra lỗi. Vui lòng thử lại sau!", Toast.LENGTH_SHORT).show();
                         });
             }
         });
+
+
     }
+
+
 
     private void initUI() {
         editTextUserName = findViewById(R.id.editText_UserName);
@@ -83,10 +125,7 @@ public class CreateProfileActivity extends AppCompatActivity {
         editTextInsuranceID = findViewById(R.id.editText_InsuranceID);
         editTextEmail = findViewById(R.id.editText_Email);
 
-        radioGroupGioiTinh = findViewById(R.id.radio_gioitinh);
-        radioButtonFemale = findViewById(R.id.radioButton_Female);
-        radioButtonMale = findViewById(R.id.radioButton_Male);
-        radioButtonUnknown = findViewById(R.id.radioButton_Unknown);
+        radioGroupGender = findViewById(R.id.radioGroupGender);
 
         btnCreateProfile = findViewById(R.id.btn_CreateProfile);
         db = FirebaseFirestore.getInstance();

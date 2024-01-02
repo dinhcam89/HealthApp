@@ -1,14 +1,17 @@
 package com.example.healthapp._activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.healthapp.R;
 import com.example.healthapp._adapter.DoctorAdapter;
@@ -16,8 +19,6 @@ import com.example.healthapp._class.Doctor;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
-
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +26,7 @@ public class DoctorChoosingActivity extends AppCompatActivity implements DoctorA
     private RecyclerView rcv_Doctors;
     private DoctorAdapter adapter_Doctors;
     private List<Doctor> list_Doctors;
+    private SearchView searchView;
     FirebaseFirestore db;
 
     @Override
@@ -40,7 +42,39 @@ public class DoctorChoosingActivity extends AppCompatActivity implements DoctorA
                 finish(); // Go back to the previous activity
             }
         });
+        searchView.clearFocus();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                filterlist(newText);
+                return false;
+            }
+        });
     }
+
+    private void filterlist(String newText) {
+        List<Doctor> filteredList = new ArrayList<>();
+        for(Doctor doctor : list_Doctors)
+        {
+            if(doctor.getDoctorName().toLowerCase().contains(newText.toLowerCase()))
+            {
+                filteredList.add(doctor);
+            }
+        }
+        if(filteredList.isEmpty())
+        {
+            Toast.makeText(this, "Không tìm thấy bác sĩ", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            adapter_Doctors.setFilteredList(filteredList);
+        }
+    }
+
 
 
     private void initUI()
@@ -50,7 +84,7 @@ public class DoctorChoosingActivity extends AppCompatActivity implements DoctorA
         rcv_Doctors = findViewById(R.id.rcv_Doctors);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         rcv_Doctors.setLayoutManager(linearLayoutManager);
-        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this, DividerItemDecoration.HORIZONTAL);
         rcv_Doctors.addItemDecoration(dividerItemDecoration);
 
         list_Doctors = new ArrayList<>();
@@ -58,29 +92,12 @@ public class DoctorChoosingActivity extends AppCompatActivity implements DoctorA
         adapter_Doctors = new DoctorAdapter(list_Doctors, (DoctorAdapter.OnDoctorClickListener) this);
 
         rcv_Doctors.setAdapter(adapter_Doctors);
+        searchView = findViewById(R.id.search_bar);
 
     }
     private void getData()
     {
-        CollectionReference doctorsRef = db.collection("BacSi");
-
-        doctorsRef.get().addOnSuccessListener(queryDocumentSnapshots -> {
-
-            for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
-                if (documentSnapshot.exists()) {
-                    Doctor doctor = documentSnapshot.toObject(Doctor.class);
-                    list_Doctors.add(doctor);
-                }
-                adapter_Doctors.notifyDataSetChanged();
-            }
-
-            // Gọi phương thức để xử lý danh sách bác sĩ (ví dụ: đưa vào Adapter)
-        }).addOnFailureListener(e -> {
-            // Xử lý khi có lỗi xảy ra
-            // e.printStackTrace(); để in ra lỗi
-        });
-
-        //CollectionReference doctorsRef1 = db.collection("BacSi");
+        CollectionReference doctorsRef = db.collection("Doctor");
 
         // Lắng nghe sự kiện thay đổi dữ liệu trong collection "Doctor"
         doctorsRef.addSnapshotListener((value, error) -> {
@@ -105,6 +122,7 @@ public class DoctorChoosingActivity extends AppCompatActivity implements DoctorA
             adapter_Doctors.notifyDataSetChanged();
         });
     }
+
     // Phương thức từ interface để lắng nghe sự kiện khi người dùng chọn một bác sĩ
     @Override
     public void onDoctorClick(String doctorID) {
@@ -113,4 +131,5 @@ public class DoctorChoosingActivity extends AppCompatActivity implements DoctorA
         intent.putExtra("doctorID", doctorID);
         startActivity(intent);
     }
+
 }

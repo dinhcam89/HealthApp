@@ -24,7 +24,7 @@
             android:id="@+id/rectangle_62"
             android:layout_width="match_parent"
             android:layout_height="55dp"
-            android:background="@drawable/rectangle_62_shape"
+            android:background="@drawable/topshape"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -33,10 +33,10 @@
         <ImageView
             android:id="@+id/imageView3"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="250dp"
             android:layout_marginHorizontal="15dp"
             android:layout_marginTop="15dp"
-            android:background="@drawable/image_2"
+            android:background="@drawable/img_2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.448"
@@ -47,11 +47,11 @@
 
         <TextView
             android:id="@+id/tittle_thongtin"
-            android:layout_width="170dp"
+            android:layout_width="wrap_content"
             android:layout_height="39dp"
             android:layout_gravity="center_horizontal|center"
             android:gravity="center"
-            android:text="Thông tin"
+            android:text="Thông tin phòng khám"
             android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -60,7 +60,7 @@
             app:layout_constraintStart_toStartOf="@+id/rectangle_62"
             app:layout_constraintTop_toTopOf="@+id/rectangle_62" />
         <Button
-            android:id="@+id/btn_back"
+            android:id="@+id/btn_Back"
             android:layout_width="40dp"
             android:layout_height="20dp"
             android:background="#00FFFFFF"
@@ -75,22 +75,6 @@
             app:layout_constraintTop_toTopOf="@+id/rectangle_62"
             app:layout_constraintVertical_bias="0.5"
             tools:ignore="TouchTargetSizeCheck" />
-        <ImageButton
-            android:id="@+id/btn_start"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="15dp"
-            android:layout_marginBottom="33dp"
-            android:background="@drawable/star_1"
-            android:clickable="true"
-            android:contentDescription="yêu thích phòng khám"
-            app:layout_constraintBottom_toBottomOf="@+id/rectangle_62"
-            app:layout_constraintEnd_toEndOf="@+id/rectangle_62"
-            app:layout_constraintTop_toTopOf="@+id/rectangle_62"
-            app:layout_constraintVertical_bias="0"
-            tools:ignore="TouchTargetSizeCheck">
-        </ImageButton>
 
         <TextView
             android:id="@+id/hovaten"
@@ -98,7 +82,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="15dp"
             android:layout_marginTop="10dp"
-            android:text="Phòng khám Tâm Cẩm"
+            android:text="Phòng khám đa khoa Tâm Nga"
             android:textColor="@color/ho_va_ten"
             android:textSize="18dp"
             android:textStyle="bold"
@@ -242,7 +226,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:layout_marginLeft="15dp"
-                    android:layout_marginTop="0dp"
+                    android:layout_marginTop="5dp"
                     android:layout_marginRight="200dp"
                     android:text="Bác sĩ nổi bật"
                     android:textColor="@color/xem_th_m_color"
@@ -252,8 +236,8 @@
 
                 <ImageView
                     android:id="@+id/img_bacsi"
-                    android:layout_width="155dp"
-                    android:layout_height="155dp"
+                    android:layout_width="125dp"
+                    android:layout_height="125dp"
                     android:layout_below="@+id/txt_bacsinoibat"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="10dp"
@@ -265,6 +249,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
+                    android:layout_marginTop="5dp"
                     android:layout_marginEnd="15dp"
                     android:clickable="true"
                     android:text="Xem thêm"
