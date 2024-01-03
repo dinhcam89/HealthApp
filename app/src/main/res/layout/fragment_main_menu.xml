@@ -471,6 +471,20 @@
                     tools:ignore="TouchTargetSizeCheck">
 
                 </Button>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="HotlineCSKH"
+                    android:layout_marginLeft="15dp"
+                    android:textColor="@color/tim_m_ch_color"
+                    android:textStyle="bold"
+                    android:layout_marginTop="60dp"
+                    android:layout_below="@+id/textView_StaredDoctorName"
+                    android:layout_toEndOf="@+id/btn_CallHotline"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/btn_CallHotline"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_StaredDoctorName"
+                    app:layout_constraintVertical_bias="0"/>
             </RelativeLayout>
 
 

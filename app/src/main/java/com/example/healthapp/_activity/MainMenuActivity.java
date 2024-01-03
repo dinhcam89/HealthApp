@@ -31,6 +31,15 @@ import com.example.healthapp.databinding.ActivityMainBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+import java.util.concurrent.TimeUnit;
 
 public class MainMenuActivity extends AppCompatActivity {
 
@@ -77,82 +86,37 @@ public class MainMenuActivity extends AppCompatActivity {
 
         setContentView(R.layout.home2);
 
-       /*bottomNavigationView = findViewById(R.id.bottomNavigationView);*/
-
-
-       /* replaceFragment(new HomeFragment());
-
-        binding.bottomNavigationView.setOnItemSelectedListener(item -> {
-            switch (item.getItemId())
-            {
-                case R.id.home:
-                    replaceFragment(new HomeFragment());
-                    break;
-                case R.id.booking:
-                    replaceFragment (new BookingFragment());
-                    break;
-                case R.id.profile:
-                    replaceFragment(new Profileragment());
-                    break;
-
-            }
-
-            return true;
-        });*/
-
-       /* private void replaceFragment(Fragment fragment){
-            FragmentManager fragmentManager = getSupportFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            FragmentTransaction.replace(R.id.frame_layout, fragment);
-            FragmentTransaction.commit();
-
-        }*/
-        /*private void replaceFragment(Fragment fragment){
-
-            FragmentManager fragmentManager = getSupportFragmentManager();
-
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-
-            fragmentTransaction.replace(R.id.frame_layout, fragment);
-
-            fragmentTransaction.commit();
-
-        }*/
-
-
-
-        /*setContentView(R.layout.activity_main_menu);*/
-
-//        Bacsi = findViewById(R.id.bacsi);
-//        intent_bacsi = new Intent(this, DoctorChoosingActivity.class);
-//      //  Tracuu = findViewById(R.id.tracuu);
-//
-//        datlich1 = findViewById(R.id.btn_book1);
-//        intent_datlich1 = new Intent(this, AppointmentDateChoosingActivity.class);
-//        datlich2 = findViewById(R.id.btn_book2);
-//
-//        //intent_tracuu = new Intent(this, TraCuuActivity.class);
-//        //intent_danhmuc = new Intent(this, DanhMucActivity.class);
-//        Bacsi.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(intent_bacsi);
-//            }
-//        });
-//
-//        datlich1.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(intent_datlich1);
-//            }
-//        });
-//        datlich2.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(intent_datlich1);
-//            }
-//        });
         initElement();
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        CollectionReference appointmentsRef = db.collection("Booking");
+
+        // Get current timestamp
+        long currentTimeMillis = System.currentTimeMillis();
+
+        long cutoff = currentTimeMillis - TimeUnit.MILLISECONDS.convert(2, TimeUnit.DAYS);
+
+        appointmentsRef.get()
+                .addOnSuccessListener(queryDocumentSnapshots -> {
+                    for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
+                        if (documentSnapshot.exists()) {
+                            String appointmentDateString = documentSnapshot.getString("appointmentDate");
+
+                            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+                            try {
+                                Date appointmentDate = sdf.parse(appointmentDateString);
+                                if (appointmentDate != null && appointmentDate.getTime() < currentTimeMillis) {
+                                    // Xóa document
+                                    appointmentsRef.document(documentSnapshot.getId()).delete();
+                                }
+                            } catch (ParseException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+                })
+                .addOnFailureListener(e -> {
+                    // Xử lý khi có lỗi xảy ra trong quá trình truy vấn
+                });
     }
 
     private void initElement()

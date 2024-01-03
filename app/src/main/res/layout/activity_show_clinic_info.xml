@@ -118,7 +118,7 @@
         </Button>
 
         <Button
-            android:id="@+id/btn_livechat"
+            android:id="@+id/btn_CallHotline"
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_marginStart="20dp"
@@ -156,7 +156,7 @@
             android:textColor="@color/tim_m_ch_color"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/btn_livechat"
+            app:layout_constraintStart_toEndOf="@+id/btn_CallHotline"
             app:layout_constraintTop_toBottomOf="@+id/hovaten"
             app:layout_constraintVertical_bias="0"/>
 
