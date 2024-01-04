@@ -167,6 +167,7 @@
             android:drawableStart="@drawable/wallet_payment_shape"
             android:drawablePadding="5dp"
             android:paddingStart="5dp"
+            android:checked="true"
             android:text="Thanh toán bằng tiền mặt"
             android:textColor="@color/_123_v__vi_t_v___ph__ng_13__qu_n_10__tp_hcm__vi_t_nam_color"
             android:textSize="18dp"
@@ -193,7 +194,6 @@
             android:layout_marginTop="15dp"
             android:background="@drawable/payment_frame"
             android:drawablePadding="5dp"
-
             android:paddingStart="5dp"
             android:text="Phương thức khác"
             android:textColor="@color/_123_v__vi_t_v___ph__ng_13__qu_n_10__tp_hcm__vi_t_nam_color"

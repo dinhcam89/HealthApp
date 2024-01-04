@@ -47,37 +47,6 @@ public class MainMenuActivity extends AppCompatActivity {
     private ViewPager2 viewPager;
     private BottomNavigationView bottomNavigationView;
 
-    /*Button btnSignOut;
-    FirebaseAuth emailAuth;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_menu);
-        btnSignOut = findViewById(R.id.button);
-        emailAuth = FirebaseAuth.getInstance();
-        btnSignOut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(getApplicationContext(), SignInActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-    }*/
-    private CardView Doctors;
-    private CardView Find;
-    private CardView ClinicInformation;
-
-    private Button datlich1;
-
-    private Button datlich2;
-    private Intent intent_bacsi;
-    private Intent intent_tracuu;
-    private Intent intent_danhmuc;
-    private Intent intent_datlich1;
-    private Intent intent_datlich2;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,7 +62,7 @@ public class MainMenuActivity extends AppCompatActivity {
         // Get current timestamp
         long currentTimeMillis = System.currentTimeMillis();
 
-        long cutoff = currentTimeMillis - TimeUnit.MILLISECONDS.convert(2, TimeUnit.DAYS);
+        long cutoff = currentTimeMillis - TimeUnit.MILLISECONDS.convert(1, TimeUnit.DAYS);
 
         appointmentsRef.get()
                 .addOnSuccessListener(queryDocumentSnapshots -> {
@@ -104,7 +73,7 @@ public class MainMenuActivity extends AppCompatActivity {
                             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
                             try {
                                 Date appointmentDate = sdf.parse(appointmentDateString);
-                                if (appointmentDate != null && appointmentDate.getTime() < currentTimeMillis) {
+                                if (appointmentDate != null && appointmentDate.getTime() < cutoff) {
                                     // Xóa document
                                     appointmentsRef.document(documentSnapshot.getId()).delete();
                                 }

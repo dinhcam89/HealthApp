@@ -472,9 +472,10 @@
 
                 </Button>
                 <TextView
+                    android:id="@+id/textView_CallHotline"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="HotlineCSKH"
+                    android:text="Hotline CSKH"
                     android:layout_marginLeft="15dp"
                     android:textColor="@color/tim_m_ch_color"
                     android:textStyle="bold"

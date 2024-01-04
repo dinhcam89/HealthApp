@@ -57,6 +57,7 @@ public class HomeFragment extends Fragment {
         TextView textView_StaredDoctorSpeciality = (TextView) view.findViewById(R.id.textView_StaredDoctorSpeciality);
         Button btn_BookStaredDoctor = (Button) view.findViewById(R.id.btn_BookStaredDoctor);
         Button btn_CallHotline = (Button) view.findViewById(R.id.btn_CallHotline);
+        TextView textView_CallHotline = (TextView) view.findViewById(R.id.textView_CallHotline);
         cardView_ShowDoctorList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -109,6 +110,25 @@ public class HomeFragment extends Fragment {
                 }
                 startActivity(dialIntent);
 
+            }
+        });
+        textView_CallHotline.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String phoneNumber = "0815942559";
+
+                // Tạo Intent với hành động ACTION_CALL
+                Intent dialIntent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + phoneNumber));
+
+                // Đặt số điện thoại cần gọi
+                //dialIntent.setData(Uri.parse("tel:" + phoneNumber));
+                if(ActivityCompat.checkSelfPermission(v.getContext(),
+                        Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED)
+                {
+                    ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.CALL_PHONE},1);
+                    return;
+                }
+                startActivity(dialIntent);
             }
         });
     }

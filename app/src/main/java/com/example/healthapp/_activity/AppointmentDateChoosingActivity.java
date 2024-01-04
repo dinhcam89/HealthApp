@@ -409,45 +409,4 @@ public class AppointmentDateChoosingActivity extends AppCompatActivity {
             doctorSpecialityTextView.setText(doctorSpeciality);
         }
     }
-    public void addBooking()
-    {
-        String chosenHour = checkSelectedButton();
-        String chosenDate = getChosenDate();
-        Appointment newAppointment = new Appointment(doctorID, userUID, chosenDate, chosenHour, true);
-
-        CollectionReference BookingRef = FirebaseFirestore.getInstance().collection("Booking");
-
-        BookingRef.add(newAppointment.toMap())
-                .addOnSuccessListener(documentReference -> {
-                    // Ghi dữ liệu thành công
-                    String autoID = documentReference.getId();
-
-                    // TODO: Thực hiện các hành động khác sau khi thêm thành công
-
-                })
-                .addOnFailureListener(e -> {
-                    // Xử lý khi ghi dữ liệu thất bại
-                    e.printStackTrace(); // In ra lỗi
-                    Toast.makeText(AppointmentDateChoosingActivity.this, "Đã xảy ra lỗi. Vui lòng thử lại sau!", Toast.LENGTH_SHORT).show();
-                });
-    }
-
-    public void addDoctorSchedule()
-    {
-        String chosenHour = checkSelectedButton();
-        String chosenDate = getChosenDate();
-        DoctorAppointment doctorAppointment = new DoctorAppointment(doctorID, chosenDate, chosenHour, true);
-        CollectionReference DoctorScheduleRef = FirebaseFirestore.getInstance().collection("DoctorSchedule");
-
-        DoctorScheduleRef.add(doctorAppointment.toMap())
-                .addOnSuccessListener(documentReference -> {
-                    // Ghi dữ liệu thành công
-                    String autoID = documentReference.getId();
-                })
-                .addOnFailureListener(e -> {
-                    // Xử lý khi ghi dữ liệu thất bại
-                    e.printStackTrace(); // In ra lỗi
-                    Toast.makeText(AppointmentDateChoosingActivity.this, "Đã xảy ra lỗi. Vui lòng thử lại sau!", Toast.LENGTH_SHORT).show();
-                });
-    }
 }

@@ -148,6 +148,7 @@
         </Button>
 
         <TextView
+            android:id="@+id/textView_CallHotline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="HotlineCSKH"
@@ -294,7 +295,7 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="5dp"
                     android:layout_toEndOf="@+id/img_bacsi"
-                    android:text="Tim mạch"
+                    android:text="CK II"
                     android:textColor="#009688"
                     android:textSize="15dp"
                     android:textStyle="italic"
